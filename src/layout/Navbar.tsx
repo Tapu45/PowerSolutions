@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
   };
 
   const navItems = [
+    { name: 'About Us', subItems: [] },
     {
       name: 'Services',
       subItems: [
@@ -32,8 +33,23 @@ const Navbar: React.FC = () => {
         'Maintenance and Development',
       ],
     },
-    { name: 'USPs', subItems: [] },
-    { name: 'Innovations', subItems: [] },
+    {
+      name: 'USPs',
+      subItems: [
+        'BYOS',
+        'BYBS',
+        'BIBD',
+        'RIRO',
+      ],
+    },
+    {
+      name: 'Innovations',
+      subItems: [
+        'ERP Bugs',
+        'Hukehu',
+        'BIBD Labs',
+      ],
+    },
     { name: 'Methodology', subItems: [] },
   ];
 
@@ -151,17 +167,6 @@ const Navbar: React.FC = () => {
               </motion.div>
             ))}
             
-            {/* CTA Button */}
-            <motion.button
-              className="ml-6 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              Get Started
-            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
