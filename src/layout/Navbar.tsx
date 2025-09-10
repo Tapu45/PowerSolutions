@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
   };
 
   const navItems = [
-    { name: "About Us", subItems: [] },
+    { name: "About Us", subItems: [], color: "#D6CE0B" },
     {
       name: "Services",
       subItems: [
@@ -32,16 +32,19 @@ const Navbar: React.FC = () => {
         "Transformation Service",
         "Maintenance and Development",
       ],
+      color: "#1BCDC5",
     },
     {
       name: "USPs",
       subItems: ["BYOS", "BYBS", "BIBD", "RIRO"],
+      color: "#0B8FD6",
     },
     {
       name: "Innovations",
       subItems: ["ERP Bugs", "Hukehu", "BIBD Labs"],
+      color: "#8B2121",
     },
-    { name: "Methodology", subItems: [] },
+    { name: "Methodology", subItems: [], color: "#D6CE0B" },
   ];
 
   return (
@@ -98,30 +101,43 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                onMouseEnter={() => setDropdownOpen(item.name)}
+                onMouseLeave={() => setDropdownOpen(null)}
               >
                 <motion.button
-                  onMouseEnter={() => setDropdownOpen(item.name)}
-                  onMouseLeave={() => setDropdownOpen(null)}
-                  className="relative px-6 py-3 text-foreground hover:text-primary transition-all duration-300 font-medium text-sm group flex items-center"
+                  className="relative px-6 py-3 text-foreground font-medium text-sm group flex items-center overflow-hidden"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <span className="relative z-10">{item.name}</span>
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                    {item.name}
+                  </span>
                   {item.subItems.length > 0 && (
                     <motion.div
                       animate={{ rotate: dropdownOpen === item.name ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="ml-2"
+                      className="ml-2 transition-colors duration-300 group-hover:text-white"
                     >
                       <ChevronDown className="h-4 w-4" />
                     </motion.div>
                   )}
 
-                  {/* Hover underline effect */}
+                  {/* Enhanced hover background effect */}
                   <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
+                    className="absolute inset-0 rounded-lg"
+                    style={{ backgroundColor: item.color }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+
+                  {/* Subtle border effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-lg border-2"
+                    style={{ borderColor: item.color }}
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 0.3 }}
                     transition={{ duration: 0.3 }}
                   />
                 </motion.button>
@@ -133,9 +149,11 @@ const Navbar: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full mt-2 w-72 bg-card border border-border rounded-xl shadow-xl backdrop-blur-md z-50 overflow-hidden"
+                      className="absolute top-full w-72 bg-card border border-border rounded-xl shadow-xl backdrop-blur-md z-50 overflow-hidden"
                       style={{
-                        backgroundImage: `linear-gradient(135deg, rgba(var(--card-rgb), 0.95) 0%, rgba(var(--card-rgb), 0.98) 100%)`,
+                        backgroundImage: `linear-gradient(135deg, ${item.color}15, rgba(var(--card-rgb), 0.95) 100%)`,
+                        borderColor: item.color,
+                        marginTop: "4px", // Reduced gap to prevent hover issues
                       }}
                     >
                       <div className="p-2">
@@ -143,14 +161,23 @@ const Navbar: React.FC = () => {
                           <motion.a
                             key={subItem}
                             href="#"
-                            className="group flex items-center justify-between px-4 py-3 text-sm text-card-foreground hover:bg-accent rounded-lg transition-all duration-200"
+                            className="group flex items-center justify-between px-4 py-3 text-sm text-card-foreground rounded-lg transition-all duration-200 relative overflow-hidden"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: subIndex * 0.05 }}
                             whileHover={{ x: 4 }}
                           >
-                            <span>{subItem}</span>
-                            <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            <span className="relative z-10">{subItem}</span>
+                            <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 relative z-10" />
+
+                            {/* Subtle hover background */}
+                            <motion.div
+                              className="absolute inset-0 rounded-lg"
+                              style={{ backgroundColor: item.color }}
+                              initial={{ scale: 0, opacity: 0 }}
+                              whileHover={{ scale: 1, opacity: 0.1 }}
+                              transition={{ duration: 0.2 }}
+                            />
                           </motion.a>
                         ))}
                       </div>
@@ -210,20 +237,30 @@ const Navbar: React.FC = () => {
                   >
                     <motion.button
                       onClick={() => toggleDropdown(item.name)}
-                      className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-accent rounded-lg font-medium transition-all duration-200 flex items-center justify-between group"
+                      className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-accent rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
                       whileHover={{ x: 4 }}
                     >
-                      <span>{item.name}</span>
+                      <span className="relative z-10">{item.name}</span>
                       {item.subItems.length > 0 && (
                         <motion.div
                           animate={{
                             rotate: dropdownOpen === item.name ? 180 : 0,
                           }}
                           transition={{ duration: 0.3 }}
+                          className="relative z-10"
                         >
                           <ChevronDown className="h-4 w-4" />
                         </motion.div>
                       )}
+
+                      {/* Mobile hover effect */}
+                      <motion.div
+                        className="absolute inset-0 rounded-lg"
+                        style={{ backgroundColor: item.color }}
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileHover={{ scale: 1, opacity: 0.1 }}
+                        transition={{ duration: 0.2 }}
+                      />
                     </motion.button>
 
                     <AnimatePresence>
@@ -240,13 +277,20 @@ const Navbar: React.FC = () => {
                               <motion.a
                                 key={subItem}
                                 href="#"
-                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200"
+                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200 relative overflow-hidden"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: subIndex * 0.05 }}
                                 whileHover={{ x: 8 }}
                               >
-                                {subItem}
+                                <span className="relative z-10">{subItem}</span>
+                                <motion.div
+                                  className="absolute inset-0 rounded-lg"
+                                  style={{ backgroundColor: item.color }}
+                                  initial={{ scale: 0, opacity: 0 }}
+                                  whileHover={{ scale: 1, opacity: 0.05 }}
+                                  transition={{ duration: 0.2 }}
+                                />
                               </motion.a>
                             ))}
                           </motion.div>
@@ -257,14 +301,20 @@ const Navbar: React.FC = () => {
 
                 {/* Mobile CTA Button */}
                 <motion.button
-                  className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-all duration-300 shadow-lg"
+                  className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-all duration-300 shadow-lg relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  Get Started
+                  <span className="relative z-10">Get Started</span>
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
                 </motion.button>
               </div>
             </motion.div>
