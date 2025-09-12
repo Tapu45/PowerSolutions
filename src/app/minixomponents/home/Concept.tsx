@@ -16,8 +16,7 @@ const Concept: React.FC = () => {
                 height={400}
                 className="w-full h-auto rounded-xl"
               />
-              {/* Subtle overlay gradient */}
-              <div className="absolute inset-0 rounded-xl" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06))" }}></div>
+             
             </div>
           </div>
 

@@ -14,10 +14,9 @@ const Innovation: React.FC = () => {
                 alt="Innovation Image"
                 width={600}
                 height={400}
-                className="w-full h-auto rounded-xl shadow-2xl"
+                className="w-full h-auto rounded-xl "
               />
-              {/* Subtle overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 rounded-xl"></div>
+            
             </div>
           </div>
 

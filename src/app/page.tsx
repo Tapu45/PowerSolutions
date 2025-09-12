@@ -11,14 +11,14 @@ import Journey from "./minixomponents/home/Journey";
 export default function Home() {
   return (
     <>
-      <Navbar /> {/* Add the Navbar at the top */}
+    
       <Hero />
       <Concept />
       <Vision />
       <Innovation />
       <Journey />
       <Mission />
-      <Footer />
+   
     </>
   );
 }
