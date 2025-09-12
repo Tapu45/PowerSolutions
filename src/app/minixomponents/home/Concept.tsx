@@ -16,7 +16,6 @@ const Concept: React.FC = () => {
                 height={400}
                 className="w-full h-auto rounded-xl"
               />
-             
             </div>
           </div>
 
@@ -33,47 +32,46 @@ const Concept: React.FC = () => {
                   Our Concept
                 </h2>
               </div>
-              <div className="w-16 h-0.5" style={{ background: "#0B8FD6", opacity: 0.9 }}></div>
+              <div
+                className="w-16 h-0.5"
+                style={{ background: "#0B8FD6", opacity: 0.9 }}
+              ></div>
             </div>
 
-            {/* Enhanced content with better typography */}
+            {/* Concise content */}
             <div className="space-y-6">
               <div
                 className="p-6 rounded-xl border"
                 style={{
-                  // very subtle, low-saturation accent using env colors
-                  background: "linear-gradient(90deg, rgba(27, 205, 196, 0.41), rgba(214,206,11,0.03))",
+                  background:
+                    "linear-gradient(90deg, rgba(27, 205, 196, 0.41), rgba(214,206,11,0.03))",
                   border: "1px solid rgba(11,143,214,0.12)",
                 }}
               >
                 <p className="text-lg text-foreground leading-relaxed font-medium">
                   <span style={{ color: "#0B8FD6" }} className="font-semibold">
                     [solutions]ⁿ
-                  </span>
-                  , stands out for its approach of granulizing the problem
-                  statements and business requirements, before designing the
-                  solution.
+                  </span>{" "}
+                  focuses on breaking down problems and requirements into
+                  granules before designing solutions.
                 </p>
               </div>
 
               <div className="space-y-4">
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  The focus on each{" "}
+                  By analyzing each{" "}
                   <span className="font-medium" style={{ color: "#0B8FD6" }}>
-                    granule of problem statement
-                  </span>{" "}
-                  or requirement, helps us identifying the perfect problem
-                  statement to be considered for solution designing.
+                    problem granule
+                  </span>
+                  , we identify the right challenges to solve.
                 </p>
 
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  Further, the solution designing is focused on each granule of
-                  problem statement or requirement, to derive at the perfect
-                  solution by{" "}
+                  Solutions are built by{" "}
                   <span className="font-medium" style={{ color: "#0B8FD6" }}>
-                    consolidating the granular result
+                    consolidating granular results
                   </span>
-                  .
+                  , ensuring precision and effectiveness.
                 </p>
               </div>
 
@@ -81,15 +79,13 @@ const Concept: React.FC = () => {
               <div
                 className="p-6 rounded-xl"
                 style={{
-                  // minimal highlight: light teal wash + solid thin left accent
                   background: "rgba(27, 158, 205, 0.45)",
                   borderLeft: "4px solid #0B8FD6",
                   boxShadow: "0 1px 0 rgba(11,143,214,0.03)",
                 }}
               >
                 <p className="text-base text-foreground leading-relaxed">
-                  Industry specific and influential objects are added to the
-                  process to identify the possible impact during the{" "}
+                  We add industry-specific insights to anticipate the impact of{" "}
                   <span style={{ color: "#0B8FD6" }} className="font-semibold">
                     future transformation
                   </span>
@@ -97,15 +93,7 @@ const Concept: React.FC = () => {
                 </p>
               </div>
 
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Empower your solution to handle a perfect problem statement and
-                plan for
-                <span className="font-semibold" style={{ color: "#0B8FD6" }}>
-                  {" "}
-                  Transformation Next
-                </span>
-                , with our industry experience and innovative services.
-              </p>
+            
             </div>
           </div>
         </div>

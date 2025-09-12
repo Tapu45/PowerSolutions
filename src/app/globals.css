@@ -50,6 +50,34 @@
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
   --tracking-normal: 0.025em;
   --spacing: 0.25rem;
+  
+  /* Premium Design System Additions */
+  --gradient-primary: linear-gradient(135deg, #0B8FD6 0%, #1BCDC5 100%);
+  --gradient-secondary: linear-gradient(135deg, #D6CE0B 0%, #FFD700 100%);
+  --gradient-accent: linear-gradient(135deg, #8B2121 0%, #D63384 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
+  
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-backdrop: blur(20px);
+  
+  --neon-primary: 0 0 20px rgba(11, 143, 214, 0.5);
+  --neon-secondary: 0 0 20px rgba(214, 206, 11, 0.5);
+  --neon-accent: 0 0 20px rgba(139, 33, 33, 0.5);
+  
+  --glow-primary: 0 0 40px rgba(11, 143, 214, 0.3);
+  --glow-secondary: 0 0 40px rgba(214, 206, 11, 0.3);
+  --glow-accent: 0 0 40px rgba(139, 33, 33, 0.3);
+  
+  --text-gradient-primary: linear-gradient(135deg, #0B8FD6 0%, #1BCDC5 100%);
+  --text-gradient-secondary: linear-gradient(135deg, #D6CE0B 0%, #FFD700 100%);
+  
+  --border-gradient: linear-gradient(135deg, rgba(11, 143, 214, 0.5) 0%, rgba(214, 206, 11, 0.5) 100%);
+  
+  --animation-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .dark {
@@ -97,6 +125,12 @@
   --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 4px 6px -1px hsl(0 0% 0% / 0.17);
   --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 8px 10px -1px hsl(0 0% 0% / 0.17);
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
+  
+  /* Dark mode premium additions */
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
 }
 
 @theme inline {
@@ -162,7 +196,86 @@
 body {
   letter-spacing: var(--tracking-normal);
 }                                        
-                          
+
+/* Premium Utility Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background: var(--text-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-secondary {
+  background: var(--text-gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-primary {
+  box-shadow: var(--neon-primary);
+}
+
+.neon-secondary {
+  box-shadow: var(--neon-secondary);
+}
+
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--glow-secondary);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+  from { box-shadow: var(--neon-primary); }
+  to { box-shadow: var(--glow-primary); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -170,6 +283,9 @@ body {
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
+    background: radial-gradient(ellipse at top, rgba(11, 143, 214, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(214, 206, 11, 0.05) 0%, transparent 50%),
+                var(--background);
+    background-attachment: fixed;
   }
 }
-                       
