@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Vision: React.FC = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-1 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-18">
           {/* Left Side: Enhanced Content */}
           <div className="flex-1 space-y-8">
             {/* Header with accent */}
@@ -116,7 +116,7 @@ const Vision: React.FC = () => {
                 alt="Vision Image"
                 width={600}
                 height={400}
-                className="w-full h-auto rounded-xl shadow-2xl"
+                className="w-full h-auto rounded-xl "
               />
              
             </div>

@@ -1,3 +1,4 @@
+// ...existing code...
 import React from "react";
 import Image from "next/image";
 
@@ -43,8 +44,8 @@ const Concept: React.FC = () => {
               <div
                 className="p-6 rounded-xl border"
                 style={{
-                  background:
-                    "linear-gradient(90deg, rgba(27, 205, 196, 0.41), rgba(214,206,11,0.03))",
+                  // removed gradient; using a solid subtle background
+                  background: "#E6F9FB",
                   border: "1px solid rgba(11,143,214,0.12)",
                 }}
               >
@@ -79,7 +80,8 @@ const Concept: React.FC = () => {
               <div
                 className="p-6 rounded-xl"
                 style={{
-                  background: "rgba(27, 158, 205, 0.45)",
+                  // removed gradient; using a solid highlight color
+                  background: "#DFF6FD",
                   borderLeft: "4px solid #0B8FD6",
                   boxShadow: "0 1px 0 rgba(11,143,214,0.03)",
                 }}
@@ -92,8 +94,6 @@ const Concept: React.FC = () => {
                   .
                 </p>
               </div>
-
-            
             </div>
           </div>
         </div>
@@ -103,3 +103,4 @@ const Concept: React.FC = () => {
 };
 
 export default Concept;
+

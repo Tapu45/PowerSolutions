@@ -1,8 +1,9 @@
+// ...existing code...
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Added for navigation without nested <a> tags
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
@@ -10,7 +11,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const router = useRouter(); // Added for programmatic navigation
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,7 @@ const Navbar: React.FC = () => {
       .replace(/[^a-z0-9-]/g, "");
 
   const navItems = [
-    { name: "About Us", subItems: [], route: "/about", color: "#D6CE0B" },
+    { name: "About Us", subItems: [], route: "/about", color: "#0B8FD6" },
     {
       name: "Services",
       subItems: [
@@ -42,7 +43,7 @@ const Navbar: React.FC = () => {
         "Maintenance and Development",
       ],
       route: "/services",
-      color: "#1BCDC5",
+      color: "#0B8FD6",
     },
     {
       name: "USPs",
@@ -54,13 +55,13 @@ const Navbar: React.FC = () => {
       name: "Innovations",
       subItems: ["ERP Bugs", "Hukehu", "BIBD Labs"],
       route: "/innovations",
-      color: "#8B2121",
+      color: "#0B8FD6",
     },
     {
       name: "Methodology",
       subItems: [],
       route: "/methodology",
-      color: "#D6CE0B",
+      color: "#0B8FD6",
     },
   ];
 
@@ -69,50 +70,53 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-background/90 backdrop-blur-sm"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
       style={{
-        backgroundImage: scrolled
-          ? `radial-gradient(circle at 20% 50%, rgba(var(--primary-rgb), 0.03) 0%, transparent 50%), 
-             radial-gradient(circle at 80% 20%, rgba(var(--primary-rgb), 0.02) 0%, transparent 50%),
-             linear-gradient(135deg, rgba(var(--muted-rgb), 0.1) 0%, transparent 100%)`
-          : `radial-gradient(circle at 20% 50%, rgba(var(--primary-rgb), 0.02) 0%, transparent 50%), 
-             radial-gradient(circle at 80% 20%, rgba(var(--primary-rgb), 0.01) 0%, transparent 50%)`,
-        backgroundSize: "100% 100%, 100% 100%, 100% 100%",
-        backgroundPosition: "0 0, 0 0, 0 0",
-        backgroundRepeat: "no-repeat",
+        // Cleaner glassmorphism - more subtle to match hero
+        background: scrolled
+          ? "rgba(255,255,255,0.85)"
+          : "rgba(255,255,255,0.75)",
+        backdropFilter: "blur(12px) saturate(120%)",
+        WebkitBackdropFilter: "blur(12px) saturate(120%)",
+        borderBottom: scrolled
+          ? "1px solid rgba(11,143,214,0.08)"
+          : "1px solid rgba(11,143,214,0.04)",
+        boxShadow: scrolled
+          ? "0 8px 32px rgba(11,143,214,0.06)"
+          : "0 4px 20px rgba(11,143,214,0.03)",
       }}
     >
-      {/* Subtle texture overlay */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo - Enhanced for better visibility */}
           <motion.div
             className="flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link href="/">
-              <img
-                src="/logo.png"
-                alt="Power Solutions Logo"
-                className="h-12 w-auto transition-all duration-300 cursor-pointer"
-              />
+              <div className="relative">
+                <img
+                  src="/logo.png"
+                  alt="Power Solutions Logo"
+                  className="h-12 w-auto transition-all duration-300 cursor-pointer drop-shadow-sm"
+                />
+                {/* Subtle glow for better visibility against animated background */}
+                <div
+                  className="absolute inset-0 -z-10 blur-sm opacity-30"
+                  style={{
+                    background:
+                      "linear-gradient(45deg, rgba(11,143,214,0.3), rgba(11,143,214,0.1))",
+                    borderRadius: "8px",
+                    transform: "scale(1.1)",
+                  }}
+                />
+              </div>
             </Link>
           </motion.div>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Nav - Simplified and clean */}
+          <div className="hidden lg:flex items-center space-x-2">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -125,10 +129,10 @@ const Navbar: React.FC = () => {
               >
                 <Link href={item.route}>
                   <motion.button
-                    className="relative px-6 py-3 text-foreground font-medium text-sm group flex items-center overflow-hidden"
-                    whileHover={{ y: -2 }}
+                    className="relative px-5 py-2.5 text-foreground font-medium text-sm group flex items-center overflow-hidden rounded-lg transition-all duration-300"
+                    whileHover={{ y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                     onClick={(e) => {
                       if (item.subItems.length > 0) {
                         e.preventDefault();
@@ -151,22 +155,13 @@ const Navbar: React.FC = () => {
                       </motion.div>
                     )}
 
-                    {/* Enhanced hover background effect */}
+                    {/* Clean hover background effect */}
                     <motion.div
                       className="absolute inset-0 rounded-lg"
                       style={{ backgroundColor: item.color }}
                       initial={{ scale: 0, opacity: 0 }}
-                      whileHover={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-
-                    {/* Subtle border effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-lg border-2"
-                      style={{ borderColor: item.color }}
-                      initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 0.3 }}
-                      transition={{ duration: 0.3 }}
+                      whileHover={{ scale: 1, opacity: 0.9 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                     />
                   </motion.button>
                 </Link>
@@ -178,11 +173,10 @@ const Navbar: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full w-72 bg-card border border-border rounded-xl shadow-xl backdrop-blur-md z-50 overflow-hidden"
+                      className="absolute top-full w-72 bg-white/90 border border-blue-200/30 rounded-xl shadow-xl backdrop-blur-md z-50 overflow-hidden mt-2"
                       style={{
-                        backgroundImage: `linear-gradient(135deg, ${item.color}15, rgba(var(--card-rgb), 0.95) 100%)`,
-                        borderColor: item.color,
-                        marginTop: "4px", // Reduced gap to prevent hover issues
+                        backdropFilter: "blur(12px) saturate(120%)",
+                        WebkitBackdropFilter: "blur(12px) saturate(120%)",
                       }}
                     >
                       <div className="p-2">
@@ -191,8 +185,8 @@ const Navbar: React.FC = () => {
                             key={subItem}
                             onClick={() =>
                               router.push(`${item.route}/${slugify(subItem)}`)
-                            } // Replaced Link + motion.a with motion.button for navigation
-                            className="group flex items-center justify-between px-4 py-3 text-sm text-card-foreground rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left"
+                            }
+                            className="group flex items-center justify-between px-4 py-3 text-sm text-gray-700 rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left hover:text-white"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: subIndex * 0.05 }}
@@ -201,12 +195,12 @@ const Navbar: React.FC = () => {
                             <span className="relative z-10">{subItem}</span>
                             <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 relative z-10" />
 
-                            {/* Subtle hover background */}
+                            {/* Clean hover background */}
                             <motion.div
                               className="absolute inset-0 rounded-lg"
                               style={{ backgroundColor: item.color }}
                               initial={{ scale: 0, opacity: 0 }}
-                              whileHover={{ scale: 1, opacity: 0.1 }}
+                              whileHover={{ scale: 1, opacity: 0.9 }}
                               transition={{ duration: 0.2 }}
                             />
                           </motion.button>
@@ -227,7 +221,7 @@ const Navbar: React.FC = () => {
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-foreground hover:text-primary transition-colors duration-200"
+              className="p-2 text-foreground hover:text-blue-600 transition-colors duration-200"
             >
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -243,7 +237,7 @@ const Navbar: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mobile Nav */}
+        {/* Mobile Nav - Simplified */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -254,9 +248,10 @@ const Navbar: React.FC = () => {
               className="lg:hidden overflow-hidden"
             >
               <div
-                className="px-2 pt-4 pb-6 space-y-2 bg-card/50 backdrop-blur-md border-t border-border"
+                className="px-2 pt-4 pb-6 space-y-2 bg-white/80 backdrop-blur-md border-t border-blue-200/30"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, rgba(var(--card-rgb), 0.8) 0%, rgba(var(--card-rgb), 0.9) 100%)`,
+                  backdropFilter: "blur(12px) saturate(120%)",
+                  WebkitBackdropFilter: "blur(12px) saturate(120%)",
                 }}
               >
                 {navItems.map((item, index) => (
@@ -269,25 +264,16 @@ const Navbar: React.FC = () => {
                     {item.subItems.length === 0 ? (
                       <Link href={item.route}>
                         <motion.button
-                          className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-accent rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
+                          className="w-full text-left px-4 py-3 text-gray-700 hover:text-white hover:bg-blue-600 rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
                           whileHover={{ x: 4 }}
                         >
                           <span className="relative z-10">{item.name}</span>
-
-                          {/* Mobile hover effect */}
-                          <motion.div
-                            className="absolute inset-0 rounded-lg"
-                            style={{ backgroundColor: item.color }}
-                            initial={{ scale: 0, opacity: 0 }}
-                            whileHover={{ scale: 1, opacity: 0.1 }}
-                            transition={{ duration: 0.2 }}
-                          />
                         </motion.button>
                       </Link>
                     ) : (
                       <motion.button
                         onClick={() => toggleDropdown(item.name)}
-                        className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-accent rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
+                        className="w-full text-left px-4 py-3 text-gray-700 hover:text-white hover:bg-blue-600 rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
                         whileHover={{ x: 4 }}
                       >
                         <span className="relative z-10">{item.name}</span>
@@ -300,15 +286,6 @@ const Navbar: React.FC = () => {
                         >
                           <ChevronDown className="h-4 w-4" />
                         </motion.div>
-
-                        {/* Mobile hover effect */}
-                        <motion.div
-                          className="absolute inset-0 rounded-lg"
-                          style={{ backgroundColor: item.color }}
-                          initial={{ scale: 0, opacity: 0 }}
-                          whileHover={{ scale: 1, opacity: 0.1 }}
-                          transition={{ duration: 0.2 }}
-                        />
                       </motion.button>
                     )}
 
@@ -329,21 +306,14 @@ const Navbar: React.FC = () => {
                                   router.push(
                                     `${item.route}/${slugify(subItem)}`
                                   )
-                                } // Replaced Link + motion.a with motion.button for navigation
-                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left"
+                                }
+                                className="block px-4 py-2 text-sm text-gray-600 hover:text-white hover:bg-blue-600 rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: subIndex * 0.05 }}
                                 whileHover={{ x: 8 }}
                               >
                                 <span className="relative z-10">{subItem}</span>
-                                <motion.div
-                                  className="absolute inset-0 rounded-lg"
-                                  style={{ backgroundColor: item.color }}
-                                  initial={{ scale: 0, opacity: 0 }}
-                                  whileHover={{ scale: 1, opacity: 0.05 }}
-                                  transition={{ duration: 0.2 }}
-                                />
                               </motion.button>
                             ))}
                           </motion.div>
