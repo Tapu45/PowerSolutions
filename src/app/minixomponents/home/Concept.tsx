@@ -1,11 +1,28 @@
 // ...existing code...
 import React from "react";
 import Image from "next/image";
+import TrueFocus from "@/components/animation/focous-text";
+import { TextGenerateEffect } from "@/components/animation/text-generation";
 
 const Concept: React.FC = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-49 pb-4 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <TrueFocus
+            words={[
+              { word: "Identify.", color: "#0B8FD6" },
+              { word: "Implement..", color: "#1BCDC5" },
+              { word: "Intensify...", color: "#0B8FD6" },
+            ]}
+            manualMode={true}
+            blurAmount={5}
+            borderColor="#D6CE0B"
+            glowColor="rgba(11, 143, 214, 0.6)"
+            animationDuration={2}
+            pauseBetweenAnimations={1}
+          />
+        </div>
         <div className="flex flex-col lg:flex-row items-center gap-19">
           {/* Left Side: Image */}
           <div className="flex-1">
@@ -97,6 +114,8 @@ const Concept: React.FC = () => {
             </div>
           </div>
         </div>
+
+      
       </div>
     </section>
   );
