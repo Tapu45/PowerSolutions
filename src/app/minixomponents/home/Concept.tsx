@@ -1,8 +1,10 @@
 // ...existing code...
+"use client";
 import React from "react";
 import Image from "next/image";
 import TrueFocus from "@/components/animation/focous-text";
 import { TextGenerateEffect } from "@/components/animation/text-generation";
+import CurvedLoop from "@/components/animation/CurvedLoop";
 
 const Concept: React.FC = () => {
   return (
@@ -115,7 +117,17 @@ const Concept: React.FC = () => {
           </div>
         </div>
 
-      
+        {/* Curved marquee related to this section */}
+        {/* <div className="mt-2">
+          <CurvedLoop
+            marqueeText="Identify. Implement. Intensify. Precision in every granule — solutions engineered for measurable impact."
+            speed={1.5}
+            curveAmount={0}
+            direction="left"
+            interactive={false}
+            className="text-[2.25rem] md:text-[3rem] tracking-tight"
+          />
+        </div> */}
       </div>
     </section>
   );

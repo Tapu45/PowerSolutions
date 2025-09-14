@@ -3,6 +3,7 @@
 import React from "react";
 import { easeOut, motion } from "framer-motion";
 import { Target, Cog, TrendingUp } from "lucide-react";
+import CircularText from "@/components/animation/Circular-Text";
 
 const MethodologyPage: React.FC = () => {
   const containerVariants = {
@@ -66,6 +67,17 @@ const MethodologyPage: React.FC = () => {
           >
             Our Methodology
           </motion.h1>
+          {/* Circular Text Animation */}
+          <div className="flex justify-center my-8">
+            <CircularText
+              text="IDENTIFY • IMPLEMENT • INTENSIFY • "
+              onHover="speedUp"
+              spinDuration={20}
+              className="text-[#0B8FD6] bg-transparent"
+              logoSrc="/logo-clean.png"
+              logoAlt="Power Solutions Logo"
+            />
+          </div>
           <motion.h2
             className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
