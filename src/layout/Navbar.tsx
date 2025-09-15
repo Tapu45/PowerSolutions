@@ -1,4 +1,3 @@
-// ...existing code...
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -43,19 +42,19 @@ const Navbar: React.FC = () => {
         "Maintenance and Development",
       ],
       route: "/services",
-      color: "#0B8FD6",
+      color: "#1BCDC5",
     },
     {
       name: "USPs",
       subItems: ["BYOS", "BYBS", "BIBD", "RIRO"],
       route: "/usps",
-      color: "#0B8FD6",
+      color: "#D6CE0B",
     },
     {
       name: "Innovations",
       subItems: ["ERP Bugs", "Hukehu", "BIBD Labs"],
       route: "/innovations",
-      color: "#0B8FD6",
+      color: "#8B2121",
     },
     {
       name: "Methodology",
@@ -70,21 +69,11 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
-      style={{
-        // Cleaner glassmorphism - more subtle to match hero
-        background: scrolled
-          ? "rgba(255,255,255,0.85)"
-          : "rgba(255,255,255,0.75)",
-        backdropFilter: "blur(12px) saturate(120%)",
-        WebkitBackdropFilter: "blur(12px) saturate(120%)",
-        borderBottom: scrolled
-          ? "1px solid rgba(11,143,214,0.08)"
-          : "1px solid rgba(11,143,214,0.04)",
-        boxShadow: scrolled
-          ? "0 8px 32px rgba(11,143,214,0.06)"
-          : "0 4px 20px rgba(11,143,214,0.03)",
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-100/95 backdrop-blur-md border-b border-gray-200/50 shadow-lg"
+          : "bg-gray-200/90 backdrop-blur-sm border-b border-gray-200/30"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-20">
@@ -99,24 +88,14 @@ const Navbar: React.FC = () => {
                 <img
                   src="/logo.png"
                   alt="Power Solutions Logo"
-                  className="h-12 w-auto transition-all duration-300 cursor-pointer drop-shadow-sm"
-                />
-                {/* Subtle glow for better visibility against animated background */}
-                <div
-                  className="absolute inset-0 -z-10 blur-sm opacity-30"
-                  style={{
-                    background:
-                      "linear-gradient(45deg, rgba(11,143,214,0.3), rgba(11,143,214,0.1))",
-                    borderRadius: "8px",
-                    transform: "scale(1.1)",
-                  }}
+                  className="h-16 w-auto transition-all duration-300 cursor-pointer drop-shadow-sm"
                 />
               </div>
             </Link>
           </motion.div>
 
-          {/* Desktop Nav - Simplified and clean */}
-          <div className="hidden lg:flex items-center space-x-2">
+          {/* Desktop Nav - Enhanced with colors and underline effects */}
+          <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -129,8 +108,8 @@ const Navbar: React.FC = () => {
               >
                 <Link href={item.route}>
                   <motion.button
-                    className="relative px-5 py-2.5 text-foreground font-medium text-sm group flex items-center overflow-hidden rounded-lg transition-all duration-300"
-                    whileHover={{ y: -1 }}
+                    className="relative px-6 py-3 text-gray-800 font-semibold text-md group flex items-center transition-all duration-300"
+                    whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
                     onClick={(e) => {
@@ -140,28 +119,26 @@ const Navbar: React.FC = () => {
                       }
                     }}
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                    <motion.span
+                      className="relative z-10 transition-colors duration-300"
+                      whileHover={{ color: item.color }}
+                    >
                       {item.name}
-                    </span>
+                    </motion.span>
                     {item.subItems.length > 0 && (
                       <motion.div
                         animate={{
                           rotate: dropdownOpen === item.name ? 180 : 0,
                         }}
                         transition={{ duration: 0.3 }}
-                        className="ml-2 transition-colors duration-300 group-hover:text-white"
+                        className="ml-2"
                       >
                         <ChevronDown className="h-4 w-4" />
                       </motion.div>
                     )}
-
-                    {/* Clean hover background effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-lg"
+                    <span
+                      className="pointer-events-none absolute bottom-1 left-0 h-1 rounded-full w-0 group-hover:w-full transition-[width] duration-300"
                       style={{ backgroundColor: item.color }}
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileHover={{ scale: 1, opacity: 0.9 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
                     />
                   </motion.button>
                 </Link>
@@ -173,35 +150,29 @@ const Navbar: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full w-72 bg-white/90 border border-blue-200/30 rounded-xl shadow-xl backdrop-blur-md z-50 overflow-hidden mt-2"
+                      className="absolute top-full w-80 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 overflow-hidden mt-2"
                       style={{
-                        backdropFilter: "blur(12px) saturate(120%)",
-                        WebkitBackdropFilter: "blur(12px) saturate(120%)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
                       }}
                     >
-                      <div className="p-2">
+                      <div className="p-3">
                         {item.subItems.map((subItem, subIndex) => (
                           <motion.button
                             key={subItem}
                             onClick={() =>
                               router.push(`${item.route}/${slugify(subItem)}`)
                             }
-                            className="group flex items-center justify-between px-4 py-3 text-sm text-gray-700 rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left hover:text-white"
-                            initial={{ opacity: 0, x: -20 }}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-800 rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium group cursor-pointer"
+                            initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: subIndex * 0.05 }}
-                            whileHover={{ x: 4 }}
+                            whileHover={{ x: 8 }}
                           >
                             <span className="relative z-10">{subItem}</span>
-                            <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 relative z-10" />
-
-                            {/* Clean hover background */}
-                            <motion.div
-                              className="absolute inset-0 rounded-lg"
+                            <span
+                              className="pointer-events-none absolute bottom-1 left-0 h-1 rounded-full w-0 group-hover:w-full transition-[width] duration-300"
                               style={{ backgroundColor: item.color }}
-                              initial={{ scale: 0, opacity: 0 }}
-                              whileHover={{ scale: 1, opacity: 0.9 }}
-                              transition={{ duration: 0.2 }}
                             />
                           </motion.button>
                         ))}
@@ -221,7 +192,7 @@ const Navbar: React.FC = () => {
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-foreground hover:text-blue-600 transition-colors duration-200"
+              className="p-2 text-gray-800 hover:text-blue-600 transition-colors duration-200"
             >
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -237,7 +208,7 @@ const Navbar: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mobile Nav - Simplified */}
+        {/* Mobile Nav - Enhanced with colors */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -248,10 +219,10 @@ const Navbar: React.FC = () => {
               className="lg:hidden overflow-hidden"
             >
               <div
-                className="px-2 pt-4 pb-6 space-y-2 bg-white/80 backdrop-blur-md border-t border-blue-200/30"
+                className="px-2 pt-4 pb-6 space-y-2 bg-white border-t border-gray-200"
                 style={{
-                  backdropFilter: "blur(12px) saturate(120%)",
-                  WebkitBackdropFilter: "blur(12px) saturate(120%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
                 }}
               >
                 {navItems.map((item, index) => (
@@ -263,17 +234,26 @@ const Navbar: React.FC = () => {
                   >
                     {item.subItems.length === 0 ? (
                       <Link href={item.route}>
-                        <motion.button
-                          className="w-full text-left px-4 py-3 text-gray-700 hover:text-white hover:bg-blue-600 rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
+                                               <motion.button
+                          className="w-full text-left px-4 py-3 text-gray-700 rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden cursor-pointer"
                           whileHover={{ x: 4 }}
                         >
-                          <span className="relative z-10">{item.name}</span>
+                          <motion.span
+                            className="relative z-10"
+                            whileHover={{ color: item.color }}
+                          >
+                            {item.name}
+                          </motion.span>
+                          <span
+                            className="pointer-events-none absolute bottom-1 left-0 h-1 rounded-full w-0 group-hover:w-full transition-[width] duration-300"
+                            style={{ backgroundColor: item.color }}
+                          />
                         </motion.button>
                       </Link>
                     ) : (
                       <motion.button
                         onClick={() => toggleDropdown(item.name)}
-                        className="w-full text-left px-4 py-3 text-gray-700 hover:text-white hover:bg-blue-600 rounded-lg font-medium transition-all duration-200 flex items-center justify-between group relative overflow-hidden"
+                        className="w-full text-left px-4 py-3 text-gray-700 hover:text-gray-800 rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden"
                         whileHover={{ x: 4 }}
                       >
                         <span className="relative z-10">{item.name}</span>
@@ -286,6 +266,14 @@ const Navbar: React.FC = () => {
                         >
                           <ChevronDown className="h-4 w-4" />
                         </motion.div>
+                        {/* Underline effect for mobile - Fixed positioning */}
+                        <motion.div
+                          className="absolute bottom-1 left-0 h-1 rounded-full"
+                          style={{ backgroundColor: item.color }}
+                          initial={{ width: 0 }}
+                          whileHover={{ width: "100%" }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        />
                       </motion.button>
                     )}
 
@@ -307,13 +295,24 @@ const Navbar: React.FC = () => {
                                     `${item.route}/${slugify(subItem)}`
                                   )
                                 }
-                                className="block px-4 py-2 text-sm text-gray-600 hover:text-white hover:bg-blue-600 rounded-lg transition-all duration-200 relative overflow-hidden w-full text-left"
+                                className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-800 rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: subIndex * 0.05 }}
                                 whileHover={{ x: 8 }}
                               >
                                 <span className="relative z-10">{subItem}</span>
+                                {/* Underline effect for mobile dropdown - Fixed positioning */}
+                                <motion.div
+                                  className="absolute bottom-1 left-0 h-1 rounded-full"
+                                  style={{ backgroundColor: item.color }}
+                                  initial={{ width: 0 }}
+                                  whileHover={{ width: "100%" }}
+                                  transition={{
+                                    duration: 0.3,
+                                    ease: "easeOut",
+                                  }}
+                                />
                               </motion.button>
                             ))}
                           </motion.div>

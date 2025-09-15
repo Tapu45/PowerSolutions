@@ -53,7 +53,7 @@ const MethodologyPage: React.FC = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <motion.section
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20"
+        className="relative py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

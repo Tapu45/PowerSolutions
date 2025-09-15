@@ -1,21 +1,24 @@
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
+import { Linkedin, Facebook, Youtube } from "lucide-react";
+import CircularText from "@/components/animation/Circular-Text";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-muted text-muted-foreground py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <Image
-              src="/logo.png"
-              alt="Power Solutions Logo"
-              width={150}
-              height={50}
-              className="mb-4"
+          {/* Brand / Circular Text */}
+          <div className="flex flex-col items-center md:items-start">
+            <CircularText
+              text="IDENTIFY.IMPLEMENT.INTENSIFY."
+              spinDuration={20}
+              onHover="speedUp"
+              className="text-blue-400"
+              logoSrc="/logo-clean.png"
+              logoAlt="Power Solutions"
             />
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed mt-6 text-center md:text-left">
               Power Solutions delivers innovative technology solutions to
               empower businesses worldwide. Specializing in ERP systems,
               application development, and business consulting.
@@ -29,58 +32,174 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  About Us
-                </a>
+                <Link
+                  href="/who-we-are"
+                  className="hover:text-primary transition-colors"
+                >
+                  Who we are
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/creators"
+                  className="hover:text-primary transition-colors"
+                >
+                  The Creators
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/credentials"
+                  className="hover:text-primary transition-colors"
+                >
+                  Our Credentials
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  USPs
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/innovations"
+                  className="hover:text-primary transition-colors"
+                >
                   Innovations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/methodology"
+                  className="hover:text-primary transition-colors"
+                >
                   Methodology
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Follow Us */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">
-              Contact Us
+              Follow Us
+            </h3>
+            <div className="flex items-center space-x-4">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="hover:text-primary transition-colors"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-primary transition-colors"
+              >
+                <Youtube className="w-6 h-6" />
+              </a>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold text-foreground mb-3">
+                Contact
+              </h4>
+              <ul className="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="tel:+919310567216"
+                    className="hover:text-primary transition-colors"
+                  >
+                    +91-9310567216
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+911141053409"
+                    className="hover:text-primary transition-colors"
+                  >
+                    +91-11-41053409
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:info@power-n.in"
+                    className="hover:text-primary transition-colors"
+                  >
+                    info@power-n.in
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Offices (Rightmost) with Map */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Offices
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>Email: info@powersolutions.com</li>
-              <li>Phone: +1 (123) 456-7890</li>
-              <li>Address: 123 Tech Street, Innovation City, IC 12345</li>
+              <li>Bhubaneswar, India</li>
+              <li>New Delhi, India</li>
+              <li>Registered Office</li>
+              <li>Brahmapur, India</li>
             </ul>
+
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold text-foreground mb-2">
+                Find Us on Map
+              </h4>
+              <div className="rounded-lg overflow-hidden border border-border">
+                <iframe
+                  title="Power Solutions Locations"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58375.78734979979!2d85.760585!3d20.296059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a7a3c6d1d1d7%3A0x5a2a4fb297a96a!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="180"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm">
-            &copy; 2024 Power Solutions. All rights reserved.
+            © [solutions]n 2022-2025 | All Rights Reserved
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="hover:text-primary transition-colors">
+          <div className="flex space-x-4 mt-4 md:mt-0 text-sm">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-primary transition-colors"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
+            </Link>
+            <span className="text-foreground/30">|</span>
+            <Link
+              href="/terms"
+              className="hover:text-primary transition-colors"
+            >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
