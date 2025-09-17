@@ -7,12 +7,14 @@ import Footer from "@/layout/Footer";
 import Concept from "./minixomponents/home/Concept";
 import Mission from "./minixomponents/home/Mission";
 import Journey from "./minixomponents/home/Journey";
+import Services from "./minixomponents/home/Services";
 
 export default function Home() {
   return (
     <>
     
       <Hero />
+      <Services />
       <Concept />
       <Vision />
       <Innovation />
