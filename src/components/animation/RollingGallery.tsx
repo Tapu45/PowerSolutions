@@ -7,6 +7,8 @@ import {
   PanInfo,
   ResolvedValues,
 } from "motion/react";
+import { useRouter } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 const IMGS: string[] = [
   "/assets/services/AEaas BG -N.png",
@@ -32,22 +34,23 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   images = [],
 }) => {
   const galleryImages = images.length > 0 ? images : IMGS;
+  const router = useRouter();
 
-  const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(
-    window.innerWidth <= 640
-  );
+   const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   useEffect(() => {
+    setIsScreenSizeSm(window.innerWidth <= 640); // Set initial value on client
     const handleResize = () => setIsScreenSizeSm(window.innerWidth <= 640);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   const cylinderWidth: number = isScreenSizeSm ? 1800 : 3200;
   const faceCount: number = galleryImages.length;
   const faceWidth: number = cylinderWidth / faceCount;
   const radius: number = cylinderWidth / (2 * Math.PI);
 
-  const dragFactor: number = 0.05;
+  const dragFactor: number = 0.015;
   const rotation = useMotionValue(0);
   const controls = useAnimation();
 
@@ -102,17 +105,38 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
     }
   };
 
-  const handleMouseEnter = (): void => {
-    if (autoplay && pauseOnHover) {
-      controls.stop();
-    }
-  };
+ const handleMouseEnter = (i: number): void => {
+   if (autoplay && pauseOnHover) {
+     controls.stop();
+   }
+   setHoveredIndex(i);
+   // Center the hovered face
+   const centerAngle = -(360 / faceCount) * i;
+   controls
+     .start({
+       rotateY: centerAngle,
+       transition: { duration: 0.5, ease: "easeOut" },
+     })
+     .then(() => {
+       rotation.set(centerAngle); // Sync rotation value after animation
+     });
+ };
 
   const handleMouseLeave = (): void => {
+    setHoveredIndex(null);
     if (autoplay && pauseOnHover) {
       const currentAngle = rotation.get();
       startInfiniteSpin(currentAngle);
     }
+  };
+
+  const handleExploreClick = (serviceName: string) => {
+    router.push(`/services/${serviceName}`);
+  };
+
+  const getServiceName = (url: string): string => {
+    const filename = url.split("/").pop() || "";
+    return filename.split(" ")[0]; // e.g., "AEaas" from "AEaas BG -N.png"
   };
 
   return (
@@ -125,8 +149,6 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
           dragElastic={0}
           onDrag={handleDrag}
           onDragEnd={handleDragEnd}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           animate={controls}
           onUpdate={handleUpdate}
           style={{
@@ -137,24 +159,42 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
           }}
           className="flex min-h-[200px] cursor-grab items-center justify-center [transform-style:preserve-3d]"
         >
-          {galleryImages.map((url, i) => (
-            <div
-              key={i}
-              className="group absolute flex h-fit items-center justify-center p-[2%] [backface-visibility:hidden] md:p-[2%]"
-              style={{
-                width: `${faceWidth}px`,
-                transform: `rotateY(${
-                  (360 / faceCount) * i
-                }deg) translateZ(${radius}px)`,
-              }}
-            >
-              <img
-                src={url}
-                alt="gallery"
-                className="pointer-events-none h-[500px] w-[900px] rounded-[18px] border-[3px] border-white object-cover transition-transform duration-300 ease-out group-hover:scale-105 sm:h-[200px] sm:w-[400px]"
-              />
-            </div>
-          ))}
+          {galleryImages.map((url, i) => {
+            const serviceName = getServiceName(url);
+            return (
+              <div
+                key={i}
+                className="group absolute flex h-fit items-center justify-center p-[2%] [backface-visibility:hidden] md:p-[2%]"
+                style={{
+                  width: `${faceWidth}px`,
+                  transform: `rotateY(${
+                    (360 / faceCount) * i
+                  }deg) translateZ(${radius}px)`,
+                }}
+                onMouseEnter={() => handleMouseEnter(i)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="relative">
+                  <img
+                    src={url}
+                    alt="gallery"
+                    className={`pointer-events-none h-[500px] w-[900px] rounded-[18px] border-[3px] border-white object-cover transition-all duration-300 ease-out group-hover:scale-105 sm:h-[200px] sm:w-[400px] ${
+                      hoveredIndex === i ? "blur-sm" : ""
+                    }`}
+                  />
+                  {hoveredIndex === i && (
+                    <button
+                      onClick={() => handleExploreClick(serviceName)}
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-black px-0.5 py-0.5 rounded-lg font-normal hover:bg-gray-200 transition-opacity duration-300 flex items-center text-xs border border-teal-500 cursor-pointer"
+                    >
+                      Explore {serviceName} Service
+                      <ExternalLink size={10} className="ml-1" />
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </div>
