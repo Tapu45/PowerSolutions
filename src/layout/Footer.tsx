@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/who-we-are"
+                  href="/about"
                   className="hover:text-primary transition-colors"
                 >
                   Who we are
