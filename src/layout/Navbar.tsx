@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "USPs",
-      subItems: ["BYOS", "BYBS", "BIBD", "RIRO"],
+      subItems: ["BYOS", "BYBS", "BIBD", "RYRO"],
       route: "/usps",
       color: "#D6CE0B",
     },

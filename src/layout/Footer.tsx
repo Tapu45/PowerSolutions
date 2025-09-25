@@ -162,22 +162,6 @@ const Footer: React.FC = () => {
               <li>Brahmapur, India</li>
             </ul>
 
-            <div className="mt-4">
-              <h4 className="text-sm font-semibold text-foreground mb-2">
-                Find Us on Map
-              </h4>
-              <div className="rounded-lg overflow-hidden border border-border">
-                <iframe
-                  title="Power Solutions Locations"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58375.78734979979!2d85.760585!3d20.296059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a7a3c6d1d1d7%3A0x5a2a4fb297a96a!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="180"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                />
-              </div>
-            </div>
           </div>
         </div>
 

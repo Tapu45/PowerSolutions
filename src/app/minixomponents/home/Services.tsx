@@ -131,9 +131,9 @@ const handleServiceClick = (serviceName: string) => {
         >
           <TrueFocus
             words={[
-              { word: "Identify.", color: "#0B8FD6" },
-              { word: "Implement..", color: "#1BCDC5" },
-              { word: "Intensify...", color: "#0B8FD6" },
+              { word: "identify.", color: "#0B8FD6" },
+              { word: "implement.", color: "#1BCDC5" },
+              { word: "intensify.", color: "#0B8FD6" },
             ]}
             manualMode={true}
             blurAmount={5}
