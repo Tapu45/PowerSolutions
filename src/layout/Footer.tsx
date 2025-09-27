@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           {/* Brand / Circular Text */}
           <div className="flex flex-col items-center md:items-start">
             <CircularText
-              text="IDENTIFY.IMPLEMENT.INTENSIFY."
+              text="identify.implement.intensify."
               spinDuration={20}
               onHover="speedUp"
               className="text-blue-400"

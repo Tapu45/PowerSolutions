@@ -28,21 +28,21 @@ const MethodologyPage: React.FC = () => {
   const steps = [
     {
       icon: Target,
-      title: "Identify",
+      title: "identify",
       description:
         "Identifying the perfect problem statement or the absolute requirement right at the time helps organization designing the solution approach.",
       color: "#D6CE0B",
     },
     {
       icon: Cog,
-      title: "Implement",
+      title: "implement",
       description:
         "Implementation of a perfect solution is measured through its closeness to the benchmark.",
       color: "#1BCDC5",
     },
     {
       icon: TrendingUp,
-      title: "Intensify",
+      title: "intensify",
       description:
         "Intensification is a practice to set the new standards and opportunity to mine the new benchmark.",
       color: "#0B8FD6",
@@ -70,7 +70,7 @@ const MethodologyPage: React.FC = () => {
           {/* Circular Text Animation */}
           <div className="flex justify-center my-8">
             <CircularText
-              text="IDENTIFY • IMPLEMENT • INTENSIFY • "
+              text="identify • implement • intensify • "
               onHover="speedUp"
               spinDuration={20}
               className="text-[#0B8FD6] bg-transparent"
