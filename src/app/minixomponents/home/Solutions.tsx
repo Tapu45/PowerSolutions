@@ -107,135 +107,145 @@ export default function Solutions() {
 
   const currentSolution = solutions[activeIndex];
 
-  return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Our Solutions</h2>
-          <div
-            className="h-1 w-24 mx-auto mt-3"
-            style={{ backgroundColor: currentSolution.color }}
-          ></div>
-        </div>
+   return (
+     <section
+       className="py-16"
+       style={{
+         background: `
+          radial-gradient(ellipse 80% 60% at 50% 0%, #e0f7fa 0%, rgba(27,205,197,0.08) 60%, transparent 100%),
+          radial-gradient(ellipse 60% 40% at 80% 20%, #fffde4 0%, rgba(214,206,11,0.07) 70%, transparent 100%),
+          radial-gradient(ellipse 50% 30% at 20% 80%, #e0f7fa 0%, rgba(11,143,214,0.07) 70%, transparent 100%),
+          linear-gradient(180deg, #f8fafc 0%, #fefce8 100%)
+        `,
+       }}
+     >
+       <div className="max-w-6xl mx-auto px-4">
+         <div className="text-center mb-16">
+           <h2 className="text-4xl font-bold">Our Solutions</h2>
+           <div
+             className="h-1 w-24 mx-auto mt-3"
+             style={{ backgroundColor: currentSolution.color }}
+           ></div>
+         </div>
 
-        {/* Active Solution Display */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-1 mb-16">
-          {/* Left side - Image */}
-          <div className="w-full md:w-2/5 flex md:justify-start justify-center md:-ml-8">
-            <div className="relative">
-              <Image
-                src={currentSolution.img}
-                alt={currentSolution.label}
-                width={360}
-                height={360}
-                className="object-contain"
-                style={{ transform: "rotate(-90deg)" }}
-              />
-            </div>
-          </div>
-          {/* Right side - Content */}
-          <div className="w-full md:w-3/5 flex flex-col justify-center">
-            <h3
-              className="text-4xl font-extrabold mb-2 tracking-tight"
-              style={{ color: currentSolution.color }}
-            >
-              {currentSolution.label}
-            </h3>
-            <div
-              className="h-1 w-24 mb-8"
-              style={{ backgroundColor: currentSolution.color }}
-            ></div>
-            <p className="text-2xl text-gray-800 mb-8 leading-snug font-medium">
-              {currentSolution.description.split(".")[0]}.
-            </p>
-            <div className="mb-10">
-              <ul className="list-none pl-0 text-lg text-gray-600 space-y-2">
-                <li>
-                  <span
-                    className="font-semibold"
-                    style={{ color: currentSolution.color }}
-                  >
-                    {currentSolution.benefits
-                      .split("\n")[0]
-                      .replace(/^•\s?/, "")}
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <Link
-              href={currentSolution.path}
-              className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
-              style={{
-                backgroundColor: currentSolution.color,
-                color: "#fff",
-                minWidth: 0,
-                width: "fit-content",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.opacity = "0.9";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.opacity = "1";
-              }}
-            >
-              Learn More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                style={{ color: "#fff" }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </Link>
-          </div>
-        </div>
+         {/* Active Solution Display */}
+         <div className="flex flex-col md:flex-row items-center md:items-start gap-1 mb-16">
+           {/* Left side - Image */}
+           <div className="w-full md:w-2/5 flex md:justify-start justify-center md:-ml-8">
+             <div className="relative">
+               <Image
+                 src={currentSolution.img}
+                 alt={currentSolution.label}
+                 width={360}
+                 height={360}
+                 className="object-contain"
+                 style={{ transform: "rotate(-90deg)" }}
+               />
+             </div>
+           </div>
+           {/* Right side - Content */}
+           <div className="w-full md:w-3/5 flex flex-col justify-center">
+             <h3
+               className="text-4xl font-extrabold mb-2 tracking-tight"
+               style={{ color: currentSolution.color }}
+             >
+               {currentSolution.label}
+             </h3>
+             <div
+               className="h-1 w-24 mb-8"
+               style={{ backgroundColor: currentSolution.color }}
+             ></div>
+             <p className="text-2xl text-gray-800 mb-8 leading-snug font-medium">
+               {currentSolution.description.split(".")[0]}.
+             </p>
+             <div className="mb-10">
+               <ul className="list-none pl-0 text-lg text-gray-600 space-y-2">
+                 <li>
+                   <span
+                     className="font-semibold"
+                     style={{ color: currentSolution.color }}
+                   >
+                     {currentSolution.benefits
+                       .split("\n")[0]
+                       .replace(/^•\s?/, "")}
+                   </span>
+                 </li>
+               </ul>
+             </div>
+             <Link
+               href={currentSolution.path}
+               className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
+               style={{
+                 backgroundColor: currentSolution.color,
+                 color: "#fff",
+                 minWidth: 0,
+                 width: "fit-content",
+               }}
+               onMouseOver={(e) => {
+                 e.currentTarget.style.opacity = "0.9";
+               }}
+               onMouseOut={(e) => {
+                 e.currentTarget.style.opacity = "1";
+               }}
+             >
+               Learn More
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 className="h-5 w-5 ml-2"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+                 style={{ color: "#fff" }}
+               >
+                 <path
+                   strokeLinecap="round"
+                   strokeLinejoin="round"
+                   strokeWidth={2}
+                   d="M14 5l7 7m0 0l-7 7m7-7H3"
+                 />
+               </svg>
+             </Link>
+           </div>
+         </div>
 
-        {/* Solution Navigation with traveling underline */}
-        <div className="relative flex flex-wrap justify-center gap-10 md:gap-16 border-t pt-8">
-          {solutions.map((sol, idx) => (
-            <button
-              key={sol.key}
-              ref={(el) => {
-                navRefs.current[idx] = el;
-              }}
-              className={`text-lg px-4 py-2 relative transition-colors duration-200 ${
-                activeIndex === idx
-                  ? "font-semibold"
-                  : "text-gray-500 hover:text-gray-800"
-              }`}
-              style={{
-                color: activeIndex === idx ? sol.color : undefined,
-                background: "none",
-                border: "none",
-                outline: "none",
-                cursor: "pointer",
-              }}
-              onClick={() => handleManualNav(idx)}
-            >
-              {sol.key}
-            </button>
-          ))}
-          {/* Traveling Underline */}
-          <div
-            ref={underlineRef}
-            className="absolute bottom-0 h-0.5 rounded transition-all duration-300"
-            style={{
-              left: underlineStyle.left,
-              width: underlineStyle.width,
-              backgroundColor: underlineStyle.color,
-              pointerEvents: "none",
-            }}
-          />
-        </div>
-      </div>
-    </section>
-  );
+         {/* Solution Navigation with traveling underline */}
+         <div className="relative flex flex-wrap justify-center gap-10 md:gap-16 border-t pt-8">
+           {solutions.map((sol, idx) => (
+             <button
+               key={sol.key}
+               ref={(el) => {
+                 navRefs.current[idx] = el;
+               }}
+               className={`text-lg px-4 py-2 relative transition-colors duration-200 ${
+                 activeIndex === idx
+                   ? "font-semibold"
+                   : "text-gray-500 hover:text-gray-800"
+               }`}
+               style={{
+                 color: activeIndex === idx ? sol.color : undefined,
+                 background: "none",
+                 border: "none",
+                 outline: "none",
+                 cursor: "pointer",
+               }}
+               onClick={() => handleManualNav(idx)}
+             >
+               {sol.key}
+             </button>
+           ))}
+           {/* Traveling Underline */}
+           <div
+             ref={underlineRef}
+             className="absolute bottom-0 h-0.5 rounded transition-all duration-300"
+             style={{
+               left: underlineStyle.left,
+               width: underlineStyle.width,
+               backgroundColor: underlineStyle.color,
+               pointerEvents: "none",
+             }}
+           />
+         </div>
+       </div>
+     </section>
+   );
 }
