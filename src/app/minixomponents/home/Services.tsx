@@ -117,29 +117,13 @@ const Services = () => {
   };
 
   return (
-    <section className="relative py-47 pb-16  overflow-hidden">
-      {/* Premium Background Layers */}
-      <div className="absolute inset-0">
-        {/* Base gradient mesh */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-teal-100/30 via-transparent to-yellow-100/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-50/40 to-yellow-50/30" /> */}
+    <section className="premium-section premium-pattern relative py-47 pb-16 overflow-hidden">
+      {/* Remove the old background layers and floating elements */}
 
-        {/* Subtle pattern overlay */}
-        {/* <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 30% 30%, #fafdfdff 1px, transparent 0),
-                           radial-gradient(circle at 70% 70%, #fdf507ff 1px, transparent 0)`,
-            backgroundSize: "120px 120px",
-          }}
-        /> */}
-      </div>
-
-      {/* Enhanced Floating Elements */}
-      <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-teal-200/15 to-yellow-200/10 rounded-full blur-2xl animate-pulse" />
-      <div className="absolute top-60 right-20 w-32 h-32 bg-gradient-to-r from-yellow-200/12 to-teal-200/8 rounded-full blur-2xl animate-pulse delay-1000" />
-      <div className="absolute bottom-40 left-1/4 w-48 h-48 bg-gradient-to-r from-teal-100/10 to-yellow-100/8 rounded-full blur-3xl animate-pulse delay-2000" />
-      <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-gradient-to-r from-yellow-300/8 to-teal-300/6 rounded-full blur-xl animate-pulse delay-500" />
+      {/* Premium subtle floating accent elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 to-yellow-200/6 rounded-full blur-3xl premium-animate-float" />
+      <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 to-teal-200/4 rounded-full blur-2xl premium-animate-float delay-1000" />
+      <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 to-yellow-100/4 rounded-full blur-3xl premium-animate-float delay-2000" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -254,8 +238,6 @@ const Services = () => {
                       : "scale-100 filter saturate-105"
                   }`}
                 />
-
-               
               </div>
 
               {/* Bottom Layer with Bullets */}

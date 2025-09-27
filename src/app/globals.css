@@ -195,7 +195,9 @@
 
 body {
   letter-spacing: var(--tracking-normal);
-}                                        
+    --border-gradient: linear-gradient(135deg, rgba(11, 143, 214, 0.5) 0%, rgba(214, 206, 11, 0.5) 100%);
+}      
+                                  
 
 /* Premium Utility Classes */
 .glass {
@@ -289,4 +291,102 @@ body {
     background-attachment: fixed;
   }
 }
+
+/* Premium Section Background Classes */
+.premium-section {
+  position: relative;
+  background: var(--premium-bg-section);
+  background-attachment: fixed;
+}
+
+.premium-section-hero {
+  position: relative;
+  background: var(--premium-bg-hero);
+  background-attachment: fixed;
+}
+
+.premium-section-alternate {
+  position: relative;
+  background: var(--premium-bg-alternate);
+  background-attachment: fixed;
+}
+
+.premium-section-subtle {
+  position: relative;
+  background: var(--premium-bg-subtle);
+  background-attachment: fixed;
+}
+
+.premium-floating-elements {
+  position: relative;
+}
+
+.premium-floating-elements::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--floating-elements);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.premium-floating-elements > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Premium pattern overlay */
+.premium-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(11, 143, 214, 0.02) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(214, 206, 11, 0.02) 2px, transparent 2px);
+  background-size: 60px 60px, 80px 80px;
+  background-position: 0 0, 30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enhanced glass effects for premium sections */
+.premium-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(11, 143, 214, 0.1),
+    0 4px 16px rgba(214, 206, 11, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.premium-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(240, 253, 252, 0.85) 50%, 
+    rgba(254, 252, 232, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(11, 143, 214, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(11, 143, 214, 0.08),
+    0 2px 10px rgba(214, 206, 11, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.premium-animate-float {
+  animation: subtle-float 8s ease-in-out infinite;
+}
+
+
 

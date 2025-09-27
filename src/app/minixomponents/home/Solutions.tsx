@@ -110,14 +110,7 @@ export default function Solutions() {
    return (
      <section
        className="py-16"
-       style={{
-         background: `
-          radial-gradient(ellipse 80% 60% at 50% 0%, #e0f7fa 0%, rgba(27,205,197,0.08) 60%, transparent 100%),
-          radial-gradient(ellipse 60% 40% at 80% 20%, #fffde4 0%, rgba(214,206,11,0.07) 70%, transparent 100%),
-          radial-gradient(ellipse 50% 30% at 20% 80%, #e0f7fa 0%, rgba(11,143,214,0.07) 70%, transparent 100%),
-          linear-gradient(180deg, #f8fafc 0%, #fefce8 100%)
-        `,
-       }}
+      
      >
        <div className="max-w-6xl mx-auto px-4">
          <div className="text-center mb-16">

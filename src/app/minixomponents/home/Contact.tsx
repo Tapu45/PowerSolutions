@@ -44,17 +44,8 @@ const Contact = () => {
 
  
    return (
-     <section
-       className="py-20 relative overflow-hidden"
-       style={{
-         background: `
-          radial-gradient(600px 240px at 20% 20%, #0B8FD622, transparent 60%),
-          radial-gradient(600px 240px at 80% 80%, #D6CE0B22, transparent 60%),
-          radial-gradient(800px 260px at 60% 40%, #1BCDC518, transparent 65%)
-        `,
-       }}
-     >
-       <div className="max-w-6xl mx-auto px-4">
+     <section className="premium-section-alternate premium-floating-elements py-20 relative overflow-hidden">
+       <div className="max-w-6xl mx-auto px-4 relative z-10">
          <div className="text-center mb-10">
            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
              Ready to Accelerate Your Business?
