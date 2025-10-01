@@ -31,7 +31,12 @@ const Navbar: React.FC = () => {
       .replace(/[^a-z0-9-]/g, "");
 
   const navItems = [
-    // { name: "About Us", subItems: [], route: "/about", color: "#0B8FD6" },
+    {
+      name: "Home",
+      subItems: [],
+      route: "/",
+      color: "#0B8FD6",
+    },
     {
       name: "Services",
       subItems: [
