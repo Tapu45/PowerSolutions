@@ -8,58 +8,13 @@ import { useRouter } from "next/navigation";
 // Service data
 const SERVICES = [
   {
-    name: "AEaas",
-    img: "/assets/services/AEaas BG -N.png",
-    color: "#0B8FD6",
-    bullets: [
-      "Advanced analytics and insights",
-      "Real-time performance monitoring",
-      "Automated reporting solutions",
-      "Predictive modeling capabilities",
-    ],
-  },
-  {
-    name: "ATaas",
-    img: "/assets/services/ATaas BG -N.png",
-    color: "#1BCDC5",
-    bullets: [
-      "Cloud infrastructure management",
-      "Scalable technology solutions",
-      "DevOps automation",
-      "Security compliance",
-    ],
-  },
-  {
     name: "BAaas",
     img: "/assets/services/BAaas BG -N.png",
     color: "#D6CE0B",
     bullets: [
-      "Business process optimization",
-      "Strategic consulting services",
-      "Workflow automation",
-      "Performance metrics analysis",
-    ],
-  },
-  {
-    name: "CMaas",
-    img: "/assets/services/CMaas BG -N.png",
-    color: "#FF6B35",
-    bullets: [
-      "Customer relationship management",
-      "Engagement strategy development",
-      "Multi-channel communication",
-      "Customer journey mapping",
-    ],
-  },
-  {
-    name: "DMaas",
-    img: "/assets/services/DMaas BG -N.png",
-    color: "#7B4AE2",
-    bullets: [
-      "Data management solutions",
-      "Analytics and visualization",
-      "Data governance frameworks",
-      "Real-time data processing",
+      "Save 50% of your expense on Business Analyst",
+      "Engage Business Analyst with 20+ Years Experience",
+      "Expose your Business Problems to 150 + Person Year  Consulting Forum",
     ],
   },
   {
@@ -67,21 +22,9 @@ const SERVICES = [
     img: "/assets/services/FAaas BG -N.png",
     color: "#10B981",
     bullets: [
-      "Financial planning and analysis",
-      "Risk assessment services",
-      "Budget optimization",
-      "Compliance monitoring",
-    ],
-  },
-  {
-    name: "PAaas",
-    img: "/assets/services/PAaas BG -N.png",
-    color: "#F43F5E",
-    bullets: [
-      "Project management solutions",
-      "Agile methodology implementation",
-      "Resource allocation",
-      "Timeline optimization",
+      "Assess before you invest on your Future Business Process",
+      "Blend Feasibility Assessment with Industry insight & Alternative Solution",
+      "Focus on scalability not on available competency",
     ],
   },
   {
@@ -89,10 +32,19 @@ const SERVICES = [
     img: "/assets/services/PMaas BG -N.png",
     color: "#3B82F6",
     bullets: [
-      "Performance monitoring",
-      "Optimization strategies",
-      "KPI tracking",
-      "Continuous improvement",
+      "A logical GCC as a Service for your software products",
+      "Pay as Use option for GCC as a Service Model",
+      "Access to Industry Across Business Use Cases and Solutions",
+    ],
+  },
+  {
+    name: "DMaas",
+    img: "/assets/services/DMaas BG -N.png",
+    color: "#7B4AE2",
+    bullets: [
+      "100% Accuracy and availability of your data for your future business",
+      "Aligned IT and Business Expectation from Transformation initiative",
+      "Minimum Disruption in Business As Usual and bottlenecks for Project Timelines",
     ],
   },
   {
@@ -100,10 +52,49 @@ const SERVICES = [
     img: "/assets/services/TMaas BG -N.png",
     color: "#8B5CF6",
     bullets: [
-      "Team management solutions",
-      "Collaboration tools",
-      "Workflow coordination",
-      "Productivity analytics",
+      "Strategic Parking Zone for your GCC Plan / New Transition In Partner",
+      "Seamless Transition and Shared Accountability for gap between Transition Out and Transition In",
+      "Process Knowledge Preservation and Mitigate Transition Risks",
+    ],
+  },
+  {
+    name: "ATaas",
+    img: "/assets/services/ATaas BG -N.png",
+    color: "#1BCDC5",
+    bullets: [
+      "Ensure your Business Application Deliver exactly what your users expect",
+      "Don’t let Bugs or Blind Spots derail your go-lve",
+      "Shift from feature validation to problem solving. Lets test what matters.",
+    ],
+  },
+  {
+    name: "CMaas",
+    img: "/assets/services/CMaas BG -N.png",
+    color: "#FF6B35",
+    bullets: [
+      "Where Skills meet Strategy - Empowering People, Enabling Process",
+      "From Potential to Performance — Competency is the New Currency.",
+      "Custom-built training modules for each levels of resources, aligned with real-time market needs",
+    ],
+  },
+  {
+    name: "AEaas",
+    img: "/assets/services/AEaas BG -N.png",
+    color: "#0B8FD6",
+    bullets: [
+      "Empower your transformation journey with data-driven insights",
+      "Empower Your Workforce through inclusive evaluation",
+      "Drive Sustainable Change with actionable recommendations",
+    ],
+  },
+  {
+    name: "PAaas",
+    img: "/assets/services/PAaas BG -N.png",
+    color: "#F43F5E",
+    bullets: [
+      "Helps businesses validate deliverables before releasing retention payments",
+      "Early identification and control implementation for project risks",
+      "Spot gaps in scope, missed requirements, and hidden risks before they become expensive problems.",
     ],
   },
 ];
