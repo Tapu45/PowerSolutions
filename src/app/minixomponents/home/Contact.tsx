@@ -44,7 +44,7 @@ const Contact = () => {
 
  
    return (
-     <section className="premium-section-alternate premium-floating-elements py-20 relative overflow-hidden">
+     <section className="premium-section-alternate premium-floating-elements py-10 relative overflow-hidden">
        <div className="max-w-6xl mx-auto px-4 relative z-10">
          <div className="text-center mb-10">
            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
