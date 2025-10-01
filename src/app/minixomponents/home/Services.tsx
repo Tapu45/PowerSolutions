@@ -179,7 +179,23 @@ const Services = () => {
               <p className="text-[0.95rem] leading-relaxed text-gray-700">
                 At{" "}
                 <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-700 to-yellow-600">
-                  [solutions]ⁿ
+                  {/* Custom colored "solutions" as per logo */}
+                  <span style={{ color: "#1BCDC5" }}>[</span>
+                  <span style={{ color: "#D6CE0B" }}>solut</span>
+                  <span style={{ color: "#0B8FD6" }}>i</span>
+                  <span style={{ color: "#D6CE0B" }}>o</span>
+                  <span style={{ color: "#8B2121" }}>n</span>
+                  <span style={{ color: "#D6CE0B" }}>s</span>
+                  <span style={{ color: "#1BCDC5" }}>]</span>
+                  <span
+                    style={{
+                      color: "#0B8FD6",
+                      fontSize: "1.1em",
+                      verticalAlign: "super",
+                    }}
+                  >
+                    n
+                  </span>
                 </span>
                 , we offer a curated suite of micro-services across ERP,
                 Business Applications, and Business Processes — designed to
