@@ -1,7 +1,15 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { easeInOut, motion } from "motion/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// Simple floating dot SVG
+const FloatingDot = ({ style }: { style: React.CSSProperties }) => (
+  <span
+    className="absolute rounded-full bg-cyan-200 opacity-30 blur-lg animate-float"
+    style={style}
+  />
+);
 
 export const GoogleGeminiEffect = ({
   title,
@@ -12,6 +20,25 @@ export const GoogleGeminiEffect = ({
   description?: string;
   className?: string;
 }) => {
+  // Rotating messages
+  const messages = [
+    "Granulize your problem statements and requirements to identify the most matured one for solution designing",
+    "Discover the journey from real-world complexity to strategic clarity — from Problem Situation to Problem Statement.",
+    "Overlooked services. Unmatched value. Rediscover what matters. Services are curated to produce reusable support.",
+    "From your vision to our innovation — together, we craft the Ultimate Solution.",
+  ];
+
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+
+  // Rotate through messages
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
+    }, 5000); // Change message every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Synchronized animation configuration
   const animationConfig = {
     pathLength: [0, 1, 0],
@@ -22,17 +49,60 @@ export const GoogleGeminiEffect = ({
     },
   };
 
+  // Generate floating dots for background
+  const dots = Array.from({ length: 14 }, (_, i) => ({
+    left: `${Math.random() * 90}%`,
+    top: `${10 + Math.random() * 70}%`,
+    width: 16 + Math.random() * 16,
+    height: 16 + Math.random() * 16,
+    delay: `${Math.random() * 8}s`,
+    key: i,
+  }));
+
   return (
     <div className={cn("sticky top-80", className)}>
+      {/* Floating dots */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {dots.map((dot) => (
+          <FloatingDot
+            key={dot.key}
+            style={{
+              left: dot.left,
+              top: dot.top,
+              width: dot.width,
+              height: dot.height,
+              animationDelay: dot.delay,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Decorative bottom glow */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[400px] h-[80px] bg-cyan-200/30 blur-2xl rounded-full z-0" />
+
+      {/* Heading and subheading content */}
       {/* Heading and subheading content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-7">
-        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
+        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight leading-tight">
           {title || "Welcome to Power Solutions"}
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground">
-          {description ||
-            "Innovating the future with granular problem-solving and transformative insights."}
-        </p>
+        {/* smoother rotation with exit/enter */}
+        <motion.div
+          key={`wrapper-${currentMessageIndex}`}
+          className="min-h-20 flex items-center justify-center"
+        >
+          <motion.p
+            key={currentMessageIndex}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="text-lg md:text-2xl text-muted-foreground/90 px-2"
+            aria-live="polite"
+          >
+            {messages[currentMessageIndex]}
+          </motion.p>
+        </motion.div>
       </div>
 
       <svg
@@ -131,6 +201,20 @@ export const GoogleGeminiEffect = ({
           </filter>
         </defs>
       </svg>
+
+      {/* Floating animation keyframes */}
+      <style>
+        {`
+        @keyframes float {
+          0% { transform: translateY(0px);}
+          50% { transform: translateY(-30px);}
+          100% { transform: translateY(0px);}
+        }
+        .animate-float {
+          animation: float 7s ease-in-out infinite;
+        }
+        `}
+      </style>
     </div>
   );
 };
