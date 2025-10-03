@@ -2,10 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   eslint: {
-    ignoreDuringBuilds: true, // disables ESLint during build
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // disables TypeScript errors during build
+    ignoreBuildErrors: true,
+  },
+  output: 'export',          // static export
+  images: {
+    unoptimized: true,       // ✅ disables _next/image optimization for static export
   },
   output: 'export',
 };
