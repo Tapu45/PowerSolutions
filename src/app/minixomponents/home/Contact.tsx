@@ -62,7 +62,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-1"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-6 py-2">
             <span className="h-6 w-1.5 rounded bg-gradient-to-b from-teal-500 to-teal-600" />
             <span className="uppercase tracking-wider text-sm font-semibold text-teal-700">
               Get In Touch
@@ -97,7 +97,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <div className="bg- rounded-xl   p-8 relative overflow-hidden">
+          <div className="bg- rounded-xl p-4 md:p-8 relative overflow-hidden">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 opacity-5">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500/10 to-yellow-500/10" />
@@ -106,7 +106,7 @@ const Contact = () => {
             {/* Form content */}
             <div className="relative z-10">
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -230,7 +230,7 @@ const Contact = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                     viewport={{ once: true }}
-                    className="md:col-span-3 flex gap-6"
+                    className="md:col-span-3 flex gap-4 md:gap-6"
                   >
                     <input
                       className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all duration-300 text-base font-medium ${

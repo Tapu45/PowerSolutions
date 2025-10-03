@@ -1,7 +1,7 @@
 "use client";
 
 import TrueFocus from "@/components/animation/focous-text";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -101,10 +101,23 @@ const SERVICES = [
 
 const Services = () => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
 
-  const handleServiceClick = (serviceName: string) => {
-    router.push(`/services/${serviceName.toLowerCase()}`);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleServiceClick = (serviceName: string, idx: number) => {
+    if (isMobile) {
+      setExpanded(expanded === idx ? null : idx);
+    } else {
+      router.push(`/services/${serviceName.toLowerCase()}`);
+    }
   };
 
   return (
@@ -137,7 +150,6 @@ const Services = () => {
               pauseBetweenAnimations={1}
             />
           </div>
-          
         </motion.div>
 
         <motion.h2
@@ -243,7 +255,7 @@ const Services = () => {
               className="relative group rounded-2xl backdrop-blur-sm hover:backdrop-blur-md transition-all duration-500 overflow-hidden border cursor-pointer h-60"
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => handleServiceClick(service.name)}
+              onClick={() => handleServiceClick(service.name, idx)}
               style={{
                 background:
                   hovered === idx
@@ -287,7 +299,7 @@ const Services = () => {
 
               <div
                 className={`absolute bottom-0 left-0 right-0 py-4 transition-all duration-500 ease-out transform ${
-                  hovered === idx
+                  hovered === idx || (isMobile && expanded === idx)
                     ? "translate-y-0 opacity-100"
                     : "translate-y-full opacity-0"
                 }`}
@@ -305,7 +317,7 @@ const Services = () => {
                         key={i}
                         initial={{ opacity: 0, x: -10 }}
                         animate={
-                          hovered === idx
+                          hovered === idx || (isMobile && expanded === idx)
                             ? { opacity: 1, x: 0 }
                             : { opacity: 0, x: -10 }
                         }
@@ -326,7 +338,7 @@ const Services = () => {
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={
-                          hovered === idx
+                          hovered === idx || (isMobile && expanded === idx)
                             ? { opacity: 1, x: 0 }
                             : { opacity: 0, x: -10 }
                         }
@@ -345,7 +357,7 @@ const Services = () => {
                       <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={
-                          hovered === idx
+                          hovered === idx || (isMobile && expanded === idx)
                             ? { scale: 1, opacity: 1 }
                             : { scale: 0.8, opacity: 0 }
                         }
@@ -357,7 +369,9 @@ const Services = () => {
                         }}
                         onClick={(e) => {
                           e.stopPropagation();
-                          handleServiceClick(service.name);
+                          router.push(
+                            `/services/${service.name.toLowerCase()}`
+                          );
                         }}
                       >
                         <svg
