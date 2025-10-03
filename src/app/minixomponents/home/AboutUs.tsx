@@ -2,95 +2,74 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Centered Heading with improved spacing */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold inline-block relative">
+    <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 -left-40 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-0 -right-40 w-72 h-72 bg-cyan-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 relative inline-block">
             About Us
-            <span
-              className="block h-1.5 w-full mt-3"
-              style={{ backgroundColor: "#0B8FD6" }}
-            ></span>
+            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#0B8FD6] to-blue-400 rounded-full"></span>
           </h2>
         </div>
 
-        {/* Content and Image Container with improved alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side: Content with better spacing and formatting */}
-          <div className="flex flex-col space-y-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Power Solutions is a{" "}
-              <span style={{ color: "#0B8FD6" }} className="font-semibold">
-                technology innovation partner
+        {/* Content + Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          {/* Left Content */}
+          <div className="relative space-y-8">
+            {/* Decorative gradient line */}
+            <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-[#0B8FD6] to-blue-400 rounded-full"></div>
+
+            <p className="pl-6 text-lg text-gray-700 leading-relaxed">
+              At{" "}
+              <span className="font-bold text-[#0B8FD6]">
+                [solutions]<sup>ⁿ</sup>
+              </span>
+              , we don’t just create solutions—we craft transformative
+              experiences that are built to last and grow with you. Founded by a
+              team of visionary thinkers with decades of expertise, we
+              recognized early on that true solutions must be sustainable,
+              scalable, and relentlessly forward-looking.
+            </p>
+
+            <p className="pl-6 text-lg text-gray-700 leading-relaxed">
+              We believe every complex challenge deserves a layered response—a
+              carefully designed composition of targeted solutions that address
+              every detail and nuance. Our groundbreaking{" "}
+              <span className="font-semibold text-[#0B8FD6]">3i approach</span>
+              —Identify- Implement- Intensify—ensures that solutions not only
+              solve problems but evolve continuously to exceed expectations and
+              adapt to changing realities.
+            </p>
+
+            <p className="pl-6 text-lg text-gray-700 leading-relaxed">
+              Too often, problem statements are incomplete or biased, leading to
+              short-lived fixes or even new issues. That’s where{" "}
+              <span className="font-bold text-[#0B8FD6]">
+                [solutions]<sup>ⁿ</sup>
               </span>{" "}
-              dedicated to transforming business challenges into opportunities
-              through tailored digital solutions.
+              steps in: pioneering innovation, setting new benchmarks, and
+              turning challenges into opportunities for lasting impact and
+              wow-worthy customer satisfaction.
             </p>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              We combine deep industry expertise with cutting-edge technology to
-              deliver solutions that drive real business impact. Our
-              collaborative approach ensures we understand your unique needs and
-              create customized strategies that align with your business goals.
-            </p>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              With a commitment to excellence and innovation, we've helped
-              businesses across industries achieve measurable growth and
-              establish strong foundations for future success.
-            </p>
-
-            <div className="pt-4">
-              <Link
-                href="/about"
-                className="inline-flex items-center px-6 py-3 border-2 rounded-md transition-all duration-300 text-base font-semibold shadow-sm hover:shadow-md"
-                style={{
-                  borderColor: "#0B8FD6",
-                  color: "#0B8FD6",
-                }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#0B8FD610")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.backgroundColor = "transparent")
-                }
-              >
-                Learn More
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </Link>
-            </div>
           </div>
 
-          {/* Right Side: Image with improved presentation */}
-          <div className="flex items-center justify-center">
-            <div className="relative w-full h-full">
-              <Image
-                src="/about.png"
-                alt="About Power Solutions"
-                width={600}
-                height={450}
-                className="w-full rounded-xl shadow-lg object-cover"
-                style={{ maxHeight: "450px" }}
-              />
-            </div>
+          {/* Right Image */}
+          <div className="relative flex justify-center">
+            <div className="absolute -inset-6 bg-gradient-to-tr from-blue-100 via-transparent to-cyan-100 rounded-3xl blur-2xl"></div>
+            <Image
+              src="/about.png"
+              alt="About [solutions]ⁿ"
+              width={600}
+              height={450}
+              className="relative rounded-2xl shadow-xl object-cover"
+            />
           </div>
         </div>
       </div>

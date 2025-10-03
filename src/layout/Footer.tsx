@@ -55,30 +55,7 @@ const Footer: React.FC = () => {
                   Our Credentials
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/innovations"
-                  className="hover:text-primary transition-colors"
-                >
-                  Innovations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/methodology"
-                  className="hover:text-primary transition-colors"
-                >
-                  Methodology
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
