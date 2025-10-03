@@ -11,7 +11,7 @@ export default function Home() {
       <Services />
       <Contact/>
       <Solutions />
-      <AboutUs/>
+      
     </>
   );
 }
