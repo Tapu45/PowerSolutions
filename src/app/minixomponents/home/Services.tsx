@@ -108,7 +108,7 @@ const Services = () => {
   };
 
   return (
-    <section className="premium-section premium-pattern relative py-1 md:py-26 pb-16 overflow-hidden">
+    <section className="premium-section premium-pattern relative py-25 md:py-26 pb-16 overflow-hidden">
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 to-yellow-200/6 rounded-full blur-3xl premium-animate-float" />
       <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 to-teal-200/4 rounded-full blur-2xl premium-animate-float delay-1000" />
       <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 to-yellow-100/4 rounded-full blur-3xl premium-animate-float delay-2000" />
