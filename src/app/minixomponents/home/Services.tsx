@@ -108,7 +108,7 @@ const Services = () => {
   };
 
   return (
-    <section className="premium-section premium-pattern relative py-4 pb-16 overflow-hidden">
+    <section className="premium-section premium-pattern relative py-1 md:py-26 pb-16 overflow-hidden">
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 to-yellow-200/6 rounded-full blur-3xl premium-animate-float" />
       <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 to-teal-200/4 rounded-full blur-2xl premium-animate-float delay-1000" />
       <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 to-yellow-100/4 rounded-full blur-3xl premium-animate-float delay-2000" />
@@ -119,21 +119,25 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-14"
         >
-          <TrueFocus
-            words={[
-              { word: "identify.", color: "#0B8FD6" },
-              { word: "implement.", color: "#1BCDC5" },
-              { word: "intensify.", color: "#0B8FD6" },
-            ]}
-            manualMode={true}
-            blurAmount={5}
-            borderColor="#D6CE0B"
-            glowColor="rgba(11, 143, 214, 0.6)"
-            animationDuration={2}
-            pauseBetweenAnimations={1}
-          />
+          {/* Desktop animated focus */}
+          <div className="hidden md:block">
+            <TrueFocus
+              words={[
+                { word: "identify.", color: "#0B8FD6" },
+                { word: "implement.", color: "#1BCDC5" },
+                { word: "intensify.", color: "#0B8FD6" },
+              ]}
+              manualMode={true}
+              blurAmount={5}
+              borderColor="#D6CE0B"
+              glowColor="rgba(11, 143, 214, 0.6)"
+              animationDuration={2}
+              pauseBetweenAnimations={1}
+            />
+          </div>
+          
         </motion.div>
 
         <motion.h2
