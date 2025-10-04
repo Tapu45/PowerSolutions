@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section className="relative py-10 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-0 -left-40 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
       <div className="absolute bottom-0 -right-40 w-72 h-72 bg-cyan-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
@@ -57,6 +57,12 @@ const AboutUs: React.FC = () => {
               steps in: pioneering innovation, setting new benchmarks, and
               turning challenges into opportunities for lasting impact and
               wow-worthy customer satisfaction.
+            </p>
+
+            <p className="pl-6 text-lg text-gray-700 leading-relaxed">
+              With us, you’re not just solving problems—you’re building a
+              future-proof foundation that empowers your success today and
+              tomorrow.
             </p>
           </div>
 

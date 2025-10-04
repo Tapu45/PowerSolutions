@@ -45,7 +45,7 @@ export default function BYBSPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-first">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -70,17 +70,24 @@ export default function BYBSPage() {
               </h1>
 
               <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg">
-                Have a business idea but lack the technical expertise? We turn
-                your vision into scalable, custom solutions — from concept to
-                launch, with our expert team handling the build.
+                BYBS is our signature consulting approach that listens deeply to
+                your business narrative — from boardroom vision to frontline
+                realities — and turns it into a solution that’s as unique as
+                your journey. BYBS brings empathy into enterprise consulting —
+                listening across levels, understanding your challenges, and
+                crafting solutions that feel tailor-made because they are.
+                <br />
+                We start with your business story — not our products — and build
+                solutions that align with your reality, not assumptions.
               </p>
 
               {/* Chips */}
               <div className="mt-6 flex flex-wrap gap-3">
                 {[
-                  { label: "Custom development", color: BLUE },
-                  { label: "Agile delivery", color: TEAL },
-                  { label: "Scalable architecture", color: YELLOW },
+                  { label: "Strategic Listening", color: BLUE },
+                  { label: "Beyond Internal Views", color: TEAL },
+                  { label: "End to End Ownership", color: YELLOW },
+                  { label: "Bridge between the teams", color: BLUE },
                 ].map((chip, i) => (
                   <span
                     key={i}
@@ -117,29 +124,54 @@ export default function BYBSPage() {
               </div>
 
               {/* Assurances */}
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-                {[
-                  { label: "Tailored builds", color: BLUE },
-                  { label: "End-to-end support", color: TEAL },
-                  {
-                    label: "Quality assurance",
-                    color: YELLOW,
-                    dark: "#3a3a00",
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 bg-white/70 dark:bg-slate-800/40 px-3 py-2 rounded-lg shadow-sm"
-                  >
-                    <CheckCircle2
-                      className="size-4 shrink-0"
-                      style={{ color: item.color }}
-                    />
-                    <span style={{ color: item.dark ?? "inherit" }}>
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
+              <div className="mt-8">
+                <div className="flex flex-wrap gap-3 justify-start">
+                  {[
+                    {
+                      text: "Businesses planning ERP or business application transformation",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Leaders facing strategic ambiguity or cross-functional misalignment",
+                      color: TEAL,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Teams exploring multiple options but unsure of the right move",
+                      color: YELLOW,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Organizations with evolving, non-standard, or hybrid processes",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Companies that want clarity before commitment",
+                      color: TEAL,
+                      icon: "✓",
+                    },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * i }}
+                      className="flex items-center gap-3 bg-white/60 dark:bg-slate-800/30 px-4 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                    >
+                      <span
+                        className="text-lg font-bold"
+                        style={{ color: item.color }}
+                      >
+                        {item.icon}
+                      </span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                        {item.text}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 

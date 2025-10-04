@@ -3,14 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
+import { ContactForm } from "@/components/ui/Contact-Form";
 import { CheckCircle2 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
@@ -18,34 +11,20 @@ const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
 export default function BYOSPage() {
-  const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+  const [showContactForm, setShowContactForm] = useState(false);
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-  };
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setForm({ name: "", email: "", company: "", message: "" });
-    setOpen(false);
-    alert("Thanks! We’ll get back to you about BYOS.");
+  const handleContactSubmit = (data: any) => {
+    console.log("Form submitted:", data);
+    alert("Thanks! We'll get back to you about BYOS.");
+    setShowContactForm(false);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -70,17 +49,21 @@ export default function BYOSPage() {
               </h1>
 
               <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg">
-                Have a solution but not the right team? Skip the overhead of
-                managing talent and let our senior professionals execute with
-                precision — while you stay in control of the vision.
+                BYOS - a modern consulting model where you bring the solution
+                and we bring the execution muscle. You choose the solution that
+                fits your business best - we bring the expertise to implement
+                flawlessly. Our services are designed in a such as way, you can
+                decide the execution method, timeline, quality etc. based on
+                your requirement and budget.
               </p>
 
               {/* Chips */}
               <div className="mt-6 flex flex-wrap gap-3">
                 {[
-                  { label: "Expert-led execution", color: BLUE },
-                  { label: "Milestone-first planning", color: TEAL },
-                  { label: "Cost optimization", color: YELLOW },
+                  { label: "Execution Kick-start", color: BLUE },
+                  { label: "Hold when you want", color: TEAL },
+                  { label: "Pay as you use", color: YELLOW },
+                  { label: "Choose whom you need", color: BLUE },
                 ].map((chip, i) => (
                   <span
                     key={i}
@@ -96,36 +79,12 @@ export default function BYOSPage() {
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button
-                  onClick={() => setOpen(true)}
-                  className="shadow-md text-white"
-                  style={{
-                    backgroundColor: BLUE,
-                  }}
-                >
-                  Talk to Experts
-                </Button>
-                <a
-                  href="#how-it-works"
-                  className="text-sm font-medium underline underline-offset-4 hover:opacity-80 transition"
-                  style={{ color: TEAL }}
-                >
-                  Learn how it works
-                </a>
-              </div>
-
-              {/* Assurances */}
+              {/* Assurances - Who */}
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                 {[
-                  { label: "Clear milestones", color: BLUE },
-                  { label: "Senior practitioners", color: TEAL },
-                  {
-                    label: "Transparent delivery",
-                    color: YELLOW,
-                    dark: "#3a3a00",
-                  },
+                  { label: "Enterprise", color: BLUE },
+                  { label: "SMB", color: TEAL },
+                  { label: "IT & ITES", color: YELLOW, dark: "#3a3a00" },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -140,6 +99,58 @@ export default function BYOSPage() {
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* When - Beautiful 5 points section */}
+              <div className="mt-8">
+              
+                <div className="flex flex-wrap gap-3 justify-start">
+                  {[
+                    {
+                      text: "Solution is ready",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Do not want to hire a team",
+                      color: TEAL,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Do not want to micro manage",
+                      color: YELLOW,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Looking for Faster ROI",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Want to Control the outsource",
+                      color: TEAL,
+                      icon: "✓",
+                    },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * i }}
+                      className="flex items-center gap-3 bg-white/60 dark:bg-slate-800/30 px-4 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                    >
+                      <span
+                        className="text-lg font-bold"
+                        style={{ color: item.color }}
+                      >
+                        {item.icon}
+                      </span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                        {item.text}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -172,24 +183,57 @@ export default function BYOSPage() {
         </div>
       </section>
 
+      {/* Why Choose BYOS Heading */}
+      <section className="mx-auto max-w-6xl px-6 mt-0 ">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2
+            className="text-3xl md:text-4xl font-extrabold mb-4"
+            style={{ color: TEAL }}
+          >
+            Why Choose BYOS
+          </h2>
+        </motion.div>
+      </section>
+
       {/* Steps */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <section className="mx-auto max-w-6xl px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {[
             {
-              title: "You bring the idea",
-              desc: "Bring your ingredients and the menu. We have the experts to serve the dish.",
+              title: "Stay Solution Focused",
+              desc: "Decision Makers Concentrate on Business Outcomes, not technical execution",
+              img: "/assets/byos/ros.png",
               color: YELLOW,
             },
             {
-              title: "No team to manage",
-              desc: "Skip the overhead of hiring. Engage senior professionals focused on outcomes.",
+              title: "Leverage Deep Expertise",
+              desc: "Our Consultants bring decades of ERP and Business Application Experience to execute your vision",
+              img: "/assets/byos/etv.png",
               color: TEAL,
             },
             {
-              title: "Execute with speed",
-              desc: "Align on timelines, milestones, and approach—then ship with confidence.",
+              title: "Accelerate Time-to-Value",
+              desc: "No Delays from vendor selection or solution design - Your solution gets implemented faster",
+              img: "/assets/byos/ssf.png",
               color: BLUE,
+            },
+            {
+              title: "Reduce Operational Stress",
+              desc: "No need to manage timelines, resources or execution risks internally",
+              img: "/assets/byos/rcga.png",
+              color: YELLOW,
+            },
+            {
+              title: "Retain Control, Gain Agility",
+              desc: "You stay in control of the solution direction while we handle the complexity of delivery",
+              img: "/assets/byos/lde.png",
+              color: TEAL,
             },
           ].map((step, i) => (
             <motion.div
@@ -197,26 +241,47 @@ export default function BYOSPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="flex flex-col items-center text-center flex-1"
+              transition={{ delay: i * 0.15 }}
+              className="flex flex-col items-center text-center group"
             >
-              <div
-                className="rounded-full p-4 mb-4 shadow-lg"
-                style={{ background: `${step.color}22` }}
+              {/* Image container with hover effects - only the round image gets the color effect */}
+              <motion.div
+                className="relative mb-6"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
               >
-                <CheckCircle2
-                  size={36}
-                  style={{ color: step.color }}
-                  strokeWidth={2.5}
+                {/* Blurred background effect only for the image */}
+                <div
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ backgroundColor: step.color, filter: "blur(20px)" }}
                 />
-              </div>
+
+                {/* Image container */}
+                <div
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 80, height: 80 }}
+                >
+                  <Image
+                    src={step.img}
+                    alt={step.title}
+                    width={64}
+                    height={64}
+                    className="object-contain transition-transform duration-300 group-hover:rotate-12"
+                    style={{ width: 64, height: 64 }}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Title with color on hover */}
               <h3
-                className="text-lg font-semibold mb-2"
+                className="text-lg font-semibold mb-3 transition-colors duration-300"
                 style={{ color: step.color }}
               >
                 {step.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 max-w-xs">
+
+              {/* Description */}
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {step.desc}
               </p>
             </motion.div>
@@ -227,7 +292,7 @@ export default function BYOSPage() {
       {/* How it Works */}
       <section
         id="how-it-works"
-        className="mx-auto max-w-6xl px-6 py-16 border-t border-slate-200 dark:border-slate-800"
+        className="mx-auto max-w-6xl px-6 py-10 border-t border-slate-200 dark:border-slate-800"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -236,71 +301,120 @@ export default function BYOSPage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className="text-3xl md:text-4xl font-extrabold mb-6"
+            className="text-3xl md:text-4xl font-extrabold mb-10"
             style={{ color: TEAL }}
           >
             How BYOS Works
           </h2>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            Most project failures stem from the wrong engagement model.{" "}
-            <span style={{ color: BLUE, fontWeight: 600 }}>BYOS</span> fixes
-            this by letting you define <b>what</b> and <b>why</b>, while we
-            handle <b>how</b> and <b>when</b>.
-          </p>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            Choose only what you need—whether a sprint, integration, or
-            performance pass—without carrying a permanent team’s fixed cost.
-          </p>
-          <p className="text-lg md:text-xl mb-10 leading-relaxed text-slate-700 dark:text-slate-200">
-            Expect clear checkpoints, demos, and transparent progress reporting,
-            so your decisions are grounded in working software.
-          </p>
-
-          <h3
-            className="text-2xl md:text-3xl font-bold mb-6"
-            style={{ color: BLUE }}
-          >
-            What You Get
-          </h3>
-          <ul className="space-y-6">
-            {[
-              {
-                title: "Focused Engagement",
-                desc: "Pick precisely what you want executed while you retain strategic control. Define scope, approach, and checkpoints—our experts align and deliver.",
-                color: BLUE,
-              },
-              {
-                title: "Reduce Delivery Risk",
-                desc: "Proven senior talent, clear milestones, and transparent progress. Avoid costly delays with experienced execution.",
-                color: TEAL,
-              },
-              {
-                title: "Optimize Cost & Time",
-                desc: "Flexible engagement to fit budgets without compromising quality. Focus on impact—let us handle delivery mechanics.",
-                color: YELLOW,
-              },
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <CheckCircle2
-                  className="mt-1"
-                  size={28}
-                  style={{ color: item.color }}
-                />
-                <div>
-                  <span
-                    className="font-semibold text-lg block mb-1"
-                    style={{ color: item.color }}
-                  >
-                    {item.title}
-                  </span>
-                  <span className="block text-base md:text-lg text-slate-700 dark:text-slate-200">
-                    {item.desc}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ol className="space-y-10">
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                1.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  You Choose the Solution
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Whether it's ERP, CRM, or a custom business app—you bring the
+                  blueprint
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: TEAL }}>
+                2.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: TEAL }}
+                >
+                  We Align and Plan
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Our team maps your solution to a delivery framework tailored
+                  to your business
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: YELLOW }}>
+                3.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: YELLOW }}
+                >
+                  We Execute
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  From configuration to deployment, we manage every detail
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                4.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  You Go Live with Confidence
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Your solution, implemented seamlessly—on time, on budget, and
+                  with zero stress
+                </span>
+              </div>
+            </li>
+          </ol>
         </motion.div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="mx-auto max-w-6xl px-6 py-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-left"
+        >
+          <Button
+            onClick={() => setShowContactForm(!showContactForm)}
+            className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+              color: "white",
+            }}
+          >
+            You've Designed the Solution. Let's Deliver It.
+          </Button>
+        </motion.div>
+
+        {/* Contact Form - appears below the button */}
+        {showContactForm && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-8"
+          >
+            <ContactForm
+              defaultUSP="byos"
+              onSubmit={handleContactSubmit}
+              className="max-w-4xl mx-auto"
+            />
+          </motion.div>
+        )}
       </section>
     </div>
   );

@@ -6,6 +6,18 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutions = [
+   {
+    key: "BYOS",
+    label: "Build Your Own Solution",
+    img: "/assets/solutions/BYOS.png",
+    description:
+      "Unlock the power of customization with our flexible platform. Whether you have unique requirements or specialized workflows, our BYOS offering enables you to design, develop, and deploy solutions tailored precisely to your business needs. Enjoy the freedom to innovate without limitations, supported by our expert guidance at every step. Accelerate your digital transformation with tools that adapt as your business evolves.",
+    benefits:
+      "• Strategic Freedom for Visionary Leaders\n• You define the solution. We deliver the execution\n• With BYOS, your leadership team can focus on what matters most: the solution’s impact, not its implementation.",
+    color: "#0B8FD6",
+    path: "/solutions/byos",
+    cta: "Explore Resilient Outsourcing",
+  },
   {
     key: "BYBS",
     label: "Bring Your Business Story",
@@ -13,20 +25,10 @@ const solutions = [
     description:
       "Empower your business with a narrative-driven approach. We help you craft and communicate your unique business story, ensuring your brand stands out in a crowded marketplace. Our team works closely with you to identify your core values, strengths, and differentiators, transforming them into a compelling story that resonates with your audience and builds lasting relationships. Experience a holistic branding journey that elevates your market presence and fosters trust.",
     benefits:
-      "• Reduce operational costs by 30% and improve efficiency across all departments.\n• Strengthen brand loyalty and customer engagement.\n• Gain a competitive edge with a memorable brand presence.\n• Seamless integration with your existing workflow for minimal disruption.\n• Personalized storytelling strategies tailored to your business vision.",
+      "• Every Business Has a Story. We Turn Yours Into a Solution through BYBS\n• Your Business Story. Our Blueprint for Transformation\n• No More One-Size-Fits-All. Your Story Leads. We Follow",
     color: "#1BCDC5",
     path: "/solutions/bybs",
-  },
-  {
-    key: "BYOS",
-    label: "Build Your Own Solution",
-    img: "/assets/solutions/BYOS.png",
-    description:
-      "Unlock the power of customization with our flexible platform. Whether you have unique requirements or specialized workflows, our BYOS offering enables you to design, develop, and deploy solutions tailored precisely to your business needs. Enjoy the freedom to innovate without limitations, supported by our expert guidance at every step. Accelerate your digital transformation with tools that adapt as your business evolves.",
-    benefits:
-      "• Full customization control with 40% faster deployment than traditional development approaches.\n• Scalable architecture to grow with your business.\n• Access to a library of pre-built modules and integrations.\n• Dedicated support and training for your team.\n• Rapid prototyping and deployment for faster go-to-market.",
-    color: "#0B8FD6",
-    path: "/solutions/byos",
+    cta: "Whiteboard Your Story",
   },
   {
     key: "BIBD",
@@ -35,9 +37,10 @@ const solutions = [
     description:
       "Stay ahead of the curve with our innovation and disruption services. We transform your raw data into actionable insights using advanced analytics and AI-driven platforms. Our solutions empower you to make data-driven decisions, identify new opportunities, and adapt quickly to market changes, ensuring your business remains resilient and future-ready. Embrace innovation and turn disruption into your competitive advantage.",
     benefits:
-      "• Real-time analytics dashboards show ROI impact, helping clients improve decision-making by 25%.\n• Harness AI and machine learning for predictive insights.\n• Accelerate digital transformation and innovation cycles.\n• Reduce risk and uncover hidden growth opportunities.\n• Continuous improvement through data-driven experimentation.",
+      "• From Ideas to Impact – BIBD transforms innovation into disruptive business solutions\n• Explore solutions born from real-world challenges and visionary thinking.\n• Ideas Ignite Here. Disruption Begins Now",
     color: "#D6CE0B",
     path: "/solutions/bibd",
+    cta: "Acid test the Innovation",
   },
   {
     key: "RYRO",
@@ -46,11 +49,13 @@ const solutions = [
     description:
       "Revolutionize your retail operations with our end-to-end management solution. From inventory and sales to customer experience and omnichannel capabilities, we provide the tools you need to optimize every aspect of your retail business. Our platform is designed to drive growth, enhance efficiency, and deliver exceptional value to your customers. Stay agile and responsive in a rapidly changing retail landscape.",
     benefits:
-      "• Our retail clients see an average 18% increase in sales after implementation.\n• Streamline inventory and supply chain management.\n• Enhance customer experience with personalized engagement tools.\n• Real-time reporting and analytics for smarter business decisions.\n• Omnichannel integration for seamless customer journeys.",
+      "• Need transformation that aligns with business outcomes—not just trends\n• Identify core assets—people, processes, technologies—that are viable for transformation\n• Design a transformation roadmap using retained strengths as foundational pillars",
     color: "#0B8FD6",
     path: "/solutions/ryro",
+    cta: "Discover the RYRO Framework",
   },
 ];
+//
 
 export default function Solutions() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -139,7 +144,7 @@ export default function Solutions() {
           transition={{ duration: 0.45 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold">Our Solutions</h2>
+          <h2 className="text-4xl font-bold">Our USPs</h2>
           <div
             className="h-1 w-24 mx-auto mt-3"
             style={{ backgroundColor: currentSolution.color }}
@@ -238,39 +243,39 @@ export default function Solutions() {
                 </ul>
 
                 <div className="flex items-center gap-4">
-                  <Link
-                    href={currentSolution.path}
-                    className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
-                    style={{
-                      backgroundColor: currentSolution.color,
-                      color: "#fff",
-                      minWidth: 0,
-                      width: "fit-content",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.opacity = "0.9";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.opacity = "1";
-                    }}
-                  >
-                    Learn More
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 ml-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      style={{ color: "#fff" }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </Link>
+                 <Link
+  href={currentSolution.path}
+  className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
+  style={{
+    backgroundColor: currentSolution.color,
+    color: "#fff",
+    minWidth: 0,
+    width: "fit-content",
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.opacity = "0.9";
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.opacity = "1";
+  }}
+>
+  {currentSolution.cta}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5 ml-2"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    style={{ color: "#fff" }}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14 5l7 7m0 0l-7 7m7-7H3"
+    />
+  </svg>
+</Link>
 
                   {/* Progress indicator for auto-rotate */}
                   <div className="relative h-2 w-40 rounded-full bg-gray-200 overflow-hidden">

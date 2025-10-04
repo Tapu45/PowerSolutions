@@ -40,17 +40,17 @@ const Navbar: React.FC = () => {
     {
       name: "Services",
       subItems: [
-        "ERP Consulting Service",
-        "Business Consulting Process",
+        "ERP Consulting",
+        "Business Process Consulting ",
         "Application Development",
-        "Transformation Service",
-        "Maintenance and Development",
+        "Transformation",
+        "Maintenance and Support",
       ],
       route: "/services",
       color: "#1BCDC5",
     },
     {
-      name: "USPs",
+      name: "USP",
       subItems: ["BYOS", "BYBS", "BIBD", "RYRO"],
       route: "/usps",
       color: "#D6CE0B",

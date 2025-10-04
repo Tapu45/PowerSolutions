@@ -2,13 +2,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import TrueFocus from "@/components/animation/focous-text";
-import { TextGenerateEffect } from "@/components/animation/text-generation";
-import CurvedLoop from "@/components/animation/CurvedLoop";
 
 const Concept: React.FC = () => {
   return (
-    <section className="py-49 pb-4 bg-background">
+    <section className="py-1 pb-4 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
        
         <div className="flex flex-col lg:flex-row items-center gap-19">
