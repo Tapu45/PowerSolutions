@@ -3,14 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
+import { ContactForm } from "@/components/ui/Contact-Form";
 import { CheckCircle2 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
@@ -18,34 +11,14 @@ const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
 export default function BIBDPage() {
-  const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-  };
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setForm({ name: "", email: "", company: "", message: "" });
-    setOpen(false);
-    alert("Thanks! We’ll get back to you about BIBD.");
-  };
+  const [showContactForm, setShowContactForm] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-first">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -57,11 +30,11 @@ export default function BIBDPage() {
                 className="text-xs uppercase tracking-wider mb-3 font-semibold"
                 style={{ color: BLUE }}
               >
-                solutions / bibd
+                USP / bibd
               </p>
 
               <h1
-                className="text-4xl md:text-6xl font-extrabold mb-5 leading-tight"
+                className="text-4xl md:text-5xl font-extrabold mb-5 leading-tight"
                 style={{
                   color: TEAL,
                 }}
@@ -69,10 +42,23 @@ export default function BIBDPage() {
                 Building Innovations & Business Disruptions
               </h1>
 
-              <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg">
-                Ready to disrupt the market with a unique product? We specialize
-                in building innovative MVPs and prototypes that stand out,
-                turning bold ideas into reality with cutting-edge tech.
+              <p className="text-base md:text-md leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg mb-4">
+                Innovation is the heartbeat of disruption. At our company, we
+                don’t just talk about innovation—we build it. BIBD is our
+                structured approach to transforming raw ideas into real-world
+                solutions that challenge the status quo and deliver measurable
+                impact.
+                <br />
+                <br />
+                Being the cornerstone of our Ultimate Solution Proposed
+                framework. It exemplifies our commitment to solving, not
+                selling—by turning visionary ideas into practical, disruptive
+                solutions that redefine business success.
+                <br />
+                <br />
+                BIBD is built to attract and empower startups, internal
+                innovators, and customers by offering a platform where ideas are
+                validated, enhanced, and transformed into real-world solutions.
               </p>
 
               {/* Chips */}
@@ -94,26 +80,6 @@ export default function BIBDPage() {
                     {chip.label}
                   </span>
                 ))}
-              </div>
-
-              {/* CTA */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button
-                  onClick={() => setOpen(true)}
-                  className="shadow-md text-white"
-                  style={{
-                    backgroundColor: BLUE,
-                  }}
-                >
-                  Start Building
-                </Button>
-                <a
-                  href="#how-it-works"
-                  className="text-sm font-medium underline underline-offset-4 hover:opacity-80 transition"
-                  style={{ color: TEAL }}
-                >
-                  Learn how it works
-                </a>
               </div>
 
               {/* Assurances */}
@@ -174,22 +140,37 @@ export default function BIBDPage() {
 
       {/* Steps */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {[
             {
-              title: "Ideate & validate",
-              desc: "Brainstorm your disruptive idea. We'll help refine it with market research and feasibility checks.",
-              color: YELLOW,
+              title: "Idea-to-Product Transformation",
+              desc: "Turn concepts into deployable features or products.",
+              img: "/assets/bibd/ipt.png",
+              color: BLUE,
             },
             {
-              title: "Prototype & build",
-              desc: "Create functional prototypes using agile methods, incorporating user feedback for rapid improvements.",
+              title: "Industry Validation",
+              desc: "Leverage our domain expertise to refine and strengthen innovations.",
+              img: "/assets/bibd/iv.png",
               color: TEAL,
             },
             {
-              title: "Launch & scale",
-              desc: "Deploy your MVP, gather insights, and scale to a full product with our ongoing support.",
+              title: "Collaborative Innovation",
+              desc: "Co-create with external innovators to accelerate disruption.",
+              img: "/assets/bibd/ce.png",
+              color: YELLOW,
+            },
+            {
+              title: "Customer-Centric Development",
+              desc: "Build solutions grounded in real customer experiences.",
+              img: "/assets/bibd/av.png",
               color: BLUE,
+            },
+            {
+              title: "Scalable Innovation Lab",
+              desc: "Incubate, test, and launch innovations in a structured environment.",
+              img: "/assets/bibd/sila.png",
+              color: TEAL,
             },
           ].map((step, i) => (
             <motion.div
@@ -197,26 +178,41 @@ export default function BIBDPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="flex flex-col items-center text-center flex-1"
+              transition={{ delay: i * 0.15 }}
+              className="flex flex-col items-center text-center group"
             >
-              <div
-                className="rounded-full p-4 mb-4 shadow-lg"
-                style={{ background: `${step.color}22` }}
+              {/* Image container with hover effects */}
+              <motion.div
+                className="relative mb-6"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
               >
-                <CheckCircle2
-                  size={36}
-                  style={{ color: step.color }}
-                  strokeWidth={2.5}
+                {/* Blurred background effect */}
+                <div
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ backgroundColor: step.color, filter: "blur(20px)" }}
                 />
-              </div>
+                <div
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 80, height: 80 }}
+                >
+                  <Image
+                    src={step.img}
+                    alt={step.title}
+                    width={64}
+                    height={64}
+                    className="object-contain transition-transform duration-300 group-hover:rotate-12"
+                    style={{ width: 64, height: 64 }}
+                  />
+                </div>
+              </motion.div>
               <h3
-                className="text-lg font-semibold mb-2"
+                className="text-lg font-semibold mb-3 transition-colors duration-300"
                 style={{ color: step.color }}
               >
                 {step.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 max-w-xs">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {step.desc}
               </p>
             </motion.div>
@@ -236,127 +232,136 @@ export default function BIBDPage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className="text-3xl md:text-4xl font-extrabold mb-6"
+            className="text-3xl md:text-4xl font-extrabold mb-10"
             style={{ color: TEAL }}
           >
             How BIBD Works
           </h2>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            Innovation requires thinking differently, but execution can be
-            daunting. <span style={{ color: BLUE, fontWeight: 600 }}>BIBD</span>{" "}
-            empowers you to build products that break the mold, from concept to
-            market-ready MVP, with our expert guidance every step.
-          </p>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            We combine creative ideation, rapid prototyping, and iterative
-            development to ensure your idea not only works but wows users and
-            investors alike.
-          </p>
-          <p className="text-lg md:text-xl mb-10 leading-relaxed text-slate-700 dark:text-slate-200">
-            Through collaborative workshops, user testing, and tech integration,
-            we deliver scalable solutions that set you apart in a crowded
-            market.
-          </p>
-
-          <h3
-            className="text-2xl md:text-3xl font-bold mb-6"
-            style={{ color: BLUE }}
-          >
-            What You Get
-          </h3>
-          <ul className="space-y-6">
-            {[
-              {
-                title: "Disruptive Innovation",
-                desc: "Turn bold ideas into unique products that challenge the status quo, backed by data-driven validation.",
-                color: BLUE,
-              },
-              {
-                title: "Agile Prototyping",
-                desc: "Build and test prototypes quickly, incorporating feedback to refine features and user experience.",
-                color: TEAL,
-              },
-              {
-                title: "Scalable Launch",
-                desc: "From MVP to full-scale product, we ensure your build is ready for growth and market success.",
-                color: YELLOW,
-              },
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <CheckCircle2
-                  className="mt-1"
-                  size={28}
-                  style={{ color: item.color }}
-                />
-                <div>
-                  <span
-                    className="font-semibold text-lg block mb-1"
-                    style={{ color: item.color }}
-                  >
-                    {item.title}
-                  </span>
-                  <span className="block text-base md:text-lg text-slate-700 dark:text-slate-200">
-                    {item.desc}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ol className="space-y-10">
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                1.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  Submit Your Idea
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Startups, internal teams, and customers can submit ideas via
+                  our portal.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: TEAL }}>
+                2.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: TEAL }}
+                >
+                  Validate & Enhance
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  We assess feasibility, impact, and add missing elements.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: YELLOW }}>
+                3.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: YELLOW }}
+                >
+                  Idea Lab Integration
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Your idea joins our innovation ecosystem.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                4.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  Develop & Deploy
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  We build it into a feature, function, or product.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: TEAL }}>
+                5.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: TEAL }}
+                >
+                  Feedback & Iterate
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Continuous improvement based on real-world use.
+                </span>
+              </div>
+            </li>
+          </ol>
         </motion.div>
-      </section>
 
-      {/* Dialog */}
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Contact Us About BIBD</DialogTitle>
-            <DialogDescription>
-              Share your innovative idea, and let's build something different
-              together.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={onSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              required
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-left mt-12"
+        >
+          <Button
+            onClick={() => setShowContactForm(!showContactForm)}
+            className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+              color: "white",
+            }}
+          >
+            Register Your Idea. Disruption is in Progress
+          </Button>
+        </motion.div>
+
+        {/* Contact Form - appears below the button */}
+        {showContactForm && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-8"
+          >
+            <ContactForm
+              defaultUSP="bibd"
+              onSubmit={() => {
+                alert("Thanks! We’ll get back to you about BIBD.");
+                setShowContactForm(false);
+              }}
+              className="max-w-4xl mx-auto"
             />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="company"
-              placeholder="Company"
-              value={form.company}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-            />
-            <textarea
-              name="message"
-              placeholder="Tell us about your project"
-              value={form.message}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              rows={4}
-              required
-            />
-            <DialogFooter>
-              <Button type="submit">Send Message</Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+          </motion.div>
+        )}
+      </section>
     </div>
   );
 }

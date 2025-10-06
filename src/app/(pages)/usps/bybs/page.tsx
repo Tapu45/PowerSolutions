@@ -12,12 +12,14 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { CheckCircle2 } from "lucide-react";
+import { ContactForm } from "@/components/ui/Contact-Form";
 
 const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
 export default function BYBSPage() {
+  const [showContactForm, setShowContactForm] = useState(false);
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -45,7 +47,7 @@ export default function BYBSPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-first">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-first">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +74,7 @@ export default function BYBSPage() {
               <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg">
                 BYBS is our signature consulting approach that listens deeply to
                 your business narrative — from boardroom vision to frontline
-                realities — and turns it into a solution that’s as unique as
+                realities — and turns it into a solution that's as unique as
                 your journey. BYBS brings empathy into enterprise consulting —
                 listening across levels, understanding your challenges, and
                 crafting solutions that feel tailor-made because they are.
@@ -102,31 +104,80 @@ export default function BYBSPage() {
                   </span>
                 ))}
               </div>
+            </motion.div>
 
-              {/* CTA */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button
-                  onClick={() => setOpen(true)}
-                  className="shadow-md text-white"
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
+                <Image
+                  src="/solutions2/BYBS.png"
+                  alt="Bring Your Business Solutions"
+                  fill
+                  className="object-contain p-8"
+                  priority
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-3xl"
                   style={{
-                    backgroundColor: BLUE,
+                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
+                       radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
+                       radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
                   }}
-                >
-                  Talk to Experts
-                </Button>
-                <a
-                  href="#how-it-works"
-                  className="text-sm font-medium underline underline-offset-4 hover:opacity-80 transition"
-                  style={{ color: TEAL }}
-                >
-                  Learn how it works
-                </a>
+                />
               </div>
+            </motion.div>
 
-              {/* Assurances */}
-              <div className="mt-8">
-                <div className="flex flex-wrap gap-3 justify-start">
+            {/* Assurance Boxes - NOW OUTSIDE BOTH COLUMNS */}
+            <div className="absolute left-0 right-0 -bottom-28 z-30 px-0 w-full overflow-hidden">
+              <style jsx>{`
+                @keyframes marquee {
+                  0% {
+                    transform: translateX(0);
+                  }
+                  100% {
+                    transform: translateX(-50%);
+                  }
+                }
+                .marquee-container:hover .marquee-content {
+                  animation-play-state: paused;
+                }
+                .marquee-content {
+                  animation: marquee 30s linear infinite;
+                }
+              `}</style>
+              <div className="marquee-container pb-4">
+                <div className="flex gap-4 marquee-content">
                   {[
+                    {
+                      text: "Businesses planning ERP or business application transformation",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Leaders facing strategic ambiguity or cross-functional misalignment",
+                      color: TEAL,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Teams exploring multiple options but unsure of the right move",
+                      color: YELLOW,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Organizations with evolving, non-standard, or hybrid processes",
+                      color: BLUE,
+                      icon: "✓",
+                    },
+                    {
+                      text: "Companies that want clarity before commitment",
+                      color: TEAL,
+                      icon: "✓",
+                    },
                     {
                       text: "Businesses planning ERP or business application transformation",
                       color: BLUE,
@@ -157,11 +208,12 @@ export default function BYBSPage() {
                       key={i}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 * i }}
-                      className="flex items-center gap-3 bg-white/60 dark:bg-slate-800/30 px-4 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                      transition={{ delay: 0.1 * (i % 5) }}
+                      className="flex-shrink-0 flex items-center gap-3 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm px-4 py-3 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 w-[320px]"
+                      style={{ border: `1px solid ${item.color}40` }}
                     >
                       <span
-                        className="text-lg font-bold"
+                        className="text-lg font-bold flex-shrink-0"
                         style={{ color: item.color }}
                       >
                         {item.icon}
@@ -173,55 +225,44 @@ export default function BYBSPage() {
                   ))}
                 </div>
               </div>
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl  ">
-                <Image
-                  src="/solutions2/BYBS.png"
-                  alt="Bring Your Business Solutions"
-                  fill
-                  className="object-contain p-8"
-                  priority
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-                       radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-                       radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
-                />
-              </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Steps */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {[
             {
-              title: "You bring the vision",
-              desc: "Share your business idea and requirements. We'll collaborate to refine and validate the concept.",
-              color: YELLOW,
+              title: "Clarity from Complexity",
+              desc: "Helps you see the path through the noise.",
+              img: "/assets/bybs/cfc.png",
+              color: BLUE,
             },
             {
-              title: "We design & develop",
-              desc: "Our experts craft scalable solutions using modern tech stacks, ensuring performance and security.",
+              title: "Tailored, context-rich solutions",
+              desc: "Tailored to your business processes, budget, and transformation goals.",
+              img: "/assets/bybs/tcs.png",
               color: TEAL,
             },
             {
-              title: "Launch with success",
-              desc: "Deploy, test, and iterate. Go live with confidence, backed by ongoing support.",
+              title: "Decision Paralysis",
+              desc: "Helps when multiple perspectives exist but no clear action emerges.",
+              img: "/assets/bybs/dpw.png",
+              color: YELLOW,
+            },
+            {
+              title: "Strategic Alignment with Business DNA",
+              desc: "Capture the full narrative — leadership vision, operational friction, and ground-level realities.",
+              img: "/assets/bybs/sabd.png",
               color: BLUE,
+            },
+            {
+              title: "Reduced Internal Friction and Misalignment",
+              desc: "Internal teams often miss cross-functional context or get stuck in silos.",
+              img: "/assets/bybs/cba.png",
+              color: TEAL,
             },
           ].map((step, i) => (
             <motion.div
@@ -229,26 +270,41 @@ export default function BYBSPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="flex flex-col items-center text-center flex-1"
+              transition={{ delay: i * 0.15 }}
+              className="flex flex-col items-center text-center group"
             >
-              <div
-                className="rounded-full p-4 mb-4 shadow-lg"
-                style={{ background: `${step.color}22` }}
+              {/* Image container with hover effects */}
+              <motion.div
+                className="relative mb-6"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
               >
-                <CheckCircle2
-                  size={36}
-                  style={{ color: step.color }}
-                  strokeWidth={2.5}
+                {/* Blurred background effect */}
+                <div
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ backgroundColor: step.color, filter: "blur(20px)" }}
                 />
-              </div>
+                <div
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 80, height: 80 }}
+                >
+                  <Image
+                    src={step.img}
+                    alt={step.title}
+                    width={64}
+                    height={64}
+                    className="object-contain transition-transform duration-300 group-hover:rotate-12"
+                    style={{ width: 64, height: 64 }}
+                  />
+                </div>
+              </motion.div>
               <h3
-                className="text-lg font-semibold mb-2"
+                className="text-lg font-semibold mb-3 transition-colors duration-300"
                 style={{ color: step.color }}
               >
                 {step.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 max-w-xs">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {step.desc}
               </p>
             </motion.div>
@@ -268,127 +324,124 @@ export default function BYBSPage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className="text-3xl md:text-4xl font-extrabold mb-6"
+            className="text-3xl md:text-4xl font-extrabold mb-10"
             style={{ color: TEAL }}
           >
             How BYBS Works
           </h2>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            Many businesses struggle with turning ideas into reality due to
-            technical gaps or resource constraints.{" "}
-            <span style={{ color: BLUE, fontWeight: 600 }}>BYBS</span> bridges
-            this by providing end-to-end custom development services, where you
-            define the business goals and we deliver the technical execution.
-          </p>
-          <p className="text-lg md:text-xl mb-6 leading-relaxed text-slate-700 dark:text-slate-200">
-            From ideation to deployment, we use agile methodologies to build
-            solutions that scale, integrate seamlessly, and meet your unique
-            needs—without the hassle of managing a full tech team.
-          </p>
-          <p className="text-lg md:text-xl mb-10 leading-relaxed text-slate-700 dark:text-slate-200">
-            Expect regular updates, prototypes, and quality checks, ensuring
-            your solution is robust, user-friendly, and ready for market.
-          </p>
-
-          <h3
-            className="text-2xl md:text-3xl font-bold mb-6"
-            style={{ color: BLUE }}
-          >
-            What You Get
-          </h3>
-          <ul className="space-y-6">
-            {[
-              {
-                title: "Custom-Built Solutions",
-                desc: "Tailored software designed specifically for your business model, ensuring perfect fit and competitive edge.",
-                color: BLUE,
-              },
-              {
-                title: "Expert Team & Tools",
-                desc: "Access to seasoned developers, designers, and QA specialists using cutting-edge technologies for reliable results.",
-                color: TEAL,
-              },
-              {
-                title: "Fast & Flexible Delivery",
-                desc: "Agile sprints, iterative builds, and scalable architecture to adapt to changes and launch quickly.",
-                color: YELLOW,
-              },
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <CheckCircle2
-                  className="mt-1"
-                  size={28}
-                  style={{ color: item.color }}
-                />
-                <div>
-                  <span
-                    className="font-semibold text-lg block mb-1"
-                    style={{ color: item.color }}
-                  >
-                    {item.title}
-                  </span>
-                  <span className="block text-base md:text-lg text-slate-700 dark:text-slate-200">
-                    {item.desc}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ol className="space-y-10">
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                1.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  Listen
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  We listen & capture the full business story across levels.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: TEAL }}>
+                2.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: TEAL }}
+                >
+                  Granularize
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  The granulization expertise breaks down problem statements and
+                  requirements to the lowest level for solution designing.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: YELLOW }}>
+                3.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: YELLOW }}
+                >
+                  Design
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Build context-aware, impact-driven solutions for each of the
+                  problem statements.
+                </span>
+              </div>
+            </li>
+            <li className="flex flex-col md:flex-row items-start gap-6">
+              <span className="text-2xl font-bold" style={{ color: BLUE }}>
+                4.
+              </span>
+              <div>
+                <span
+                  className="font-semibold text-xl block mb-1"
+                  style={{ color: BLUE }}
+                >
+                  Deliver & Benchmark
+                </span>
+                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                  Execute with precision while enabling client focus and stay
+                  engaged to monitor the solution is benchmarking.
+                </span>
+              </div>
+            </li>
+          </ol>
         </motion.div>
       </section>
 
-      {/* Dialog */}
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Contact Us About BYBS</DialogTitle>
-            <DialogDescription>
-              Share your business idea, and we'll discuss how we can bring it to
-              life.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={onSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              required
+      {/* CTA Section */}
+      <section className="mx-auto max-w-6xl px-6 py-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-left"
+        >
+          <Button
+            onClick={() => setShowContactForm(!showContactForm)}
+            className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+              color: "white",
+            }}
+          >
+            Do you have a story for our whiteboard?
+          </Button>
+        </motion.div>
+
+        {/* Contact Form - appears below the button */}
+        {showContactForm && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-8"
+          >
+            <ContactForm
+              defaultUSP="bybs"
+              onSubmit={() => {
+                alert("Thanks! We’ll get back to you about BYBS.");
+                setShowContactForm(false);
+              }}
+              className="max-w-4xl mx-auto"
             />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="company"
-              placeholder="Company"
-              value={form.company}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-            />
-            <textarea
-              name="message"
-              placeholder="Tell us about your project"
-              value={form.message}
-              onChange={onChange}
-              className="w-full p-2 border rounded"
-              rows={4}
-              required
-            />
-            <DialogFooter>
-              <Button type="submit">Send Message</Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+          </motion.div>
+        )}
+      </section>
     </div>
   );
 }
