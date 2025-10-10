@@ -32,61 +32,55 @@ const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
-export default function BAaaSPage() {
+export default function FAAASPage() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about BAaaS.");
+    alert("Thanks! We'll get back to you about FAAAS.");
     setShowContactForm(false);
   };
 
   const features = [
     {
-      title: "Independent Stakeholder/SME/End User Interviews",
-      description:
-        "Direct engagement with key stakeholders to capture authentic business needs",
+      title: "Unbiased & Independent Evaluation",
+      description: "Objective assessment free from internal biases",
       icon: Users,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Business Process Mapping",
-      description:
-        "Visual documentation of current workflows and identification of improvement opportunities",
+      title: "Technology-Agnostic Recommendations",
+      description: "Platform-independent advice for optimal solutions",
       icon: Target,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Gap Analysis & Transformation Readiness",
-      description:
-        "Comprehensive assessment of current state vs. desired future state",
+      title: "Industry-Wide Insights",
+      description: "Leveraging global trends and best practices",
       icon: BarChart3,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
     },
     {
-      title: "Industry Benchmarking",
-      description:
-        "Alignment with industry best practices and competitive standards",
+      title: "Rapid Turnaround",
+      description: "Quick assessments to accelerate decision-making",
       icon: TrendingUp,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Requirements Documentation",
-      description:
-        "Structured, traceable documentation of all business requirements",
+      title: "Customizable Depth (Lite to Deep-Dive)",
+      description: "Flexible scoping from basic to comprehensive analysis",
       icon: FileText,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Use Case & User Story Development",
-      description:
-        "Detailed scenarios and user-centric requirements for development teams",
+      title: "Stakeholder-Friendly Reporting",
+      description: "Clear, actionable reports for all audiences",
       icon: Lightbulb,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
@@ -95,52 +89,48 @@ export default function BAaaSPage() {
 
   const offerings = [
     {
-      icon: "/services/baaas/irg.png",
-      title: "Independent Requirement Gathering",
+      icon: "/services/faaas/cfr.png",
+      title: "Comprehensive Feasibility Report",
       description:
-        "We engage stakeholders directly to capture real business needs—free from delivery bias.",
+        "Covering technical, operational, financial, and strategic dimensions.",
     },
     {
-      icon: "/services/baaas/bpm.png",
-      title: "Business Process Mapping",
-      description:
-        "Visualize your current state and identify transformation opportunities.",
+      icon: "/services/faaas/asa.png",
+      title: "Alternative Solution Analysis",
+      description: "Explore multiple approaches, platforms, and methodologies.",
     },
     {
-      icon: "/services/baaas/gara.png",
-      title: "Gap Analysis & Readiness Assessment",
+      icon: "/services/faaas/rom.png",
+      title: "Risk & Opportunity Mapping",
       description:
-        "Understand what's missing and what's needed to move forward.",
+        "Identify potential blockers and hidden opportunities early.",
     },
     {
-      icon: "/services/baaas/ib.png",
-      title: "Industry Benchmarking",
-      description: "Align your processes with best practices and standards.",
+      icon: "/services/faaas/sfe.png",
+      title: "Strategic Fit Evaluation",
+      description:
+        "Ensure alignment with long-term business goals and scalability.",
     },
     {
-      icon: "/services/baaas/cd.png",
-      title: "Clear Documentation",
+      icon: "/services/faaas/tls.png",
+      title: "Technology Landscape Scan",
       description:
-        "From use cases to user stories—everything is structured, traceable, and actionable.",
-    },
-    {
-      icon: "/services/baaas/psi.png",
-      title: "Problem Statement Identification",
-      description:
-        "We help you define the real problems before jumping to solutions.",
+        "Stay informed about emerging tools, trends, and industry best practices.",
     },
   ];
 
   const businessBenefits = [
-    "Gain clarity on transformation needs",
-    "Avoid scope creep and solution misfit",
-    "Make informed decisions with confidence",
+    "Strategic Alignment: Ensure the project supports long-term business goals.",
+    "Investment Justification: Validate ROI before committing resources.",
+    "Risk Visibility: Get early insights into financial, operational, and market risks.",
+    "Decision Acceleration: Make faster, informed go/no-go decisions.",
   ];
 
   const itBenefits = [
-    "Receive well-defined, validated requirements",
-    "Reduce rework and delivery delays",
-    "Enhance client trust and satisfaction",
+    "Technology-Agnostic Recommendations: Discover optimal platforms and tools.",
+    "Scalability Insights: Understand future-proofing needs and integration challenges.",
+    "Alternative Solution Mapping: Explore multiple implementation paths.",
+    "Reduced Rework: Avoid technical misalignment and scope creep.",
   ];
 
   return (
@@ -210,7 +200,7 @@ export default function BAaaSPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  BAaaS
+                  FAAAS
                 </span>
               </motion.div>
 
@@ -222,14 +212,15 @@ export default function BAaaSPage() {
                 className="mb-8"
               >
                 <h1 className="text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: TEAL }}>Business</span>{" "}
-                  <span style={{ color: BLUE }}>Analysis</span>
-                  <div
+                  <span style={{ color: BLUE }}>Feasibility&nbsp;</span>
+                  <span style={{ color: TEAL }}>Assessment</span>
+                  <br />
+                  <span
                     className="text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
                     as a Service
-                  </div>
+                  </span>
                 </h1>
               </motion.div>
 
@@ -253,13 +244,15 @@ export default function BAaaSPage() {
                       Overview
                     </h3>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      In most IT and ERP projects, Business Analysis is bundled
-                      into the overall service—often overlooked, underfunded,
-                      and undervalued. This leads to vague requirements,
-                      misaligned solutions, and costly rework. BAaaS offers a
-                      dedicated, third-party analysis that ensures objectivity,
-                      clarity, and strategic alignment. Helps both Client and
-                      IT/ERP Partner in getting tri-party certified scope.
+                      In today’s fast-paced digital landscape, organizations
+                      often rush into development or implementation projects
+                      without a thorough, unbiased feasibility assessment.
+                      Traditionally, this critical step is handled by internal
+                      Business Analysts or Technical Consultants whose
+                      evaluations are shaped by their own competencies and
+                      limited exposure to broader industry trends. This can lead
+                      to missed opportunities, overlooked risks, and suboptimal
+                      solutions.
                     </p>
                   </div>
                 </div>
@@ -279,7 +272,7 @@ export default function BAaaSPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with BAaaS
+                  Get Started with FAAAS
                 </Button>
               </motion.div>
             </motion.div>
@@ -293,8 +286,8 @@ export default function BAaaSPage() {
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/assets/services/separate/baas1.png"
-                  alt="Business Analysis as a Service"
+                  src="/assets/services/separate/faas1.png"
+                  alt="Feasibility Assessment as a Service"
                   fill
                   className="object-contain p-8"
                   priority
@@ -390,10 +383,11 @@ export default function BAaaSPage() {
               }}
               transition={{ duration: 1 }}
             >
-              Our Analysis Process
+              Our Assessment Process
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              A systematic approach to business analysis that delivers results
+              A systematic approach to feasibility assessment that delivers
+              results
             </p>
           </motion.div>
 
@@ -467,10 +461,10 @@ export default function BAaaSPage() {
               What We Offer
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Comprehensive services to ensure successful business analysis
+              Comprehensive services to ensure successful feasibility assessment
             </p>
           </motion.div>
-         
+
           {/* Flip Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {offerings.map((offering, index) => {
@@ -545,7 +539,6 @@ export default function BAaaSPage() {
               );
             })}
           </div>
-          
         </div>
       </section>
       {/* Key Benefits Section */}
@@ -688,7 +681,7 @@ export default function BAaaSPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Enhanced Direct Engagement */}
+            {/* Lite Assessment */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -766,7 +759,7 @@ export default function BAaaSPage() {
                         className="text-2xl font-bold mb-2"
                         style={{ color: YELLOW }}
                       >
-                        Direct Engagement
+                        Lite Assessment
                       </h3>
                       <motion.div
                         className="w-20 h-1 rounded-full"
@@ -780,14 +773,13 @@ export default function BAaaSPage() {
 
                   {/* Description */}
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    You hire us independently to analyze your business before or
-                    during your transformation journey.
+                    Quick validation for small-scale initiatives or MVPs.
                   </p>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Enhanced Partner Engagement */}
+            {/* Standard Assessment */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -865,7 +857,7 @@ export default function BAaaSPage() {
                         className="text-2xl font-bold mb-2"
                         style={{ color: TEAL }}
                       >
-                        Partner Engagement
+                        Standard Assessment
                       </h3>
                       <motion.div
                         className="w-20 h-1 rounded-full"
@@ -879,8 +871,206 @@ export default function BAaaSPage() {
 
                   {/* Description */}
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Your IT/ERP provider brings us in to ensure the analysis is
-                    objective and comprehensive.
+                    Balanced evaluation for mid-sized projects with moderate
+                    complexity.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Deep-Dive Assessment */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="relative group"
+            >
+              <motion.div
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: `0 30px 60px ${BLUE}25`,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 opacity-10">
+                  <motion.div
+                    animate={{
+                      rotate: 360,
+                      scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                      duration: 25,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute top-8 right-8 w-22 h-22 border-2 border-dashed"
+                    style={{ borderColor: BLUE }}
+                  ></motion.div>
+                  <motion.div
+                    animate={{
+                      rotate: -360,
+                      scale: [1, 0.7, 1],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute bottom-8 left-8 w-18 h-18 border-2 border-dashed"
+                    style={{ borderColor: BLUE }}
+                  ></motion.div>
+                </div>
+
+                {/* Animated Border */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${BLUE}, ${YELLOW})`,
+                    padding: "3px",
+                  }}
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                </motion.div>
+
+                <div className="relative z-10">
+                  {/* Enhanced Header */}
+                  <div className="flex items-center gap-6 mb-8">
+                    <motion.div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: `${BLUE}15` }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 5,
+                        backgroundColor: `${BLUE}25`,
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Award className="w-8 h-8" style={{ color: BLUE }} />
+                    </motion.div>
+                    <div>
+                      <h3
+                        className="text-2xl font-bold mb-2"
+                        style={{ color: BLUE }}
+                      >
+                        Deep-Dive Assessment
+                      </h3>
+                      <motion.div
+                        className="w-20 h-1 rounded-full"
+                        style={{ backgroundColor: BLUE }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "5rem" }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                      ></motion.div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    In-depth analysis for enterprise-grade implementations or
+                    high-risk initiatives.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Advisory Add-On */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="relative group"
+            >
+              <motion.div
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: `0 30px 60px ${YELLOW}25`,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Animated Background Elements */}
+                <div className="absolute inset-0 opacity-10">
+                  <motion.div
+                    animate={{
+                      rotate: 360,
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
+                    style={{ borderColor: YELLOW }}
+                  ></motion.div>
+                  <motion.div
+                    animate={{
+                      rotate: -360,
+                      scale: [1, 0.8, 1],
+                    }}
+                    transition={{
+                      duration: 15,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
+                    style={{ borderColor: YELLOW }}
+                  ></motion.div>
+                </div>
+
+                {/* Animated Border */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
+                    padding: "3px",
+                  }}
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                </motion.div>
+
+                <div className="relative z-10">
+                  {/* Enhanced Header */}
+                  <div className="flex items-center gap-6 mb-8">
+                    <motion.div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: `${YELLOW}15` }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 5,
+                        backgroundColor: `${YELLOW}25`,
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Globe className="w-8 h-8" style={{ color: YELLOW }} />
+                    </motion.div>
+                    <div>
+                      <h3
+                        className="text-2xl font-bold mb-2"
+                        style={{ color: YELLOW }}
+                      >
+                        Advisory Add-On
+                      </h3>
+                      <motion.div
+                        className="w-20 h-1 rounded-full"
+                        style={{ backgroundColor: YELLOW }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "5rem" }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                      ></motion.div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    Ongoing support post-assessment to guide implementation
+                    decisions.
                   </p>
                 </div>
               </motion.div>
@@ -902,7 +1092,7 @@ export default function BAaaSPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how BAaaS can bring clarity and strategic alignment
+              Let's discuss how FAAAS can bring clarity and strategic alignment
               to your next project.
             </p>
 
@@ -914,7 +1104,7 @@ export default function BAaaSPage() {
                 color: "white",
               }}
             >
-              Get Started with BAaaS
+              Get Started with FAAAS
             </Button>
 
             {/* Contact Form */}
@@ -927,7 +1117,7 @@ export default function BAaaSPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="baaas"
+                  defaultUSP="faaas"
                   onSubmit={handleContactSubmit}
                   className="max-w-4xl mx-auto"
                 />
