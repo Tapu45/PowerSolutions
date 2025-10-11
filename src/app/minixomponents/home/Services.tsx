@@ -121,7 +121,7 @@ const Services = () => {
   };
 
   return (
-    <section className="premium-section premium-pattern relative py-25 md:py-26 pb-16 overflow-hidden">
+    <section className="premium-section premium-pattern relative md:py-26 pb-16 overflow-hidden">
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 to-yellow-200/6 rounded-full blur-3xl premium-animate-float" />
       <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 to-teal-200/4 rounded-full blur-2xl premium-animate-float delay-1000" />
       <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 to-yellow-100/4 rounded-full blur-3xl premium-animate-float delay-2000" />
@@ -132,7 +132,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
           {/* Desktop animated focus */}
           <div className="hidden md:block">
@@ -157,7 +157,7 @@ const Services = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold bg-black bg-clip-text text-transparent mb-3 text-center"
+          className="text-3xl md:text-4xl font-bold bg-black bg-clip-text text-transparent mb-3 text-center"
         >
           Our Services
         </motion.h2>
@@ -172,27 +172,27 @@ const Services = () => {
 
         {/* Single matrix: first cell is text, then all cards fill the grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 items-stretch auto-rows-[15rem]">
-          {/* Cell 1: Service content */}
+          {/* Cell 1: Service content - Improved for mobile */}
           <motion.aside
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="rounded-2xl p-6 premium-card flex flex-col justify-between h-60 sm:h-60 lg:row-span-2 lg:h-auto lg:min-h-[30rem]"
+            className="rounded-2xl p-5 premium-card flex flex-col justify-between h-auto sm:h-auto lg:row-span-2 lg:h-auto lg:min-h-[30rem]"
             style={{
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,253,252,0.85) 50%, rgba(254,252,232,0.8) 100%)",
             }}
           >
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3">
                 <span className="h-6 w-1.5 rounded bg-teal-500" />
                 <span className="uppercase tracking-wider text-sm font-semibold text-teal-700">
                   Services
                 </span>
               </div>
 
-              <p className="text-[0.95rem] leading-relaxed text-gray-700">
+              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700">
                 At{" "}
                 <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-700 to-yellow-600">
                   {/* Custom colored "solutions" as per logo */}
@@ -219,32 +219,32 @@ const Services = () => {
                 broader scopes.
               </p>
 
-              <ul className="mt-4 space-y-2.5">
-                <li className="flex gap-3 items-start">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">
+              <ul className="mt-3 space-y-2">
+                <li className="flex gap-2 items-start">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0" />
+                  <span className="text-base sm:text-sm text-gray-700">
                     Surface micro-metrics that drive macro results.
                   </span>
                 </li>
-                <li className="flex gap-3 items-start">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">
+                <li className="flex gap-2 items-start">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0" />
+                  <span className="text-base sm:text-sm text-gray-700">
                     Turn narrow challenges into strategic wins.
                   </span>
                 </li>
-                <li className="flex gap-3 items-start">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">
+                <li className="flex gap-2 items-start hidden sm:flex">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0" />
+                  <span className="text-base sm:text-sm text-gray-700">
                     Stay ahead of benchmarks with focused execution.
                   </span>
                 </li>
               </ul>
             </div>
 
-            <div className="mt-5 h-0.5 w-20 bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-400 rounded-full" />
+            <div className="mt-4 h-0.5 w-16 bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-400 rounded-full" />
           </motion.aside>
 
-          {/* Remaining cells: all service cards */}
+          {/* Remaining cells: all service cards - Improved for mobile */}
           {SERVICES.map((service, idx) => (
             <motion.div
               key={service.name}
@@ -252,11 +252,10 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
               viewport={{ once: true }}
-              className="relative group rounded-2xl backdrop-blur-sm hover:backdrop-blur-md transition-all duration-500 overflow-hidden border cursor-pointer h-60"
-              onMouseEnter={() => setHovered(idx)}
-              onMouseLeave={() => setHovered(null)}
-              onClick={() => handleServiceClick(service.name, idx)}
+              className="relative group rounded-2xl backdrop-blur-sm hover:backdrop-blur-md transition-all duration-500 overflow-hidden border cursor-pointer sm:h-60"
               style={{
+                height: "auto", // Changed from fixed height to auto
+                minHeight: "15rem", // Add minimum height to ensure consistent sizing
                 background:
                   hovered === idx
                     ? `linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,252,0.9) 30%, rgba(254,252,232,0.85) 100%)`
@@ -270,6 +269,9 @@ const Services = () => {
                     ? `0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 8px 32px -8px rgba(214, 206, 11, 0.1), 0 0 0 1px ${service.color}25`
                     : "0 8px 25px -5px rgba(20, 184, 166, 0.08), 0 4px 16px -4px rgba(214, 206, 11, 0.06), 0 0 0 1px rgba(20, 184, 166, 0.1)",
               }}
+              onMouseEnter={() => setHovered(idx)}
+              onMouseLeave={() => setHovered(null)}
+              onClick={() => handleServiceClick(service.name, idx)}
             >
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -278,7 +280,10 @@ const Services = () => {
                 }}
               />
 
-              <div className="relative h-full w-full overflow-hidden">
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ height: "15rem" }}
+              >
                 <div
                   className={`absolute inset-0 transition-all duration-700 ease-out ${
                     hovered === idx
@@ -289,7 +294,7 @@ const Services = () => {
                 <img
                   src={service.img}
                   alt={service.name}
-                  className={`w-full h-full object-cover transition-all duration-700 ${
+                  className={`w-full h-full object-contain transition-all duration-700 ${
                     hovered === idx
                       ? "scale-110 filter saturate-110 brightness-105"
                       : "scale-100 filter saturate-105"
@@ -297,8 +302,36 @@ const Services = () => {
                 />
               </div>
 
+              {/* Service name display always visible - NEW */}
+              <div className="text-center py-3">
+                <h3
+                  className="font-semibold text-lg text-blue-700"
+                  style={{ color: service.color }}
+                >
+                  {service.name === "BAaas"
+                    ? "Business Analysis as a Service"
+                    : service.name === "FAaas"
+                    ? "Feasibility Assessment as a Service"
+                    : service.name === "PMaas"
+                    ? "Project Management as a Service"
+                    : service.name === "DMaas"
+                    ? "Data Migration as a Service"
+                    : service.name === "TMaas"
+                    ? "Transition Management as a Service"
+                    : service.name === "ATaas"
+                    ? "Application Testing as a Service"
+                    : service.name === "CMaas"
+                    ? "Competency Management as a Service"
+                    : service.name === "AEaas"
+                    ? "Application Evaluation as a Service"
+                    : service.name === "PAaas"
+                    ? "Project Audit as a Service"
+                    : service.name}
+                </h3>
+              </div>
+
               <div
-                className={`absolute bottom-0 left-0 right-0 py-4 transition-all duration-500 ease-out transform ${
+                className={`absolute bottom-0 left-0 right-0 py-3 transition-all duration-500 ease-out transform ${
                   hovered === idx || (isMobile && expanded === idx)
                     ? "translate-y-0 opacity-100"
                     : "translate-y-full opacity-0"
@@ -310,8 +343,8 @@ const Services = () => {
                   boxShadow: `0 -4px 20px rgba(20, 184, 166, 0.08), 0 -2px 12px rgba(214, 206, 11, 0.05), inset 0 1px 0 rgba(255,255,255,0.9)`,
                 }}
               >
-                <div className="p-4 pt-7">
-                  <div className="space-y-2.5">
+                <div className="p-3 pt-6">
+                  <div className="space-y-1.5 sm:space-y-2.5">
                     {service.bullets.slice(0, 2).map((bullet, i) => (
                       <motion.div
                         key={i}
@@ -322,13 +355,13 @@ const Services = () => {
                             : { opacity: 0, x: -10 }
                         }
                         transition={{ duration: 0.3, delay: i * 0.1 }}
-                        className="flex items-start gap-3"
+                        className="flex items-start gap-2"
                       >
                         <div
-                          className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                          className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 shadow-sm"
                           style={{ backgroundColor: service.color }}
                         />
-                        <span className="text-gray-700 text-sm leading-relaxed font-medium">
+                        <span className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
                           {bullet}
                         </span>
                       </motion.div>
@@ -343,13 +376,13 @@ const Services = () => {
                             : { opacity: 0, x: -10 }
                         }
                         transition={{ duration: 0.3, delay: 0.2 }}
-                        className="flex items-start gap-3"
+                        className="flex items-start gap-2"
                       >
                         <div
-                          className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 shadow-sm"
+                          className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 shadow-sm"
                           style={{ backgroundColor: service.color }}
                         />
-                        <span className="text-gray-700 text-sm leading-relaxed font-medium">
+                        <span className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
                           {service.bullets[2]}
                         </span>
                       </motion.div>
@@ -362,7 +395,7 @@ const Services = () => {
                             : { scale: 0.8, opacity: 0 }
                         }
                         transition={{ duration: 0.3, delay: 0.3 }}
-                        className="flex items-center justify-center w-9 h-9 rounded-full ml-2 transition-all duration-300 transform hover:scale-110 group/arrow shadow-md"
+                        className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full ml-2 transition-all duration-300 transform hover:scale-110 group/arrow shadow-md"
                         style={{
                           background: `linear-gradient(135deg, ${service.color} 0%, ${service.color}dd 100%)`,
                           boxShadow: `0 4px 12px ${service.color}40, inset 0 1px 0 rgba(255,255,255,0.3)`,
@@ -375,7 +408,7 @@ const Services = () => {
                         }}
                       >
                         <svg
-                          className="w-5 h-5 text-white transition-transform duration-300 group-hover/arrow:translate-x-0.5"
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover/arrow:translate-x-0.5"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

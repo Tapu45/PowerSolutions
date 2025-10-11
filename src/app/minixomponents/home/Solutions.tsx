@@ -175,7 +175,12 @@ export default function Solutions() {
                 width={360}
                 height={360}
                 className="object-contain relative"
-                style={{ transform: "rotate(-90deg)" }}
+                style={{
+                  transform:
+                    typeof window !== "undefined" && window.innerWidth < 768
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
               />
             </div>
           </motion.div>
@@ -243,39 +248,39 @@ export default function Solutions() {
                 </ul>
 
                 <div className="flex items-center gap-4">
-                 <Link
-  href={currentSolution.path}
-  className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
-  style={{
-    backgroundColor: currentSolution.color,
-    color: "#fff",
-    minWidth: 0,
-    width: "fit-content",
-  }}
-  onMouseOver={(e) => {
-    e.currentTarget.style.opacity = "0.9";
-  }}
-  onMouseOut={(e) => {
-    e.currentTarget.style.opacity = "1";
-  }}
->
-  {currentSolution.cta}
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5 ml-2"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    style={{ color: "#fff" }}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M14 5l7 7m0 0l-7 7m7-7H3"
-    />
-  </svg>
-</Link>
+                  <Link
+                    href={currentSolution.path}
+                    className="inline-flex items-center px-4 py-2 rounded-md font-semibold text-lg shadow-sm hover:shadow-md transition-colors"
+                    style={{
+                      backgroundColor: currentSolution.color,
+                      color: "#fff",
+                      minWidth: 0,
+                      width: "fit-content",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.opacity = "0.9";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                  >
+                    {currentSolution.cta}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 ml-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      style={{ color: "#fff" }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
 
                   {/* Progress indicator for auto-rotate */}
                   <div className="relative h-2 w-40 rounded-full bg-gray-200 overflow-hidden">

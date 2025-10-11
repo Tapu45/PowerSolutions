@@ -146,7 +146,7 @@ export default function BAaaSPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-23 sm:pt-16">
         {/* Background Elements */}
         <div
           className="absolute inset-0"
@@ -185,21 +185,21 @@ export default function BAaaSPage() {
           ></motion.div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="lg:col-span-7"
+              className="lg:col-span-7 w-full"
             >
-              {/* Service Badge */}
+              {/* Service Badge - hidden on mobile, visible on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 mb-8"
+                className="hidden lg:inline-flex items-center gap-2 mb-6 sm:mb-8"
               >
                 <div
                   className="w-2 h-2 rounded-full animate-pulse"
@@ -219,13 +219,13 @@ export default function BAaaSPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <h1 className="text-5xl md:text-6xl font-black leading-none mb-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
                   <span style={{ color: TEAL }}>Business</span>{" "}
                   <span style={{ color: BLUE }}>Analysis</span>
                   <div
-                    className="text-3xl md:text-4xl font-bold mt-2"
+                    className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
                     as a Service
@@ -238,21 +238,21 @@ export default function BAaaSPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div
-                    className="w-1 h-16 rounded-full mt-2"
+                    className="w-1 h-12 sm:h-16 rounded-full mt-2"
                     style={{ backgroundColor: TEAL }}
                   ></div>
                   <div>
                     <h3
-                      className="text-xl font-bold mb-2"
+                      className="text-lg sm:text-xl font-bold mb-2"
                       style={{ color: TEAL }}
                     >
                       Overview
                     </h3>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                       In most IT and ERP projects, Business Analysis is bundled
                       into the overall service—often overlooked, underfunded,
                       and undervalued. This leads to vague requirements,
@@ -273,7 +273,7 @@ export default function BAaaSPage() {
               >
                 <Button
                   onClick={() => setShowContactForm(!showContactForm)}
-                  className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                  className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
                     color: "white",
@@ -289,14 +289,33 @@ export default function BAaaSPage() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="lg:col-span-5 relative"
+              className="lg:col-span-5 w-full mb-8 lg:mb-0"
             >
-              <div className="relative aspect-[5/4] w-full h-[400px] overflow-hidden rounded-3xl">
+              {/* Service Badge - visible only on mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex lg:hidden items-center gap-2 mb-4"
+              >
+                <div
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: TEAL }}
+                ></div>
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                  Services
+                </span>
+                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span className="text-sm font-bold" style={{ color: BLUE }}>
+                  BAaaS
+                </span>
+              </motion.div>
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/bsa.png"
                   alt="Business Analysis as a Service"
                   fill
-                  className="object-contain "
+                  className="object-contain"
                   priority
                 />
                 <div
