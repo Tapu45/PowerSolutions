@@ -291,12 +291,12 @@ export default function BAaaSPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
+              <div className="relative aspect-[5/4] w-full h-[400px] overflow-hidden rounded-3xl">
                 <Image
-                  src="/assets/services/separate/baas1.png"
+                  src="/bsa.png"
                   alt="Business Analysis as a Service"
                   fill
-                  className="object-contain p-8"
+                  className="object-contain "
                   priority
                 />
                 <div
@@ -470,7 +470,7 @@ export default function BAaaSPage() {
               Comprehensive services to ensure successful business analysis
             </p>
           </motion.div>
-         
+
           {/* Flip Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {offerings.map((offering, index) => {
@@ -545,7 +545,6 @@ export default function BAaaSPage() {
               );
             })}
           </div>
-          
         </div>
       </section>
       {/* Key Benefits Section */}
