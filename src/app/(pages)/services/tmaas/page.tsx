@@ -1,142 +1,151 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
-  CheckCircle2,
   ArrowRight,
   Star,
   Shield,
-  Zap,
   ArrowDown,
   Building2,
   Briefcase,
   Users,
-  Target,
-  TrendingUp,
   FileText,
-  Lightbulb,
-  BarChart3,
   Clock,
-  CheckCircle,
-  Circle,
-  ArrowUpRight,
-  Play,
-  Award,
-  Globe,
+  MessageCircle,
 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
-export default function FAAASPage() {
+export default function TMAASPage() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about FAAAS.");
+    alert("Thanks! We'll get back to you about TMAAS.");
     setShowContactForm(false);
   };
 
   const features = [
     {
-      title: "Unbiased & Independent Evaluation",
-      description: "Objective assessment free from internal biases",
-      icon: Users,
+      title: "Transition planning and governance",
+      description:
+        "Structured approach to manage the entire transition lifecycle",
+      icon: Clock,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Technology-Agnostic Recommendations",
-      description: "Platform-independent advice for optimal solutions",
-      icon: Target,
-      color: BLUE,
-      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      title: "Industry-Wide Insights",
-      description: "Leveraging global trends and best practices",
-      icon: BarChart3,
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
-    },
-    {
-      title: "Rapid Turnaround",
-      description: "Quick assessments to accelerate decision-making",
-      icon: TrendingUp,
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-    {
-      title: "Customizable Depth (Lite to Deep-Dive)",
-      description: "Flexible scoping from basic to comprehensive analysis",
+      title: "Process documentation and knowledge capture",
+      description: "Comprehensive documentation to preserve critical knowledge",
       icon: FileText,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Stakeholder-Friendly Reporting",
-      description: "Clear, actionable reports for all audiences",
-      icon: Lightbulb,
+      title: "Interim process ownership and support",
+      description: "Temporary ownership to ensure continuity during transition",
+      icon: Users,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
+    },
+    {
+      title: "Risk mitigation and compliance checks",
+      description:
+        "Proactive identification and management of transition risks",
+      icon: Shield,
+      color: TEAL,
+      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
+    },
+    {
+      title: "Stakeholder alignment and communication",
+      description: "Ensuring all parties are aligned and informed throughout",
+      icon: MessageCircle,
+      color: BLUE,
+      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
   ];
 
   const offerings = [
     {
-      icon: "/services/faaas/cfr.png",
-      title: "Comprehensive Feasibility Report",
+      icon: "/services/tmaas/stp.png",
+      title: "Structured Transition Planning",
       description:
-        "Covering technical, operational, financial, and strategic dimensions.",
+        "Clear timelines, governance, and accountability throughout the transition lifecycle.",
     },
     {
-      icon: "/services/faaas/asa.png",
-      title: "Alternative Solution Analysis",
-      description: "Explore multiple approaches, platforms, and methodologies.",
+      icon: "/services/tmaas/pnp.png",
+      title: "Process Knowledge Preservation",
+      description:
+        "Captures 'as-is' and prepares 'to-be' processes with zero loss or deviation.",
     },
     {
-      icon: "/services/faaas/rom.png",
-      title: "Risk & Opportunity Mapping",
+      icon: "/services/tmaas/rmc.png",
+      title: "Risk Mitigation & Compliance",
       description:
-        "Identify potential blockers and hidden opportunities early.",
+        "Identifies risks early and ensures compliance to avoid business disruption.",
     },
     {
-      icon: "/services/faaas/sfe.png",
-      title: "Strategic Fit Evaluation",
+      icon: "/services/tmaas/sa.png",
+      title: "Stakeholder Alignment",
       description:
-        "Ensure alignment with long-term business goals and scalability.",
+        "Keeps business and IT teams aligned on expectations, responsibilities, and outcomes.",
     },
     {
-      icon: "/services/faaas/tls.png",
-      title: "Technology Landscape Scan",
+      icon: "/services/tmaas/peip.png",
+      title: "Professional Exit for IT Partners",
       description:
-        "Stay informed about emerging tools, trends, and industry best practices.",
+        "Supports clean handovers, protects reputation, and avoids post-transition escalations.",
     },
   ];
 
   const businessBenefits = [
-    "Strategic Alignment: Ensure the project supports long-term business goals.",
-    "Investment Justification: Validate ROI before committing resources.",
-    "Risk Visibility: Get early insights into financial, operational, and market risks.",
-    "Decision Acceleration: Make faster, informed go/no-go decisions.",
+    "No disruption to daily operations",
+    "Preservation of 'as-is' and preparation of 'to-be' processes",
+    "Clear accountability and governance during transition",
+    "Time to focus on strategic decisions without operational pressure",
   ];
 
   const itBenefits = [
-    "Technology-Agnostic Recommendations: Discover optimal platforms and tools.",
-    "Scalability Insights: Understand future-proofing needs and integration challenges.",
-    "Alternative Solution Mapping: Explore multiple implementation paths.",
-    "Reduced Rework: Avoid technical misalignment and scope creep.",
+    "Structured and professional closure of engagement",
+    "Reduced risk of post-transition escalations",
+    "Enhanced client trust and reputation",
+    "Support in delivering complete knowledge transfer",
+  ];
+
+  const engagementModels = [
+    {
+      title: "Full Ownership Model",
+      description:
+        "TMᵃᵃˢ takes complete ownership of the transition phase. Ideal for businesses without internal bandwidth or clarity on the incoming setup. Includes process documentation, interim operations, and stakeholder coordination.",
+      icon: Star,
+      color: TEAL,
+    },
+    {
+      title: "Collaborative Model",
+      description:
+        "TMᵃᵃˢ works alongside business and outgoing IT partner. Shared responsibilities with clear RACI matrix. Best suited for transitions with partial internal readiness.",
+      icon: Users,
+      color: BLUE,
+    },
+    {
+      title: "Exit Support for IT Partners",
+      description:
+        "TMᵃᵃˢ supports IT partners in executing a clean, structured exit. Ensures complete knowledge transfer and process handover. Protects partner reputation and avoids post-transition escalations.",
+      icon: Shield,
+      color: YELLOW,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-23 sm:pt-16">
         {/* Background Elements */}
         <div
           className="absolute inset-0"
@@ -175,21 +184,21 @@ export default function FAAASPage() {
           ></motion.div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="lg:col-span-7"
+              className="lg:col-span-7 w-full"
             >
-              {/* Service Badge */}
+              {/* Service Badge - hidden on mobile, visible on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 mb-8"
+                className="hidden lg:inline-flex items-center gap-2 mb-6 sm:mb-8"
               >
                 <div
                   className="w-2 h-2 rounded-full animate-pulse"
@@ -200,7 +209,7 @@ export default function FAAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  FAAAS
+                  TMAAS
                 </span>
               </motion.div>
 
@@ -209,18 +218,17 @@ export default function FAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <h1 className="text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: BLUE }}>Feasibility&nbsp;</span>
-                  <span style={{ color: TEAL }}>Assessment</span>
-                  <br />
-                  <span
-                    className="text-3xl md:text-4xl font-bold mt-2"
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
+                  <span style={{ color: TEAL }}>Transition</span>{" "}
+                  <span style={{ color: BLUE }}>Management</span>
+                  <div
+                    className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
                     as a Service
-                  </span>
+                  </div>
                 </h1>
               </motion.div>
 
@@ -229,30 +237,32 @@ export default function FAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div
-                    className="w-1 h-16 rounded-full mt-2"
+                    className="w-1 h-12 sm:h-16 rounded-full mt-2"
                     style={{ backgroundColor: TEAL }}
                   ></div>
                   <div>
                     <h3
-                      className="text-xl font-bold mb-2"
+                      className="text-lg sm:text-xl font-bold mb-2"
                       style={{ color: TEAL }}
                     >
                       Overview
                     </h3>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      In today’s fast-paced digital landscape, organizations
-                      often rush into development or implementation projects
-                      without a thorough, unbiased feasibility assessment.
-                      Traditionally, this critical step is handled by internal
-                      Business Analysts or Technical Consultants whose
-                      evaluations are shaped by their own competencies and
-                      limited exposure to broader industry trends. This can lead
-                      to missed opportunities, overlooked risks, and suboptimal
-                      solutions.
+                    <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Transitioning business processes, systems, or
+                      services—whether due to strategic decisions like
+                      establishing a Global Capability Centre (GCC) or due to
+                      performance or cost concerns with existing IT partners—is
+                      a critical phase that demands precision, ownership, and
+                      continuity. Yet, this phase is often the most vulnerable.
+                      Business teams face the risk of losing process knowledge,
+                      disrupting daily operations, and misaligning
+                      responsibilities. IT partners, nearing the end of their
+                      engagement, may lack the motivation to ensure a smooth
+                      handover.
                     </p>
                   </div>
                 </div>
@@ -266,13 +276,13 @@ export default function FAAASPage() {
               >
                 <Button
                   onClick={() => setShowContactForm(!showContactForm)}
-                  className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                  className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
                     color: "white",
                   }}
                 >
-                  Get Started with FAAAS
+                  Get Started with TMAAS
                 </Button>
               </motion.div>
             </motion.div>
@@ -282,14 +292,33 @@ export default function FAAASPage() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="lg:col-span-5 relative"
+              className="lg:col-span-5 w-full mb-8 lg:mb-0"
             >
+              {/* Service Badge - visible only on mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex lg:hidden items-center gap-2 mb-4"
+              >
+                <div
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: TEAL }}
+                ></div>
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                  Services
+                </span>
+                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span className="text-sm font-bold" style={{ color: BLUE }}>
+                  TMAAS
+                </span>
+              </motion.div>
               <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/services/faaas.png"
-                  alt="Feasibility Assessment as a Service"
+                  src="/services/tmaas.png"
+                  alt="Transition Management as a Service"
                   fill
-                  className="object-contain p-8"
+                  className="object-contain"
                   priority
                 />
                 <div
@@ -383,16 +412,16 @@ export default function FAAASPage() {
               }}
               transition={{ duration: 1 }}
             >
-              Our Assessment Process
+              Our Transition Management Process
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              A systematic approach to feasibility assessment that delivers
+              A systematic approach to transition management that delivers
               results
             </p>
           </motion.div>
 
           {/* More Compact Feature Grid with additional content */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -461,7 +490,7 @@ export default function FAAASPage() {
               What We Offer
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Comprehensive services to ensure successful feasibility assessment
+              Comprehensive services to ensure successful transition management
             </p>
           </motion.div>
 
@@ -680,401 +709,87 @@ export default function FAAASPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Lite Assessment */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="relative group"
-            >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {engagementModels.map((model, index) => (
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${YELLOW}25`,
-                }}
-                transition={{ duration: 0.3 }}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="relative group"
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
-                    padding: "3px",
+                  className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    boxShadow: `0 30px 60px ${model.color}25`,
                   }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
+                  {/* Animated Background Elements */}
+                  <div className="absolute inset-0 opacity-10">
                     <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
+                      animate={{
+                        rotate: 360,
+                        scale: [1, 1.2, 1],
                       }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Star className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
-                      >
-                        Lite Assessment
-                      </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="absolute top-4 right-4 w-16 h-16 border-2 border-dashed"
+                      style={{ borderColor: model.color }}
+                    ></motion.div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Quick validation for small-scale initiatives or MVPs.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Standard Assessment */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${TEAL}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
+                  {/* Animated Border */}
                   <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.1, 1],
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: `linear-gradient(135deg, ${model.color}, ${TEAL})`,
+                      padding: "3px",
                     }}
-                    transition={{
-                      duration: 18,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-20 h-20 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.9, 1],
-                    }}
-                    transition={{
-                      duration: 22,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-14 h-14 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                </div>
+                  >
+                    <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                  </motion.div>
 
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${TEAL}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: -5,
-                        backgroundColor: `${TEAL}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Zap className="w-8 h-8" style={{ color: TEAL }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: TEAL }}
-                      >
-                        Standard Assessment
-                      </h3>
+                  <div className="relative z-10">
+                    {/* Header */}
+                    <div className="flex items-center gap-4 mb-6">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: TEAL }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Balanced evaluation for mid-sized projects with moderate
-                    complexity.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Deep-Dive Assessment */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${BLUE}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                      duration: 25,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-22 h-22 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.7, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-18 h-18 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${BLUE}, ${YELLOW})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${BLUE}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${BLUE}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Award className="w-8 h-8" style={{ color: BLUE }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: BLUE }}
+                        className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${model.color}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${model.color}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
                       >
-                        Deep-Dive Assessment
-                      </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: BLUE }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    In-depth analysis for enterprise-grade implementations or
-                    high-risk initiatives.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Advisory Add-On */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${YELLOW}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Globe className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
+                        <model.icon
+                          className="w-6 h-6"
+                          style={{ color: model.color }}
+                        />
+                      </motion.div>
                       <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
+                        className="text-xl font-bold"
+                        style={{ color: model.color }}
                       >
-                        Advisory Add-On
+                        {model.title}
                       </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Ongoing support post-assessment to guide implementation
-                    decisions.
-                  </p>
-                </div>
+                    {/* Description */}
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {model.description}
+                    </p>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -1092,7 +807,7 @@ export default function FAAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how FAAAS can bring clarity and strategic alignment
+              Let's discuss how TMAAS can bring clarity and strategic alignment
               to your next project.
             </p>
 
@@ -1104,7 +819,7 @@ export default function FAAASPage() {
                 color: "white",
               }}
             >
-              Get Started with FAAAS
+              Get Started with TMAAS
             </Button>
 
             {/* Contact Form */}
@@ -1117,7 +832,7 @@ export default function FAAASPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="faaas"
+                  defaultUSP="tmaas"
                   onSubmit={handleContactSubmit}
                   className="max-w-4xl mx-auto"
                 />

@@ -1,161 +1,190 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
-  CheckCircle2,
   ArrowRight,
   Star,
   Shield,
-  Zap,
-  ArrowDown,
-  Building2,
-  Briefcase,
   Users,
-  Target,
   TrendingUp,
-  FileText,
   Lightbulb,
-  BarChart3,
-  Clock,
-  CheckCircle,
-  Circle,
-  ArrowUpRight,
-  Play,
   Award,
-  Globe,
+  Briefcase,
+  Compass,
+  UserCheck,
 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
-export default function BAaaSPage() {
+export default function CMAASPage() {
   const [showContactForm, setShowContactForm] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  const handleContactSubmit = (data: any) => {
-    console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about BAaaS.");
-    setShowContactForm(false);
-  };
 
   const features = [
     {
-      title: "Independent Stakeholder/SME/End User Interviews",
-      description:
-        "Direct engagement with key stakeholders to capture authentic business needs",
+      title: "Inclusive Growth",
+      description: "Empowering all stakeholders for holistic progress",
       icon: Users,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Business Process Mapping",
-      description:
-        "Visual documentation of current workflows and identification of improvement opportunities",
-      icon: Target,
+      title: "Skill Relevance",
+      description: "Ensuring skills match current and future industry needs",
+      icon: Award,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Gap Analysis & Transformation Readiness",
-      description:
-        "Comprehensive assessment of current state vs. desired future state",
-      icon: BarChart3,
+      title: "Continuous Evolution",
+      description: "Ongoing upskilling and adaptation to change",
+      icon: Lightbulb,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
     },
     {
-      title: "Industry Benchmarking",
-      description:
-        "Alignment with industry best practices and competitive standards",
+      title: "Strategic Enablement",
+      description: "Aligning competencies with business strategy",
       icon: TrendingUp,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Requirements Documentation",
-      description:
-        "Structured, traceable documentation of all business requirements",
-      icon: FileText,
+      title: "Career Navigation & Placement Support",
+      description: "Guiding individuals to the right roles and opportunities",
+      icon: Compass,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      title: "Use Case & User Story Development",
-      description:
-        "Detailed scenarios and user-centric requirements for development teams",
-      icon: Lightbulb,
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
     },
   ];
 
   const offerings = [
+    // For Enterprises
     {
-      icon: "/services/baaas/irg.png",
-      title: "Independent Requirement Gathering",
+      icon: "/services/cmaas/audit.png",
+      title: "Workforce Competency Audits",
       description:
-        "We engage stakeholders directly to capture real business needs—free from delivery bias.",
+        "Assess current skills and identify gaps for future readiness.",
     },
     {
-      icon: "/services/baaas/bpm.png",
-      title: "Business Process Mapping",
-      description:
-        "Visualize your current state and identify transformation opportunities.",
+      icon: "/services/cmaas/training.png",
+      title: "Custom Training Design & Delivery",
+      description: "Tailored programs to upskill teams for strategic goals.",
     },
     {
-      icon: "/services/baaas/gara.png",
-      title: "Gap Analysis & Readiness Assessment",
-      description:
-        "Understand what's missing and what's needed to move forward.",
+      icon: "/services/cmaas/talent.png",
+      title: "Talent Identification & Acquisition",
+      description: "Find and onboard the right talent for your needs.",
     },
     {
-      icon: "/services/baaas/ib.png",
-      title: "Industry Benchmarking",
-      description: "Align your processes with best practices and standards.",
+      icon: "/services/cmaas/upskill.png",
+      title: "Strategic Upskilling Roadmaps",
+      description:
+        "Plan and execute upskilling journeys for workforce evolution.",
     },
     {
-      icon: "/services/baaas/cd.png",
-      title: "Clear Documentation",
-      description:
-        "From use cases to user stories—everything is structured, traceable, and actionable.",
+      icon: "/services/cmaas/ecosystem.png",
+      title: "Continuous Learning Ecosystem",
+      description: "Enable ongoing learning and growth for all employees.",
+    },
+    // For Individuals
+    {
+      icon: "/services/cmaas/skillscan.png",
+      title: "SkillScan & Career Advisory",
+      description: "Personalized skill assessment and career guidance.",
     },
     {
-      icon: "/services/baaas/psi.png",
-      title: "Problem Statement Identification",
-      description:
-        "We help you define the real problems before jumping to solutions.",
+      icon: "/services/cmaas/roletraining.png",
+      title: "Role-Based Training & Certification",
+      description: "Focused training for specific roles and certifications.",
+    },
+    {
+      icon: "/services/cmaas/interview.png",
+      title: "Interview Preparation & Assessment",
+      description: "Sharpen interview skills and get expert feedback.",
+    },
+    {
+      icon: "/services/cmaas/placement.png",
+      title: "Placement Support via Partner Network",
+      description: "Connect with opportunities through our partner ecosystem.",
     },
   ];
 
   const businessBenefits = [
-    "Gain clarity on transformation needs",
-    "Avoid scope creep and solution misfit",
-    "Make informed decisions with confidence",
+    "Strategic Workforce Planning",
+    "Reduced Hiring Risk & Cost",
+    "Improved Role Fit & Productivity",
+    "Scalable Learning Ecosystem",
+    "Real-Time Competency Dashboards",
   ];
 
-  const itBenefits = [
-    "Receive well-defined, validated requirements",
-    "Reduce rework and delivery delays",
-    "Enhance client trust and satisfaction",
+  const individualBenefits = [
+    "Career Clarity & Direction",
+    "Access to Industry-Validated Skills",
+    "Personalized Learning Journeys",
+    "Confidence in Interviews & Assessments",
+  ];
+
+  const engagementModels = [
+    {
+      title: "For Enterprises",
+      models: [
+        {
+          name: "Subscription-Based Model",
+          description: "Ongoing workforce development for continuous growth.",
+        },
+        {
+          name: "Project-Based Engagement",
+          description: "Targeted audits and training for specific needs.",
+        },
+        {
+          name: "Talent Acquisition Partnership",
+          description: "End-to-end hiring support for strategic roles.",
+        },
+        {
+          name: "Custom Consulting Engagement",
+          description: "Strategic transformation tailored to your business.",
+        },
+      ],
+    },
+    {
+      title: "For Individuals",
+      models: [
+        {
+          name: "Self-Paced Learning Access",
+          description: "Flexible online courses for independent upskilling.",
+        },
+        {
+          name: "Career Accelerator Program",
+          description: "Intensive, guided program for rapid career growth.",
+        },
+        {
+          name: "SkillScan & Advisory",
+          description: "Personalized skill assessment and career advice.",
+        },
+        {
+          name: "Mentorship & Networking",
+          description:
+            "Connect with industry mentors and expand your network.",
+        },
+      ],
+    },
   ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-23 sm:pt-16">
-        {/* Background Elements */}
         <div
           className="absolute inset-0"
           style={{
             background: `linear-gradient(135deg, ${TEAL}05 0%, transparent 30%, transparent 70%, ${BLUE}05 100%)`,
           }}
         ></div>
-
-        {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{
@@ -184,7 +213,6 @@ export default function BAaaSPage() {
             style={{ borderColor: YELLOW }}
           ></motion.div>
         </div>
-
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -194,7 +222,6 @@ export default function BAaaSPage() {
               transition={{ duration: 1 }}
               className="lg:col-span-7 w-full"
             >
-              {/* Service Badge - hidden on mobile, visible on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -210,11 +237,9 @@ export default function BAaaSPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  BAaaS
+                  CMAAS
                 </span>
               </motion.div>
-
-              {/* Main Title */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -222,8 +247,8 @@ export default function BAaaSPage() {
                 className="mb-6 sm:mb-8"
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: TEAL }}>Business</span>{" "}
-                  <span style={{ color: BLUE }}>Analysis</span>
+                  <span style={{ color: TEAL }}>Competency</span>{" "}
+                  <span style={{ color: BLUE }}>Management</span>
                   <div
                     className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
@@ -232,8 +257,6 @@ export default function BAaaSPage() {
                   </div>
                 </h1>
               </motion.div>
-
-              {/* Overview */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -253,19 +276,20 @@ export default function BAaaSPage() {
                       Overview
                     </h3>
                     <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      In most IT and ERP projects, Business Analysis is bundled
-                      into the overall service—often overlooked, underfunded,
-                      and undervalued. This leads to vague requirements,
-                      misaligned solutions, and costly rework. BAaaS offers a
-                      dedicated, third-party analysis that ensures objectivity,
-                      clarity, and strategic alignment. Helps both Client and
-                      IT/ERP Partner in getting tri-party certified scope.
+                      In today’s rapidly evolving business landscape, success is
+                      no longer just about having resources — it’s about having
+                      the right competencies at the right time. CMᵃᵃˢ
+                      (Competency Management as a Service) is a futuristic,
+                      strategic offering designed to empower both enterprises
+                      and individuals with the skills, knowledge, and agility
+                      needed to thrive. Whether you're an organization looking
+                      to future-proof your workforce or an individual seeking
+                      career relevance, CMᵃᵃˢ bridges the gap between industry
+                      expectations and human potential.
                     </p>
                   </div>
                 </div>
               </motion.div>
-
-              {/* CTA Button */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -279,11 +303,10 @@ export default function BAaaSPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with BAaaS
+                  Get Started with CMAAS
                 </Button>
               </motion.div>
             </motion.div>
-
             {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, x: 100 }}
@@ -291,7 +314,6 @@ export default function BAaaSPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="lg:col-span-5 w-full mb-8 lg:mb-0"
             >
-              {/* Service Badge - visible only on mobile */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -307,13 +329,13 @@ export default function BAaaSPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  BAaaS
+                  CMAAS
                 </span>
               </motion.div>
               <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/services/bsa.png"
-                  alt="Business Analysis as a Service"
+                  src="/services/cmaas.png"
+                  alt="Competency Management as a Service"
                   fill
                   className="object-contain"
                   priority
@@ -357,8 +379,6 @@ export default function BAaaSPage() {
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -371,14 +391,12 @@ export default function BAaaSPage() {
             className="flex flex-col items-center gap-2 text-slate-400"
           >
             <span className="text-sm">Scroll to explore</span>
-            <ArrowDown className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5" />
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Features Section - More Compact Design */}
+      {/* Features Section */}
       <section className="py-10 bg-slate-50 dark:bg-slate-800 relative overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -388,7 +406,6 @@ export default function BAaaSPage() {
             }}
           ></div>
         </div>
-
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -409,15 +426,13 @@ export default function BAaaSPage() {
               }}
               transition={{ duration: 1 }}
             >
-              Our Analysis Process
+              Our Competency Management Process
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              A systematic approach to business analysis that delivers results
+              A strategic approach to building and sustaining competencies
             </p>
           </motion.div>
-
-          {/* More Compact Feature Grid with additional content */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -428,7 +443,6 @@ export default function BAaaSPage() {
                 className="flex flex-col items-center text-center"
                 whileHover={{ y: -5 }}
               >
-                {/* Feature Icon with gradient background */}
                 <motion.div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-3"
                   style={{
@@ -446,8 +460,6 @@ export default function BAaaSPage() {
                     style={{ color: feature.color }}
                   />
                 </motion.div>
-
-                {/* Feature Title - More Compact */}
                 <h3
                   className="text-sm font-bold leading-tight max-w-[120px]"
                   style={{ color: feature.color }}
@@ -457,11 +469,9 @@ export default function BAaaSPage() {
               </motion.div>
             ))}
           </div>
-
-          {/* Adding complementary content to fill space */}
         </div>
       </section>
-      {/* What We Offer Section - Flip Cards */}
+      {/* What We Offer Section */}
       <section className="py-7">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
@@ -486,17 +496,13 @@ export default function BAaaSPage() {
               What We Offer
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Comprehensive services to ensure successful business analysis
+              Empowering enterprises and individuals for future success
             </p>
           </motion.div>
-
-          {/* Flip Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {offerings.map((offering, index) => {
-              // Cycle through colors for each card
               const cardColor =
                 index % 3 === 0 ? TEAL : index % 3 === 1 ? BLUE : YELLOW;
-
               return (
                 <motion.div
                   key={index}
@@ -534,7 +540,6 @@ export default function BAaaSPage() {
                         {offering.title}
                       </h3>
                     </div>
-
                     <div
                       className="absolute inset-0 w-full h-full rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 p-6 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center"
                       style={{
@@ -591,10 +596,9 @@ export default function BAaaSPage() {
               Key Benefits
             </motion.h2>
             <p className="text-base md:text-lg text-slate-600 dark:text-slate-300">
-              Strategic advantages for different stakeholders
+              Strategic advantages for businesses and individuals
             </p>
           </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Business Benefits */}
             <div>
@@ -603,7 +607,7 @@ export default function BAaaSPage() {
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: `${BLUE}15` }}
                 >
-                  <Building2 className="w-5 h-5" style={{ color: BLUE }} />
+                  <Briefcase className="w-5 h-5" style={{ color: BLUE }} />
                 </div>
                 <h3 className="text-2xl font-bold" style={{ color: BLUE }}>
                   Benefits for Business
@@ -627,22 +631,21 @@ export default function BAaaSPage() {
                 ))}
               </ul>
             </div>
-
-            {/* IT Benefits */}
+            {/* Individual Benefits */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: `${TEAL}15` }}
                 >
-                  <Briefcase className="w-5 h-5" style={{ color: TEAL }} />
+                  <UserCheck className="w-5 h-5" style={{ color: TEAL }} />
                 </div>
                 <h3 className="text-2xl font-bold" style={{ color: TEAL }}>
-                  Benefits for Internal IT/IT Service Partner
+                  Benefits for Individuals
                 </h3>
               </div>
               <ul className="space-y-3">
-                {itBenefits.map((benefit, i) => (
+                {individualBenefits.map((benefit, i) => (
                   <motion.li
                     key={benefit}
                     initial={{ opacity: 0, x: -10 }}
@@ -667,7 +670,6 @@ export default function BAaaSPage() {
       </section>
       {/* Engagement Models Section */}
       <section className="py-10 relative overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -677,7 +679,6 @@ export default function BAaaSPage() {
             }}
           ></div>
         </div>
-
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -701,208 +702,91 @@ export default function BAaaSPage() {
               Engagement Models
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Flexible engagement options to suit your needs
+              Flexible engagement options for enterprises and individuals
             </p>
           </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Enhanced Direct Engagement */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="relative group"
-            >
+            {engagementModels.map((group, idx) => (
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${YELLOW}25`,
-                }}
-                transition={{ duration: 0.3 }}
+                key={group.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2, duration: 0.6 }}
+                className="relative group"
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
-                    padding: "3px",
+                  className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    boxShadow: `0 30px 60px ${idx === 0 ? TEAL : BLUE}25`,
                   }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Star className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
-                      >
-                        Direct Engagement
-                      </h3>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-6 mb-8">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    You hire us independently to analyze your business before or
-                    during your transformation journey.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Enhanced Partner Engagement */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${TEAL}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 18,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-20 h-20 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.9, 1],
-                    }}
-                    transition={{
-                      duration: 22,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-14 h-14 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${TEAL}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: -5,
-                        backgroundColor: `${TEAL}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Zap className="w-8 h-8" style={{ color: TEAL }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: TEAL }}
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{
+                          backgroundColor: `${idx === 0 ? TEAL : BLUE}15`,
+                        }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${idx === 0 ? TEAL : BLUE}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
                       >
-                        Partner Engagement
-                      </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: TEAL }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
+                        {idx === 0 ? (
+                          <Briefcase
+                            className="w-8 h-8"
+                            style={{ color: TEAL }}
+                          />
+                        ) : (
+                          <UserCheck
+                            className="w-8 h-8"
+                            style={{ color: BLUE }}
+                          />
+                        )}
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-2xl font-bold mb-2"
+                          style={{ color: idx === 0 ? TEAL : BLUE }}
+                        >
+                          {group.title}
+                        </h3>
+                        <motion.div
+                          className="w-20 h-1 rounded-full"
+                          style={{
+                            backgroundColor: idx === 0 ? TEAL : BLUE,
+                          }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "5rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
+                    <ul className="space-y-6">
+                      {group.models.map((model, i) => (
+                        <li key={model.name}>
+                          <h4
+                            className="text-lg font-bold mb-1"
+                            style={{ color: idx === 0 ? TEAL : BLUE }}
+                          >
+                            {model.name}
+                          </h4>
+                          <p className="text-slate-600 dark:text-slate-300">
+                            {model.description}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Your IT/ERP provider brings us in to ensure the analysis is
-                    objective and comprehensive.
-                  </p>
-                </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -920,10 +804,8 @@ export default function BAaaSPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how BAaaS can bring clarity and strategic alignment
-              to your next project.
+              Let's discuss how CMAAS can future-proof your workforce or career.
             </p>
-
             <Button
               onClick={() => setShowContactForm(!showContactForm)}
               className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
@@ -932,10 +814,8 @@ export default function BAaaSPage() {
                 color: "white",
               }}
             >
-              Get Started with BAaaS
+              Get Started with CMAAS
             </Button>
-
-            {/* Contact Form */}
             {showContactForm && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
@@ -945,8 +825,8 @@ export default function BAaaSPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="baaas"
-                  onSubmit={handleContactSubmit}
+                  defaultUSP="cmaas"
+                  onSubmit={() => setShowContactForm(false)}
                   className="max-w-4xl mx-auto"
                 />
               </motion.div>

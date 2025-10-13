@@ -32,55 +32,57 @@ const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
-export default function FAAASPage() {
+export default function PMAASPage() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about FAAAS.");
+    alert("Thanks! We'll get back to you about PMAAS.");
     setShowContactForm(false);
   };
 
   const features = [
     {
-      title: "Unbiased & Independent Evaluation",
-      description: "Objective assessment free from internal biases",
-      icon: Users,
+      title: "Accelerated Time-to-Value",
+      description: "Rapid deployment and realization of product benefits",
+      icon: Clock,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Technology-Agnostic Recommendations",
-      description: "Platform-independent advice for optimal solutions",
+      title: "Reduced Operational Overhead",
+      description: "Streamlined processes to minimize maintenance costs",
       icon: Target,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Industry-Wide Insights",
-      description: "Leveraging global trends and best practices",
+      title: "Improved Product Quality",
+      description:
+        "Enhanced reliability and user satisfaction through rigorous management",
       icon: BarChart3,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
     },
     {
-      title: "Rapid Turnaround",
-      description: "Quick assessments to accelerate decision-making",
+      title: "Scalable Engagement",
+      description: "Flexible models to adapt to changing business needs",
       icon: TrendingUp,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "Customizable Depth (Lite to Deep-Dive)",
-      description: "Flexible scoping from basic to comprehensive analysis",
+      title: "Strategic Alignment",
+      description:
+        "Ensuring products align with business objectives and market trends",
       icon: FileText,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
     {
-      title: "Stakeholder-Friendly Reporting",
-      description: "Clear, actionable reports for all audiences",
+      title: "Continuous Innovation",
+      description: "Ongoing improvements and feature enhancements",
       icon: Lightbulb,
       color: YELLOW,
       gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
@@ -89,54 +91,55 @@ export default function FAAASPage() {
 
   const offerings = [
     {
-      icon: "/services/faaas/cfr.png",
-      title: "Comprehensive Feasibility Report",
-      description:
-        "Covering technical, operational, financial, and strategic dimensions.",
+      icon: "/services/pmaas/i.png",
+      title: "Implementation",
+      description: "Tailored deployment with stakeholder alignment",
     },
     {
-      icon: "/services/faaas/asa.png",
-      title: "Alternative Solution Analysis",
-      description: "Explore multiple approaches, platforms, and methodologies.",
+      icon: "/services/pmaas/s.png",
+      title: "Support",
+      description: "Reliable, responsive assistance with clear accountability",
     },
     {
-      icon: "/services/faaas/rom.png",
-      title: "Risk & Opportunity Mapping",
+      icon: "/services/pmaas/e.png",
+      title: "Enhancement",
       description:
-        "Identify potential blockers and hidden opportunities early.",
+        "Continuous feature evolution based on user feedback and business needs",
     },
     {
-      icon: "/services/faaas/sfe.png",
-      title: "Strategic Fit Evaluation",
-      description:
-        "Ensure alignment with long-term business goals and scalability.",
+      icon: "/services/pmaas/m.png",
+      title: "Modernization",
+      description: "Architecture upgrades for scalability and performance",
     },
     {
-      icon: "/services/faaas/tls.png",
-      title: "Technology Landscape Scan",
-      description:
-        "Stay informed about emerging tools, trends, and industry best practices.",
+      icon: "/services/pmaas/in.png",
+      title: "Integration",
+      description: "Seamless connectivity with internal and external systems",
+    },
+    {
+      icon: "/services/pmaas/lm.png",
+      title: "Lifecycle Management",
+      description: "Governance-led oversight from ideation to retirement",
     },
   ];
 
   const businessBenefits = [
-    "Strategic Alignment: Ensure the project supports long-term business goals.",
-    "Investment Justification: Validate ROI before committing resources.",
-    "Risk Visibility: Get early insights into financial, operational, and market risks.",
-    "Decision Acceleration: Make faster, informed go/no-go decisions.",
+    "Reduced Operational Overhead",
+    "Scalable Engagement",
+    "Improved Governance & Visibility",
+    "Accelerated Time-to-Value",
   ];
 
   const itBenefits = [
-    "Technology-Agnostic Recommendations: Discover optimal platforms and tools.",
-    "Scalability Insights: Understand future-proofing needs and integration challenges.",
-    "Alternative Solution Mapping: Explore multiple implementation paths.",
-    "Reduced Rework: Avoid technical misalignment and scope creep.",
+    "Integration Support",
+    "Better Collaboration",
+    "Enhanced Product Outcomes",
   ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-23 sm:pt-16">
         {/* Background Elements */}
         <div
           className="absolute inset-0"
@@ -175,21 +178,21 @@ export default function FAAASPage() {
           ></motion.div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="lg:col-span-7"
+              className="lg:col-span-7 w-full"
             >
-              {/* Service Badge */}
+              {/* Service Badge - hidden on mobile, visible on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 mb-8"
+                className="hidden lg:inline-flex items-center gap-2 mb-6 sm:mb-8"
               >
                 <div
                   className="w-2 h-2 rounded-full animate-pulse"
@@ -200,7 +203,7 @@ export default function FAAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  FAAAS
+                  PMAAS
                 </span>
               </motion.div>
 
@@ -209,18 +212,17 @@ export default function FAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <h1 className="text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: BLUE }}>Feasibility&nbsp;</span>
-                  <span style={{ color: TEAL }}>Assessment</span>
-                  <br />
-                  <span
-                    className="text-3xl md:text-4xl font-bold mt-2"
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
+                  <span style={{ color: TEAL }}>Product</span>{" "}
+                  <span style={{ color: BLUE }}>Management</span>
+                  <div
+                    className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
                     as a Service
-                  </span>
+                  </div>
                 </h1>
               </motion.div>
 
@@ -229,30 +231,31 @@ export default function FAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div
-                    className="w-1 h-16 rounded-full mt-2"
+                    className="w-1 h-12 sm:h-16 rounded-full mt-2"
                     style={{ backgroundColor: TEAL }}
                   ></div>
                   <div>
                     <h3
-                      className="text-xl font-bold mb-2"
+                      className="text-lg sm:text-xl font-bold mb-2"
                       style={{ color: TEAL }}
                     >
                       Overview
                     </h3>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      In today’s fast-paced digital landscape, organizations
-                      often rush into development or implementation projects
-                      without a thorough, unbiased feasibility assessment.
-                      Traditionally, this critical step is handled by internal
-                      Business Analysts or Technical Consultants whose
-                      evaluations are shaped by their own competencies and
-                      limited exposure to broader industry trends. This can lead
-                      to missed opportunities, overlooked risks, and suboptimal
-                      solutions.
+                    <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Today technology is Business and Business is Technology.
+                      It's a new normal for the Business to adapt the changes
+                      and keep their IT Products and Applications upto date
+                      chase in the Industry. We offer Product Management as a
+                      Service to help businesses manage their ERP and business
+                      applications with precision, agility, and strategic
+                      foresight. Whether it's a packaged software product or a
+                      custom-built solution, we take full ownership—from
+                      implementation to modernization—so you can focus on
+                      growing your business.
                     </p>
                   </div>
                 </div>
@@ -266,13 +269,13 @@ export default function FAAASPage() {
               >
                 <Button
                   onClick={() => setShowContactForm(!showContactForm)}
-                  className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                  className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
                     color: "white",
                   }}
                 >
-                  Get Started with FAAAS
+                  Get Started with PMAAS
                 </Button>
               </motion.div>
             </motion.div>
@@ -282,14 +285,33 @@ export default function FAAASPage() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="lg:col-span-5 relative"
+              className="lg:col-span-5 w-full mb-8 lg:mb-0"
             >
+              {/* Service Badge - visible only on mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex lg:hidden items-center gap-2 mb-4"
+              >
+                <div
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: TEAL }}
+                ></div>
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                  Services
+                </span>
+                <ArrowRight className="w-4 h-4 text-slate-400" />
+                <span className="text-sm font-bold" style={{ color: BLUE }}>
+                  PMAAS
+                </span>
+              </motion.div>
               <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/services/faaas.png"
-                  alt="Feasibility Assessment as a Service"
+                  src="/services/pmaas.png"
+                  alt="Product Management as a Service"
                   fill
-                  className="object-contain p-8"
+                  className="object-contain"
                   priority
                 />
                 <div
@@ -383,11 +405,10 @@ export default function FAAASPage() {
               }}
               transition={{ duration: 1 }}
             >
-              Our Assessment Process
+              Our Product Management Process
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              A systematic approach to feasibility assessment that delivers
-              results
+              A systematic approach to product management that delivers results
             </p>
           </motion.div>
 
@@ -461,7 +482,7 @@ export default function FAAASPage() {
               What We Offer
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Comprehensive services to ensure successful feasibility assessment
+              Comprehensive services to ensure successful product management
             </p>
           </motion.div>
 
@@ -681,7 +702,7 @@ export default function FAAASPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Lite Assessment */}
+            {/* Enhanced BYBS */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -759,7 +780,7 @@ export default function FAAASPage() {
                         className="text-2xl font-bold mb-2"
                         style={{ color: YELLOW }}
                       >
-                        Lite Assessment
+                        BYBS - Bring Your Business Story Model
                       </h3>
                       <motion.div
                         className="w-20 h-1 rounded-full"
@@ -773,13 +794,17 @@ export default function FAAASPage() {
 
                   {/* Description */}
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Quick validation for small-scale initiatives or MVPs.
+                    We take complete responsibility for your product—from
+                    planning and implementation to support, enhancement, and
+                    retirement. We collaborate with your internal teams, sharing
+                    responsibilities across product strategy, execution, and
+                    governance.
                   </p>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Standard Assessment */}
+            {/* Enhanced BYOS */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -857,7 +882,7 @@ export default function FAAASPage() {
                         className="text-2xl font-bold mb-2"
                         style={{ color: TEAL }}
                       >
-                        Standard Assessment
+                        BYOS - Bring Your Own Solution Model
                       </h3>
                       <motion.div
                         className="w-20 h-1 rounded-full"
@@ -871,206 +896,10 @@ export default function FAAASPage() {
 
                   {/* Description */}
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Balanced evaluation for mid-sized projects with moderate
-                    complexity.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Deep-Dive Assessment */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${BLUE}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                      duration: 25,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-22 h-22 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.7, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-18 h-18 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${BLUE}, ${YELLOW})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${BLUE}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${BLUE}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Award className="w-8 h-8" style={{ color: BLUE }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: BLUE }}
-                      >
-                        Deep-Dive Assessment
-                      </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: BLUE }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    In-depth analysis for enterprise-grade implementations or
-                    high-risk initiatives.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Advisory Add-On */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="relative group"
-            >
-              <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${YELLOW}25`,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
-                    padding: "3px",
-                  }}
-                >
-                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Globe className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
-                      >
-                        Advisory Add-On
-                      </h3>
-                      <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Ongoing support post-assessment to guide implementation
-                    decisions.
+                    Engage us for specific phases or challenges—modernization,
+                    integration, enhancement—without long-term commitments. Our
+                    experts integrate with your teams to drive product outcomes
+                    while maintaining alignment with your business goals.
                   </p>
                 </div>
               </motion.div>
@@ -1092,7 +921,7 @@ export default function FAAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how FAAAS can bring clarity and strategic alignment
+              Let's discuss how PMAAS can bring clarity and strategic alignment
               to your next project.
             </p>
 
@@ -1104,7 +933,7 @@ export default function FAAASPage() {
                 color: "white",
               }}
             >
-              Get Started with FAAAS
+              Get Started with PMAAS
             </Button>
 
             {/* Contact Form */}
@@ -1117,7 +946,7 @@ export default function FAAASPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="faaas"
+                  defaultUSP="pmaas"
                   onSubmit={handleContactSubmit}
                   className="max-w-4xl mx-auto"
                 />
