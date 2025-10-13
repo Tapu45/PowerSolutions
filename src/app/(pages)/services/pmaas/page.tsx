@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
-  CheckCircle2,
   ArrowRight,
   Star,
   Shield,
@@ -13,19 +12,12 @@ import {
   ArrowDown,
   Building2,
   Briefcase,
-  Users,
   Target,
   TrendingUp,
   FileText,
   Lightbulb,
   BarChart3,
   Clock,
-  CheckCircle,
-  Circle,
-  ArrowUpRight,
-  Play,
-  Award,
-  Globe,
 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
