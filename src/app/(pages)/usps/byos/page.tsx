@@ -227,7 +227,7 @@ export default function BYOSPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 mt-8">
+      <section className="mx-auto max-w-7xl mt-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -244,7 +244,7 @@ export default function BYOSPage() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-8">
+      <section className="mx-auto max-w-7xl  py-8">
         <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {[
             {
@@ -328,7 +328,7 @@ export default function BYOSPage() {
 
       <section
         id="how-it-works"
-        className="mx-auto max-w-6xl px-6 py-10 border-t border-slate-200 dark:border-slate-800"
+        className="mx-auto max-w-7xl sm:px-0 px-4 py-8 "
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}

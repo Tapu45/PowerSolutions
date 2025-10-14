@@ -18,7 +18,7 @@ export default function BIBDPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-first">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -34,7 +34,7 @@ export default function BIBDPage() {
               </p>
 
               <h1
-                className="text-4xl md:text-5xl font-extrabold mb-5 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 leading-tight"
                 style={{
                   color: TEAL,
                 }}
@@ -42,27 +42,21 @@ export default function BIBDPage() {
                 Building Innovations & Business Disruptions
               </h1>
 
-              <p className="text-base md:text-md leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg mb-4">
-                Innovation is the heartbeat of disruption. At our company, we
-                don’t just talk about innovation—we build it. BIBD is our
-                structured approach to transforming raw ideas into real-world
-                solutions that challenge the status quo and deliver measurable
-                impact.
-                <br />
-                <br />
-                Being the cornerstone of our Ultimate Solution Proposed
-                framework. It exemplifies our commitment to solving, not
-                selling—by turning visionary ideas into practical, disruptive
-                solutions that redefine business success.
-                <br />
-                <br />
-                BIBD is built to attract and empower startups, internal
-                innovators, and customers by offering a platform where ideas are
-                validated, enhanced, and transformed into real-world solutions.
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg mb-4">
+                Innovation drives disruption. BIBD is our way to turn ideas into
+                impactful solutions that challenge norms and create real change.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg mb-4">
+                As the core of our Ultimate Solution Proposed framework, BIBD
+                helps startups, teams, and customers validate and grow ideas
+                into practical, disruptive results.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200 max-w-lg mb-4">
+                We make innovation actionable.
               </p>
 
               {/* Chips */}
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-2 sm:gap-3">
                 {[
                   { label: "Innovative MVPs", color: BLUE },
                   { label: "Rapid prototyping", color: TEAL },
@@ -70,7 +64,7 @@ export default function BIBDPage() {
                 ].map((chip, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-sm"
+                    className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-sm"
                     style={{
                       background: `${chip.color}22`,
                       color: chip.color,
@@ -83,7 +77,7 @@ export default function BIBDPage() {
               </div>
 
               {/* Assurances */}
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+              <div className="mt-8 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 text-sm">
                 {[
                   { label: "Unique designs", color: BLUE },
                   { label: "Fast iterations", color: TEAL },
@@ -101,7 +95,10 @@ export default function BIBDPage() {
                       className="size-4 shrink-0"
                       style={{ color: item.color }}
                     />
-                    <span style={{ color: item.dark ?? "inherit" }}>
+                    <span
+                      className="text-xs sm:text-sm"
+                      style={{ color: item.dark ?? "inherit" }}
+                    >
                       {item.label}
                     </span>
                   </div>
@@ -114,14 +111,14 @@ export default function BIBDPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative order-first lg:order-last"
             >
-              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl  ">
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
                   src="/solutions2/BYBD.png"
                   alt="Build It Build Different"
                   fill
-                  className="object-contain p-8"
+                  className="object-contain p-4 sm:p-8"
                   priority
                 />
                 <div
@@ -139,8 +136,8 @@ export default function BIBDPage() {
       </section>
 
       {/* Steps */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+      <section className="mx-auto max-w-7xl  py-1">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {[
             {
               title: "Idea-to-Product Transformation",
@@ -183,7 +180,7 @@ export default function BIBDPage() {
             >
               {/* Image container with hover effects */}
               <motion.div
-                className="relative mb-6"
+                className="relative mb-4 sm:mb-6"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
@@ -193,26 +190,26 @@ export default function BIBDPage() {
                   style={{ backgroundColor: step.color, filter: "blur(20px)" }}
                 />
                 <div
-                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 transition-all duration-300 group-hover:shadow-2xl"
-                  style={{ width: 80, height: 80 }}
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-2 sm:p-3 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 60, height: 60 }}
                 >
                   <Image
                     src={step.img}
                     alt={step.title}
-                    width={64}
-                    height={64}
+                    width={48}
+                    height={48}
                     className="object-contain transition-transform duration-300 group-hover:rotate-12"
-                    style={{ width: 64, height: 64 }}
+                    style={{ width: 48, height: 48 }}
                   />
                 </div>
               </motion.div>
               <h3
-                className="text-lg font-semibold mb-3 transition-colors duration-300"
+                className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 transition-colors duration-300"
                 style={{ color: step.color }}
               >
                 {step.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {step.desc}
               </p>
             </motion.div>
@@ -223,7 +220,7 @@ export default function BIBDPage() {
       {/* How it Works */}
       <section
         id="how-it-works"
-        className="mx-auto max-w-6xl px-6 py-16 border-t border-slate-200 dark:border-slate-800"
+        className="mx-auto max-w-7xl py-16 px-4 sm:px-0"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -232,89 +229,104 @@ export default function BIBDPage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className="text-3xl md:text-4xl font-extrabold mb-10"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-10"
             style={{ color: TEAL }}
           >
             How BIBD Works
           </h2>
-          <ol className="space-y-10">
-            <li className="flex flex-col md:flex-row items-start gap-6">
-              <span className="text-2xl font-bold" style={{ color: BLUE }}>
-                1.
+          <ol className="space-y-4 sm:space-y-7">
+            <li className="flex flex-col md:flex-row items-start gap-3 sm:gap-5">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full"
+                style={{ background: BLUE }}
+              >
+                <span className="sr-only">Step</span>
               </span>
               <div>
                 <span
-                  className="font-semibold text-xl block mb-1"
+                  className="font-semibold text-lg sm:text-xl block mb-1"
                   style={{ color: BLUE }}
                 >
                   Submit Your Idea
                 </span>
-                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                <span className="block text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-200">
                   Startups, internal teams, and customers can submit ideas via
                   our portal.
                 </span>
               </div>
             </li>
-            <li className="flex flex-col md:flex-row items-start gap-6">
-              <span className="text-2xl font-bold" style={{ color: TEAL }}>
-                2.
+            <li className="flex flex-col md:flex-row items-start gap-3 sm:gap-5">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full"
+                style={{ background: TEAL }}
+              >
+                <span className="sr-only">Step</span>
               </span>
               <div>
                 <span
-                  className="font-semibold text-xl block mb-1"
+                  className="font-semibold text-lg sm:text-xl block mb-1"
                   style={{ color: TEAL }}
                 >
                   Validate & Enhance
                 </span>
-                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                <span className="block text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-200">
                   We assess feasibility, impact, and add missing elements.
                 </span>
               </div>
             </li>
-            <li className="flex flex-col md:flex-row items-start gap-6">
-              <span className="text-2xl font-bold" style={{ color: YELLOW }}>
-                3.
+            <li className="flex flex-col md:flex-row items-start gap-3 sm:gap-5">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full"
+                style={{ background: YELLOW }}
+              >
+                <span className="sr-only">Step</span>
               </span>
               <div>
                 <span
-                  className="font-semibold text-xl block mb-1"
+                  className="font-semibold text-lg sm:text-xl block mb-1"
                   style={{ color: YELLOW }}
                 >
                   Idea Lab Integration
                 </span>
-                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                <span className="block text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-200">
                   Your idea joins our innovation ecosystem.
                 </span>
               </div>
             </li>
-            <li className="flex flex-col md:flex-row items-start gap-6">
-              <span className="text-2xl font-bold" style={{ color: BLUE }}>
-                4.
+            <li className="flex flex-col md:flex-row items-start gap-3 sm:gap-5">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full"
+                style={{ background: BLUE }}
+              >
+                <span className="sr-only">Step</span>
               </span>
               <div>
                 <span
-                  className="font-semibold text-xl block mb-1"
+                  className="font-semibold text-lg sm:text-xl block mb-1"
                   style={{ color: BLUE }}
                 >
                   Develop & Deploy
                 </span>
-                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                <span className="block text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-200">
                   We build it into a feature, function, or product.
                 </span>
               </div>
             </li>
-            <li className="flex flex-col md:flex-row items-start gap-6">
-              <span className="text-2xl font-bold" style={{ color: TEAL }}>
-                5.
+            <li className="flex flex-col md:flex-row items-start gap-3 sm:gap-5">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full"
+                style={{ background: TEAL }}
+              >
+                <span className="sr-only">Step</span>
               </span>
               <div>
                 <span
-                  className="font-semibold text-xl block mb-1"
+                  className="font-semibold text-lg sm:text-xl block mb-1"
                   style={{ color: TEAL }}
                 >
                   Feedback & Iterate
                 </span>
-                <span className="block text-lg text-slate-700 dark:text-slate-200">
+                <span className="block text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-200">
                   Continuous improvement based on real-world use.
                 </span>
               </div>
@@ -328,11 +340,11 @@ export default function BIBDPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-left mt-12"
+          className="text-center sm:text-left mt-12"
         >
           <Button
             onClick={() => setShowContactForm(!showContactForm)}
-            className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             style={{
               background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
               color: "white",
