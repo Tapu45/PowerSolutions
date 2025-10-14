@@ -144,10 +144,23 @@ export default function Solutions() {
           transition={{ duration: 0.45 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold">Our USPs</h2>
+          <motion.h2
+            className="text-4xl font-bold"
+            style={{ color: "#0B8FD6" }}
+            whileHover={{
+              textShadow: [
+                `0 0 0px #0B8FD6`,
+                `0 0 30px #0B8FD630`,
+                `0 0 0px #0B8FD6`,
+              ],
+            }}
+            transition={{ duration: 1 }}
+          >
+            Our USPs
+          </motion.h2>
           <div
             className="h-1 w-24 mx-auto mt-3"
-            style={{ backgroundColor: currentSolution.color }}
+            style={{ backgroundColor: "#0B8FD6" }}
           ></div>
         </motion.div>
 

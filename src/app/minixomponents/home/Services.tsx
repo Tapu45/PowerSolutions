@@ -97,6 +97,16 @@ const SERVICES = [
       "Spot gaps in scope, missed requirements, and hidden risks before they become expensive problems.",
     ],
   },
+  {
+    name: "DSaaS",
+    img: "/assets/services/DSaas.png", // Make sure this image exists or update the path
+    color: "#0B8FD6",
+    bullets: [
+      "Establish consistent deliverable formats across all projects",
+      "Reduce review cycles and accelerate stakeholder sign-off",
+      "Ensure compliance and audit-readiness with standardized documentation",
+    ],
+  },
 ];
 
 const Services = () => {
@@ -157,10 +167,21 @@ const Services = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold bg-black bg-clip-text text-transparent mb-3 text-center"
+          className="text-5xl font-bold mb-4 text-center"
+          style={{ color: "#D6CE0B" }}
+          whileHover={{
+            textShadow: [
+              `0 0 0px #D6CE0B`,
+              `0 0 30px #1BCDC530`,
+              `0 0 0px #D6CE0B`,
+            ],
+          }}
         >
           Our Services
         </motion.h2>
+        <p className="text-xl text-slate-600 dark:text-slate-300 mb-6 text-center">
+          A curated suite of micro-services for strategic transformation
+        </p>
 
         <motion.div
           initial={{ width: 0 }}
@@ -216,31 +237,21 @@ const Services = () => {
                 , we offer a curated suite of micro-services across ERP,
                 Business Applications, and Business Processes — designed to
                 uncover the smaller metrics of failure often overlooked in
-                broader scopes.
+                broader scopes. Our approach helps clients transform narrow
+                challenges into strategic wins, achieving macro impact and
+                staying ahead of benchmarks.
               </p>
-
-              <ul className="mt-3 space-y-2">
-                <li className="flex gap-2 items-start">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0" />
-                  <span className="text-base sm:text-sm text-gray-700">
-                    Surface micro-metrics that drive macro results.
-                  </span>
-                </li>
-                <li className="flex gap-2 items-start">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0" />
-                  <span className="text-base sm:text-sm text-gray-700">
-                    Turn narrow challenges into strategic wins.
-                  </span>
-                </li>
-                <li className="flex gap-2 items-start hidden sm:flex">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0" />
-                  <span className="text-base sm:text-sm text-gray-700">
-                    Stay ahead of benchmarks with focused execution.
-                  </span>
-                </li>
+              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700 mt-3">
+                The micro-services are focused to deliver and add value to
+                transformation drive through:
+              </p>
+              <ul className="mt-3 space-y-2 list-disc list-inside text-gray-700 text-base sm:text-sm">
+                <li>Granular Problem Solving</li>
+                <li>Objective Oriented Analysis and Documentation</li>
+                <li>Quality Delivery with 100% strategic alignment</li>
+                <li>System Thinking and Overall Scope Validation</li>
               </ul>
             </div>
-
             <div className="mt-4 h-0.5 w-16 bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-400 rounded-full" />
           </motion.aside>
 
