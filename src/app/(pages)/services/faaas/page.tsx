@@ -38,7 +38,7 @@ export default function FAAASPage() {
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about FAAAS.");
+    alert("Thanks! We'll get back to you about FAᵃᵃˢ .");
     setShowContactForm(false);
   };
 
@@ -200,7 +200,7 @@ export default function FAAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  FAAAS
+                  FAᵃᵃˢ 
                 </span>
               </motion.div>
 
@@ -272,7 +272,7 @@ export default function FAAASPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with FAAAS
+                  Get Started with FAᵃᵃˢ 
                 </Button>
               </motion.div>
             </motion.div>
@@ -284,7 +284,7 @@ export default function FAAASPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/services/faaas.png"
                   alt="Feasibility Assessment as a Service"
@@ -292,41 +292,7 @@ export default function FAAASPage() {
                   className="object-contain p-8"
                   priority
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-          radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-          radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
-                />
-                {/* Animated Dots */}
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute top-10 right-10 w-4 h-4 rounded-full"
-                  style={{ backgroundColor: TEAL }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 0.5,
-                  }}
-                  className="absolute bottom-20 left-10 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: YELLOW }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 1,
-                  }}
-                  className="absolute top-1/2 right-5 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: BLUE }}
-                ></motion.div>
+                <div className="absolute inset-0 pointer-events-none rounded-3xl" />
               </div>
             </motion.div>
           </div>
@@ -642,7 +608,6 @@ export default function FAAASPage() {
       </section>
       {/* Engagement Models Section */}
       <section className="py-10 relative overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -659,7 +624,7 @@ export default function FAAASPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-6"
           >
             <motion.h2
               className="text-5xl font-bold mb-6"
@@ -680,17 +645,17 @@ export default function FAAASPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Lite Assessment */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="relative group"
+              className="relative group flex flex-col h-full"
             >
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
                 whileHover={{
                   y: -8,
                   scale: 1.02,
@@ -698,37 +663,6 @@ export default function FAAASPage() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
-                    style={{ borderColor: YELLOW }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -738,43 +672,41 @@ export default function FAAASPage() {
                 >
                   <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
                 </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Star className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
-                      >
-                        Lite Assessment
-                      </h3>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${YELLOW}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${YELLOW}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Star className="w-8 h-8" style={{ color: YELLOW }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: YELLOW }}
+                        >
+                          Lite Assessment
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: YELLOW }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Quick validation for small-scale initiatives or MVPs.
+                    </p>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Quick validation for small-scale initiatives or MVPs.
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -785,10 +717,10 @@ export default function FAAASPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="relative group"
+              className="relative group flex flex-col h-full"
             >
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
                 whileHover={{
                   y: -8,
                   scale: 1.02,
@@ -796,37 +728,6 @@ export default function FAAASPage() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 18,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-20 h-20 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.9, 1],
-                    }}
-                    transition={{
-                      duration: 22,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-14 h-14 border-2 border-dashed"
-                    style={{ borderColor: TEAL }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -836,44 +737,42 @@ export default function FAAASPage() {
                 >
                   <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
                 </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${TEAL}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: -5,
-                        backgroundColor: `${TEAL}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Zap className="w-8 h-8" style={{ color: TEAL }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: TEAL }}
-                      >
-                        Standard Assessment
-                      </h3>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: TEAL }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${TEAL}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: -5,
+                          backgroundColor: `${TEAL}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Zap className="w-8 h-8" style={{ color: TEAL }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: TEAL }}
+                        >
+                          Standard Assessment
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: TEAL }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Balanced evaluation for mid-sized projects with moderate
+                      complexity.
+                    </p>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Balanced evaluation for mid-sized projects with moderate
-                    complexity.
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -884,10 +783,10 @@ export default function FAAASPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="relative group"
+              className="relative group flex flex-col h-full"
             >
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
                 whileHover={{
                   y: -8,
                   scale: 1.02,
@@ -895,37 +794,6 @@ export default function FAAASPage() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                      duration: 25,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute top-8 right-8 w-22 h-22 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                  <motion.div
-                    animate={{
-                      rotate: -360,
-                      scale: [1, 0.7, 1],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute bottom-8 left-8 w-18 h-18 border-2 border-dashed"
-                    style={{ borderColor: BLUE }}
-                  ></motion.div>
-                </div>
-
-                {/* Animated Border */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -935,44 +803,42 @@ export default function FAAASPage() {
                 >
                   <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
                 </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${BLUE}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${BLUE}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Award className="w-8 h-8" style={{ color: BLUE }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: BLUE }}
-                      >
-                        Deep-Dive Assessment
-                      </h3>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: BLUE }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${BLUE}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${BLUE}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Award className="w-8 h-8" style={{ color: BLUE }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: BLUE }}
+                        >
+                          Deep-Dive Assessment
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: BLUE }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      In-depth analysis for enterprise-grade implementations or
+                      high-risk initiatives.
+                    </p>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    In-depth analysis for enterprise-grade implementations or
-                    high-risk initiatives.
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -983,10 +849,10 @@ export default function FAAASPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="relative group"
+              className="relative group flex flex-col h-full"
             >
               <motion.div
-                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
                 whileHover={{
                   y: -8,
                   scale: 1.02,
@@ -994,8 +860,7 @@ export default function FAAASPage() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
                   <motion.div
                     animate={{
                       rotate: 360,
@@ -1006,7 +871,7 @@ export default function FAAASPage() {
                       repeat: Infinity,
                       ease: "linear",
                     }}
-                    className="absolute top-8 right-8 w-24 h-24 border-2 border-dashed"
+                    className="absolute top-8 right-8 w-20 h-20 border-2 border-dashed"
                     style={{ borderColor: YELLOW }}
                   ></motion.div>
                   <motion.div
@@ -1019,12 +884,10 @@ export default function FAAASPage() {
                       repeat: Infinity,
                       ease: "linear",
                     }}
-                    className="absolute bottom-8 left-8 w-16 h-16 border-2 border-dashed"
+                    className="absolute bottom-8 left-8 w-12 h-12 border-2 border-dashed"
                     style={{ borderColor: YELLOW }}
                   ></motion.div>
                 </div>
-
-                {/* Animated Border */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -1034,44 +897,42 @@ export default function FAAASPage() {
                 >
                   <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
                 </motion.div>
-
-                <div className="relative z-10">
-                  {/* Enhanced Header */}
-                  <div className="flex items-center gap-6 mb-8">
-                    <motion.div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: `${YELLOW}15` }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                        backgroundColor: `${YELLOW}25`,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Globe className="w-8 h-8" style={{ color: YELLOW }} />
-                    </motion.div>
-                    <div>
-                      <h3
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: YELLOW }}
-                      >
-                        Advisory Add-On
-                      </h3>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
                       <motion.div
-                        className="w-20 h-1 rounded-full"
-                        style={{ backgroundColor: YELLOW }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "5rem" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                      ></motion.div>
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${YELLOW}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${YELLOW}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Globe className="w-8 h-8" style={{ color: YELLOW }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: YELLOW }}
+                        >
+                          Advisory Add-On
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: YELLOW }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Ongoing support post-assessment to guide implementation
+                      decisions.
+                    </p>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                    Ongoing support post-assessment to guide implementation
-                    decisions.
-                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -1092,7 +953,7 @@ export default function FAAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how FAAAS can bring clarity and strategic alignment
+              Let's discuss how FAᵃᵃˢ  can bring clarity and strategic alignment
               to your next project.
             </p>
 
@@ -1104,7 +965,7 @@ export default function FAAASPage() {
                 color: "white",
               }}
             >
-              Get Started with FAAAS
+              Get Started with FAᵃᵃˢ 
             </Button>
 
             {/* Contact Form */}

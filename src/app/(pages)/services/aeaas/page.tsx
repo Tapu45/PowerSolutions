@@ -31,7 +31,7 @@ export default function AEAASPage() {
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about AEAAS.");
+    alert("Thanks! We'll get back to you about AEᵃᵃˢ.");
     setShowContactForm(false);
   };
 
@@ -83,19 +83,19 @@ export default function AEAASPage() {
 
   const offerings = [
     {
-      icon: "/services/aeaas/workforce.png",
+      icon: "/services/aeaas/we.png",
       title: "Workforce Empowerment",
       description:
         "Understand employee sentiment and readiness to adapt. By engaging with all levels of your workforce, we help you build a culture of ownership and resilience.",
     },
     {
-      icon: "/services/aeaas/benchmarking.png",
+      icon: "/services/aeaas/ib.png",
       title: "Industry Benchmarking",
       description:
         "Know where you stand—and where you need to go. We compare your adaption metrics with industry standards to highlight strengths and improvement areas.",
     },
     {
-      icon: "/services/aeaas/sustainable.png",
+      icon: "/services/aeaas/st.png",
       title: "Sustainable Transformation",
       description:
         "Get actionable recommendations to build long-term resilience. Our insights guide you in closing adaption gaps and ensuring your transformation efforts are sustainable.",
@@ -144,7 +144,7 @@ export default function AEAASPage() {
     },
     {
       title: "Partner Enablement Engagement",
-      description: "Equip IT/consulting partners to deliver AEAAS.",
+      description: "Equip IT/consulting partners to deliver AEᵃᵃˢ.",
       icon: Handshake,
       color: YELLOW,
     },
@@ -217,7 +217,7 @@ export default function AEAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  AEAAS
+                  AEᵃᵃˢ
                 </span>
               </motion.div>
 
@@ -289,7 +289,7 @@ export default function AEAASPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with AEAAS
+                  Get Started with AEᵃᵃˢ
                 </Button>
               </motion.div>
             </motion.div>
@@ -317,10 +317,10 @@ export default function AEAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  AEAAS
+                  AEᵃᵃˢ
                 </span>
               </motion.div>
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/services/aeaas.png"
                   alt="Adaption Evaluation as a Service"
@@ -328,41 +328,7 @@ export default function AEAASPage() {
                   className="object-contain"
                   priority
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-          radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-          radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
-                />
-                {/* Animated Dots */}
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute top-10 right-10 w-4 h-4 rounded-full"
-                  style={{ backgroundColor: TEAL }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 0.5,
-                  }}
-                  className="absolute bottom-20 left-10 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: YELLOW }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 1,
-                  }}
-                  className="absolute top-1/2 right-5 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: BLUE }}
-                ></motion.div>
+               
               </div>
             </motion.div>
           </div>
@@ -428,7 +394,7 @@ export default function AEAASPage() {
           </motion.div>
 
           {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-10">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -777,7 +743,7 @@ export default function AEAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how AEAAS can help you measure and improve
+              Let's discuss how AEᵃᵃˢ can help you measure and improve
               organizational adaption to change.
             </p>
 
@@ -789,7 +755,7 @@ export default function AEAASPage() {
                 color: "white",
               }}
             >
-              Get Started with AEAAS
+              Get Started with AEᵃᵃˢ
             </Button>
 
             {/* Contact Form */}

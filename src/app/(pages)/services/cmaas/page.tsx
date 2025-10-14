@@ -65,23 +65,23 @@ export default function CMAASPage() {
   const offerings = [
     // For Enterprises
     {
-      icon: "/services/cmaas/audit.png",
+      icon: "/services/cmaas/wca.png",
       title: "Workforce Competency Audits",
       description:
         "Assess current skills and identify gaps for future readiness.",
     },
     {
-      icon: "/services/cmaas/training.png",
+      icon: "/services/cmaas/ctdd.png",
       title: "Custom Training Design & Delivery",
       description: "Tailored programs to upskill teams for strategic goals.",
     },
     {
-      icon: "/services/cmaas/talent.png",
+      icon: "/services/cmaas/tia.png",
       title: "Talent Identification & Acquisition",
       description: "Find and onboard the right talent for your needs.",
     },
     {
-      icon: "/services/cmaas/upskill.png",
+      icon: "/services/cmaas/sur.png",
       title: "Strategic Upskilling Roadmaps",
       description:
         "Plan and execute upskilling journeys for workforce evolution.",
@@ -93,7 +93,7 @@ export default function CMAASPage() {
     },
     // For Individuals
     {
-      icon: "/services/cmaas/skillscan.png",
+      icon: "/services/cmaas/sca.png",
       title: "SkillScan & Career Advisory",
       description: "Personalized skill assessment and career guidance.",
     },
@@ -237,7 +237,7 @@ export default function CMAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  CMAAS
+                  CMᵃᵃˢ
                 </span>
               </motion.div>
               <motion.div
@@ -303,7 +303,7 @@ export default function CMAASPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with CMAAS
+                  Get Started with CMᵃᵃˢ
                 </Button>
               </motion.div>
             </motion.div>
@@ -329,10 +329,10 @@ export default function CMAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  CMAAS
+                  CMᵃᵃˢ
                 </span>
               </motion.div>
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/services/cmaas.png"
                   alt="Competency Management as a Service"
@@ -340,41 +340,6 @@ export default function CMAASPage() {
                   className="object-contain"
                   priority
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-          radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-          radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
-                />
-                {/* Animated Dots */}
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute top-10 right-10 w-4 h-4 rounded-full"
-                  style={{ backgroundColor: TEAL }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 0.5,
-                  }}
-                  className="absolute bottom-20 left-10 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: YELLOW }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 1,
-                  }}
-                  className="absolute top-1/2 right-5 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: BLUE }}
-                ></motion.div>
               </div>
             </motion.div>
           </div>
@@ -685,7 +650,7 @@ export default function CMAASPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-6"
           >
             <motion.h2
               className="text-5xl font-bold mb-6"
@@ -713,10 +678,10 @@ export default function CMAASPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2, duration: 0.6 }}
-                className="relative group"
+                className="relative group flex flex-col h-full"
               >
                 <motion.div
-                  className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden"
+                  className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-10 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
                   whileHover={{
                     y: -8,
                     scale: 1.02,
@@ -724,65 +689,67 @@ export default function CMAASPage() {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-6 mb-8">
-                      <motion.div
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                        style={{
-                          backgroundColor: `${idx === 0 ? TEAL : BLUE}15`,
-                        }}
-                        whileHover={{
-                          scale: 1.1,
-                          rotate: 5,
-                          backgroundColor: `${idx === 0 ? TEAL : BLUE}25`,
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {idx === 0 ? (
-                          <Briefcase
-                            className="w-8 h-8"
-                            style={{ color: TEAL }}
-                          />
-                        ) : (
-                          <UserCheck
-                            className="w-8 h-8"
-                            style={{ color: BLUE }}
-                          />
-                        )}
-                      </motion.div>
-                      <div>
-                        <h3
-                          className="text-2xl font-bold mb-2"
-                          style={{ color: idx === 0 ? TEAL : BLUE }}
-                        >
-                          {group.title}
-                        </h3>
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      <div className="flex items-center gap-6 mb-8">
                         <motion.div
-                          className="w-20 h-1 rounded-full"
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
                           style={{
-                            backgroundColor: idx === 0 ? TEAL : BLUE,
+                            backgroundColor: `${idx === 0 ? TEAL : BLUE}15`,
                           }}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "5rem" }}
-                          transition={{ delay: 0.5, duration: 0.8 }}
-                        ></motion.div>
-                      </div>
-                    </div>
-                    <ul className="space-y-6">
-                      {group.models.map((model, i) => (
-                        <li key={model.name}>
-                          <h4
-                            className="text-lg font-bold mb-1"
+                          whileHover={{
+                            scale: 1.1,
+                            rotate: 5,
+                            backgroundColor: `${idx === 0 ? TEAL : BLUE}25`,
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {idx === 0 ? (
+                            <Briefcase
+                              className="w-8 h-8"
+                              style={{ color: TEAL }}
+                            />
+                          ) : (
+                            <UserCheck
+                              className="w-8 h-8"
+                              style={{ color: BLUE }}
+                            />
+                          )}
+                        </motion.div>
+                        <div>
+                          <h3
+                            className="text-2xl font-bold mb-2"
                             style={{ color: idx === 0 ? TEAL : BLUE }}
                           >
-                            {model.name}
-                          </h4>
-                          <p className="text-slate-600 dark:text-slate-300">
-                            {model.description}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
+                            {group.title}
+                          </h3>
+                          <motion.div
+                            className="w-20 h-1 rounded-full"
+                            style={{
+                              backgroundColor: idx === 0 ? TEAL : BLUE,
+                            }}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "5rem" }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                          ></motion.div>
+                        </div>
+                      </div>
+                      <ul className="space-y-6">
+                        {group.models.map((model, i) => (
+                          <li key={model.name}>
+                            <h4
+                              className="text-lg font-bold mb-1"
+                              style={{ color: idx === 0 ? TEAL : BLUE }}
+                            >
+                              {model.name}
+                            </h4>
+                            <p className="text-slate-600 dark:text-slate-300">
+                              {model.description}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -804,7 +771,7 @@ export default function CMAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how CMAAS can future-proof your workforce or career.
+              Let's discuss how CMᵃᵃˢ can future-proof your workforce or career.
             </p>
             <Button
               onClick={() => setShowContactForm(!showContactForm)}
@@ -814,7 +781,7 @@ export default function CMAASPage() {
                 color: "white",
               }}
             >
-              Get Started with CMAAS
+              Get Started with CMᵃᵃˢ
             </Button>
             {showContactForm && (
               <motion.div

@@ -15,7 +15,7 @@ const solutions = [
     benefits:
       "• Strategic Freedom for Visionary Leaders\n• You define the solution. We deliver the execution\n• With BYOS, your leadership team can focus on what matters most: the solution’s impact, not its implementation.",
     color: "#0B8FD6",
-    path: "/solutions/byos",
+    path: "/usps/byos",
     cta: "Explore Resilient Outsourcing",
   },
   {
@@ -27,7 +27,7 @@ const solutions = [
     benefits:
       "• Every Business Has a Story. We Turn Yours Into a Solution through BYBS\n• Your Business Story. Our Blueprint for Transformation\n• No More One-Size-Fits-All. Your Story Leads. We Follow",
     color: "#1BCDC5",
-    path: "/solutions/bybs",
+    path: "/usps/bybs",
     cta: "Whiteboard Your Story",
   },
   {
@@ -39,7 +39,7 @@ const solutions = [
     benefits:
       "• From Ideas to Impact – BIBD transforms innovation into disruptive business solutions\n• Explore solutions born from real-world challenges and visionary thinking.\n• Ideas Ignite Here. Disruption Begins Now",
     color: "#D6CE0B",
-    path: "/solutions/bibd",
+    path: "/usps/bibd",
     cta: "Acid test the Innovation",
   },
   {
@@ -51,7 +51,7 @@ const solutions = [
     benefits:
       "• Need transformation that aligns with business outcomes—not just trends\n• Identify core assets—people, processes, technologies—that are viable for transformation\n• Design a transformation roadmap using retained strengths as foundational pillars",
     color: "#0B8FD6",
-    path: "/solutions/ryro",
+    path: "/usps/ryro",
     cta: "Discover the RYRO Framework",
   },
 ];

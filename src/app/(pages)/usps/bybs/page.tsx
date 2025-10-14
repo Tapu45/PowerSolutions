@@ -231,13 +231,13 @@ export default function BYBSPage() {
       </section>
 
       {/* Steps */}
-      <section className="mx-auto max-w-7xl  py-22">
+      <section className="mx-auto max-w-7xl  py-16">
         <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-12">
           {[
             {
-              title: "Clarity from Complexity",
-              desc: "Helps you see the path through the noise.",
-              img: "/assets/bybs/cfc.png",
+              title: "Strategic Alignment with Business DNA",
+              desc: "Capture the full narrative — leadership vision, operational friction, and ground-level realities.",
+              img: "/assets/bybs/sabd.png",
               color: BLUE,
             },
             {
@@ -247,17 +247,18 @@ export default function BYBSPage() {
               color: TEAL,
             },
             {
+              title: "Clarity from Complexity",
+              desc: "Helps you see the path through the noise.",
+              img: "/assets/bybs/cfc.png",
+              color: BLUE,
+            },
+            {
               title: "Decision Paralysis",
               desc: "Helps when multiple perspectives exist but no clear action emerges.",
               img: "/assets/bybs/dpw.png",
               color: YELLOW,
             },
-            {
-              title: "Strategic Alignment with Business DNA",
-              desc: "Capture the full narrative — leadership vision, operational friction, and ground-level realities.",
-              img: "/assets/bybs/sabd.png",
-              color: BLUE,
-            },
+
             {
               title: "Reduced Internal Friction and Misalignment",
               desc: "Internal teams often miss cross-functional context or get stuck in silos.",
@@ -273,28 +274,26 @@ export default function BYBSPage() {
               transition={{ delay: i * 0.15 }}
               className="flex flex-col items-center text-center group"
             >
-              {/* Image container with hover effects */}
               <motion.div
                 className="relative mb-4 sm:mb-6"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Blurred background effect */}
                 <div
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: step.color, filter: "blur(20px)" }}
                 />
                 <div
-                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-2 sm:p-3 transition-all duration-300 group-hover:shadow-2xl"
-                  style={{ width: 60, height: 60 }}
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 sm:p-4 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 80, height: 80 }} // Increased size from 60 to 80
                 >
                   <Image
                     src={step.img}
                     alt={step.title}
-                    width={48}
-                    height={48}
+                    width={64}
+                    height={64}
                     className="object-contain transition-transform duration-300 group-hover:rotate-12"
-                    style={{ width: 48, height: 48 }}
+                    style={{ width: 64, height: 64 }}
                   />
                 </div>
               </motion.div>
@@ -313,10 +312,7 @@ export default function BYBSPage() {
       </section>
 
       {/* How it Works */}
-      <section
-        id="how-it-works"
-        className="mx-auto max-w-7xl px-4 sm:px-0 "
-      >
+      <section id="how-it-works" className="mx-auto max-w-7xl px-4 sm:px-0 ">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

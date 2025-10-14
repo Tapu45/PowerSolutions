@@ -1,70 +1,80 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
+  CheckCircle2,
   ArrowRight,
   Star,
   Shield,
+  Zap,
   ArrowDown,
   Building2,
+  Briefcase,
+  Users,
+  Target,
+  TrendingUp,
   FileText,
+  Lightbulb,
+  BarChart3,
+  Clock,
   CheckCircle,
-  Handshake,
-  UserCheck,
-  Eye,
-  EyeOff,
+  Circle,
+  ArrowUpRight,
+  Play,
+  Award,
+  Globe,
 } from "lucide-react";
 
 const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
-export default function PAAASPage() {
+export default function DSAAASPage() {
   const [showContactForm, setShowContactForm] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about PAᵃᵃˢ.");
+    alert("Thanks! We'll get back to you about DSᵃᵃˢ .");
     setShowContactForm(false);
   };
 
   const features = [
     {
-      title: "Independent Audits",
-      description: "Unbiased third-party evaluation of project performance",
-      icon: Eye,
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-    {
-      title: "Risk Mitigation",
-      description: "Proactive identification and control of project risks",
-      icon: Shield,
-      color: BLUE,
-      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      title: "Outcome Validation",
-      description: "Ensure deliverables meet business goals and standards",
-      icon: CheckCircle,
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
-    },
-    {
-      title: "Scalable & Reusable Documentation",
-      description: "Future-proof artifacts for upgrades and audits",
+      title: "Professionally Designed Deliverables",
+      description: "High-quality, structured documentation",
       icon: FileText,
       color: TEAL,
       gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
     },
     {
-      title: "No Conflict of Interest",
-      description: "Objective insights from an independent perspective",
-      icon: EyeOff,
+      title: "Industry - Client Specific Standardization",
+      description: "Tailored to your unique needs and standards",
+      icon: Target,
+      color: BLUE,
+      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
+    },
+    {
+      title: "Focused on Phases and Interlinked",
+      description: "Seamless connectivity across project stages",
+      icon: BarChart3,
+      color: YELLOW,
+      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
+    },
+    {
+      title: "Reusable Repository",
+      description: "Centralized library for consistent reuse",
+      icon: TrendingUp,
+      color: TEAL,
+      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
+    },
+    {
+      title: "Future Project Friendly",
+      description: "Designed for scalability and adaptability",
+      icon: Lightbulb,
       color: BLUE,
       gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
     },
@@ -72,78 +82,60 @@ export default function PAAASPage() {
 
   const offerings = [
     {
-      icon: "/services/paaas/cibc.png",
-      title: "Catch Issues Before They Cost You",
+      icon: "/services/dsaas/eelc.png",
+      title: "End-to-End Lifecycle Coverage",
       description:
-        "Spot gaps in scope, missed requirements, and hidden risks before they become expensive problems.",
+        "From scope definition to project closure—every phase is documented and standardized.",
     },
     {
-      icon: "/services/paaas/pyrp.png",
-      title: "Protect Your Retention Payments",
+      icon: "/services/dsaas/interlinked.png",
+      title: "Interlinked Deliverables",
       description:
-        "Ensure deliverables are truly complete and compliant before releasing final payments — no surprises later.",
+        "Each document connects to the next, ensuring seamless traceability across the lifecycle.",
     },
     {
-      icon: "/services/paaas/iuv.png",
-      title: "Independent, Unbiased Validation",
+      icon: "/services/dsaas/gcss.png",
+      title: "Global & Customer-Specific Standards",
       description:
-        "Get a third-party audit with zero conflict of interest. Objective insights you can trust.",
+        "Aligns with industry best practices and internal frameworks for faster rollouts.",
     },
     {
-      icon: "/services/paaas/bpsr.png",
-      title: "Boost Project Success Rates",
+      icon: "/services/dsaas/vcct.png",
+      title: "Version Control & Change Tracking",
       description:
-        "From vendor selection to go-live, PAᵃᵃˢ helps you stay on track, reduce rework, and improve delivery outcomes.",
+        "Every update is logged, making audits and transitions smooth and transparent.",
     },
     {
-      icon: "/services/paaas/fpyd.png",
-      title: "Future-Proof Your Documentation",
+      icon: "/services/dsaas/rdr.png",
+      title: "Reusable Documentation Repository",
       description:
-        "We assess the scalability and reusability of your project artifacts — making future upgrades and audits easier.",
+        "Build once, reuse across rollouts, audits, and future transformations.",
     },
     {
-      icon: "/services/paaas/sst.png",
-      title: "Strengthen Stakeholder Trust",
-      description:
-        "Whether you're a business or an IT partner, PAᵃᵃˢ builds confidence and transparency across the board.",
+      icon: "/services/dsaas/tpv.png",
+      title: "Third-Party Validation",
+      description: "Objective review ensures unbiased quality and compliance.",
     },
-    // {
-    //   icon: "/services/paaas/realtimerisk.png",
-    //   title: "Real-Time Risk Mitigation",
-    //   description:
-    //     "Engage PAᵃᵃˢ mid-project to identify and fix issues on the fly — not after the damage is done.",
-    // },
   ];
 
   const businessBenefits = [
-    "Risks identified early and controlled proactively",
-    "Future-proof, reusable documentation",
-    "Independent validation builds trust",
-    "Clear, phase-wise audit reports",
-    "Validated deliverables before payment",
+    "Strategic Alignment: See your business goals reflected in every phase.",
+    "Continuity Across Teams: No disruption even if vendors or internal teams change.",
+    "Empowered SMEs: Clear, validated documents for testing, training, and transformation.",
+    "Audit-Ready: Be prepared for internal reviews, external audits, or compliance checks.",
   ];
 
-  const engagementModels = [
-    {
-      title: "Direct Engagement",
-      description:
-        "You hire us independently to audit your project during transformation journey. You hire us after every phase of your project before you allow your IT partner move to the next phase.",
-      icon: UserCheck,
-      color: TEAL,
-    },
-    {
-      title: "Partner Engagement",
-      description:
-        "IT/ERP provider brings us in to ensure the audit is objective and comprehensive.",
-      icon: Handshake,
-      color: BLUE,
-    },
+  const itBenefits = [
+    "Delivery Confidence: Track progress, changes, and scope with clarity.",
+    "Reduced Rework: Avoid starting from scratch during transitions or escalations.",
+    "Stronger Client Trust: Transparent documentation builds credibility and accountability.",
+    "Accelerated Rollouts: Standardized templates and formats speed up delivery.",
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="min-h-screen bg-white dark:bg-slate-900 py-6">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-23 sm:pt-16">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Elements */}
         <div
           className="absolute inset-0"
@@ -182,21 +174,21 @@ export default function PAAASPage() {
           ></motion.div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="lg:col-span-7 w-full"
+              className="lg:col-span-7"
             >
-              {/* Service Badge - hidden on mobile, visible on desktop */}
+              {/* Service Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="hidden lg:inline-flex items-center gap-2 mb-6 sm:mb-8"
+                className="inline-flex items-center gap-2 mb-8"
               >
                 <div
                   className="w-2 h-2 rounded-full animate-pulse"
@@ -207,7 +199,7 @@ export default function PAAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  PAᵃᵃˢ
+                  DSᵃᵃˢ
                 </span>
               </motion.div>
 
@@ -216,17 +208,18 @@ export default function PAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mb-6 sm:mb-8"
+                className="mb-8"
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: TEAL }}>Project</span>{" "}
-                  <span style={{ color: BLUE }}>Audit</span>
-                  <div
-                    className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
+                <h1 className="text-5xl md:text-6xl font-black leading-none mb-4">
+                  <span style={{ color: BLUE }}>Deliverable&nbsp;</span>
+                  <span style={{ color: TEAL }}>Standardization</span>
+                  <br />
+                  <span
+                    className="text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
                     as a Service
-                  </div>
+                  </span>
                 </h1>
               </motion.div>
 
@@ -235,29 +228,32 @@ export default function PAAASPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-6 sm:mb-8"
+                className="mb-8"
               >
-                <div className="flex items-start gap-3 sm:gap-4">
+                <div className="flex items-start gap-4">
                   <div
-                    className="w-1 h-12 sm:h-16 rounded-full mt-2"
+                    className="w-1 h-16 rounded-full mt-2"
                     style={{ backgroundColor: TEAL }}
                   ></div>
                   <div>
                     <h3
-                      className="text-lg sm:text-xl font-bold mb-2"
+                      className="text-xl font-bold mb-2"
                       style={{ color: TEAL }}
                     >
                       Overview
                     </h3>
-                    <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Project Audit as a Service (PAᵃᵃˢ) is an innovative
-                      third-party audit offering designed to evaluate and
-                      enhance the outcomes of IT, Technology, and Business
-                      projects. It provides a structured, independent mechanism
-                      to assess project performance across scope, quality,
-                      timelines, scalability, documentation, and risk controls —
-                      ensuring alignment with business goals and compliance
-                      standards.
+                    <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                      In IT product and project development, deliverables are
+                      more than just documents—they are the evidence of
+                      delivery, the blueprint of execution, and the foundation
+                      for future transformation. Yet, many projects lose sight
+                      of their importance mid-way, leading to fragmented
+                      documentation, missed validations, and costly rework.
+                      DSᵃᵃˢ ensures that every deliverable—from scope definition
+                      to project completion—is standardized, traceable, and
+                      reusable. Whether you're a customer or an IT partner, this
+                      service helps maintain clarity, continuity, and control
+                      throughout the lifecycle.
                     </p>
                   </div>
                 </div>
@@ -271,13 +267,13 @@ export default function PAAASPage() {
               >
                 <Button
                   onClick={() => setShowContactForm(!showContactForm)}
-                  className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                  className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
                     color: "white",
                   }}
                 >
-                  Get Started with PAᵃᵃˢ
+                  Get Started with DSᵃᵃˢ
                 </Button>
               </motion.div>
             </motion.div>
@@ -287,36 +283,17 @@ export default function PAAASPage() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="lg:col-span-5 w-full mb-8 lg:mb-0"
+              className="lg:col-span-5 relative"
             >
-              {/* Service Badge - visible only on mobile */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex lg:hidden items-center gap-2 mb-4"
-              >
-                <div
-                  className="w-2 h-2 rounded-full animate-pulse"
-                  style={{ backgroundColor: TEAL }}
-                ></div>
-                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider">
-                  Services
-                </span>
-                <ArrowRight className="w-4 h-4 text-slate-400" />
-                <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  PAᵃᵃˢ
-                </span>
-              </motion.div>
               <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/services/paaas.png"
-                  alt="Project Audit as a Service"
+                  src="/services/dsaas.png"
+                  alt="Deliverable Standardization as a Service"
                   fill
-                  className="object-contain"
+                  className="object-contain p-8"
                   priority
                 />
-               
+                <div className="absolute inset-0 pointer-events-none rounded-3xl" />
               </div>
             </motion.div>
           </div>
@@ -353,7 +330,7 @@ export default function PAAASPage() {
           ></div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -373,15 +350,16 @@ export default function PAAASPage() {
               }}
               transition={{ duration: 1 }}
             >
-              Our Project Audit Process
+              Our Standardization Process
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              A structured approach to independent project evaluation
+              A systematic approach to deliverable standardization that delivers
+              results
             </p>
           </motion.div>
 
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
+          {/* More Compact Feature Grid with additional content */}
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-10">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -411,7 +389,7 @@ export default function PAAASPage() {
                   />
                 </motion.div>
 
-                {/* Feature Title */}
+                {/* Feature Title - More Compact */}
                 <h3
                   className="text-sm font-bold leading-tight max-w-[120px]"
                   style={{ color: feature.color }}
@@ -421,6 +399,8 @@ export default function PAAASPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Adding complementary content to fill space */}
         </div>
       </section>
       {/* What We Offer Section - Flip Cards */}
@@ -448,7 +428,8 @@ export default function PAAASPage() {
               What We Offer
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Comprehensive audit services for project success
+              Comprehensive services to ensure successful deliverable
+              standardization
             </p>
           </motion.div>
 
@@ -553,11 +534,11 @@ export default function PAAASPage() {
               Key Benefits
             </motion.h2>
             <p className="text-base md:text-lg text-slate-600 dark:text-slate-300">
-              Strategic advantages for project stakeholders
+              Strategic advantages for different stakeholders
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Business Benefits */}
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -568,7 +549,7 @@ export default function PAAASPage() {
                   <Building2 className="w-5 h-5" style={{ color: BLUE }} />
                 </div>
                 <h3 className="text-2xl font-bold" style={{ color: BLUE }}>
-                  Benefits for Organizations
+                  Benefits for Customers
                 </h3>
               </div>
               <ul className="space-y-3">
@@ -581,7 +562,45 @@ export default function PAAASPage() {
                     transition={{ delay: i * 0.05, duration: 0.3 }}
                     className="flex items-start gap-3"
                   >
-                    <Star className="h-4 w-4 mt-0.5" style={{ color: BLUE }} />
+                    <CheckCircle
+                      className="h-4 w-4 mt-0.5"
+                      style={{ color: BLUE }}
+                    />
+                    <span className="text-slate-700 dark:text-slate-200">
+                      {benefit}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* IT Benefits */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: `${TEAL}15` }}
+                >
+                  <Briefcase className="w-5 h-5" style={{ color: TEAL }} />
+                </div>
+                <h3 className="text-2xl font-bold" style={{ color: TEAL }}>
+                  Benefits for IT / Implementation Partners
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {itBenefits.map((benefit, i) => (
+                  <motion.li
+                    key={benefit}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
+                    className="flex items-start gap-3"
+                  >
+                    <Shield
+                      className="h-4 w-4 mt-0.5"
+                      style={{ color: TEAL }}
+                    />
                     <span className="text-slate-700 dark:text-slate-200">
                       {benefit}
                     </span>
@@ -594,7 +613,6 @@ export default function PAAASPage() {
       </section>
       {/* Engagement Models Section */}
       <section className="py-10 relative overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -628,91 +646,205 @@ export default function PAAASPage() {
               Engagement Models
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Flexible engagement options for project audits
+              Flexible engagement options to suit your needs
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {engagementModels.map((model, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Partnered Service */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="relative group flex flex-col h-full"
+            >
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="relative group"
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: `0 30px 60px ${YELLOW}25`,
+                }}
+                transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden"
-                  whileHover={{
-                    y: -8,
-                    scale: 1.02,
-                    boxShadow: `0 30px 60px ${model.color}25`,
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${YELLOW}, ${TEAL})`,
+                    padding: "3px",
                   }}
-                  transition={{ duration: 0.3 }}
                 >
-                  {/* Animated Background Elements */}
-                  <div className="absolute inset-0 opacity-10">
-                    <motion.div
-                      animate={{
-                        rotate: 360,
-                        scale: [1, 1.2, 1],
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="absolute top-4 right-4 w-16 h-16 border-2 border-dashed"
-                      style={{ borderColor: model.color }}
-                    ></motion.div>
-                  </div>
-
-                  {/* Animated Border */}
-                  <motion.div
-                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      background: `linear-gradient(135deg, ${model.color}, ${TEAL})`,
-                      padding: "3px",
-                    }}
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
-                  </motion.div>
-
-                  <div className="relative z-10">
-                    {/* Header */}
-                    <div className="flex items-center gap-4 mb-6">
+                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                </motion.div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
                       <motion.div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
-                        style={{ backgroundColor: `${model.color}15` }}
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${YELLOW}15` }}
                         whileHover={{
                           scale: 1.1,
                           rotate: 5,
-                          backgroundColor: `${model.color}25`,
+                          backgroundColor: `${YELLOW}25`,
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        <model.icon
-                          className="w-6 h-6"
-                          style={{ color: model.color }}
-                        />
+                        <Users className="w-8 h-8" style={{ color: YELLOW }} />
                       </motion.div>
-                      <h3
-                        className="text-xl font-bold"
-                        style={{ color: model.color }}
-                      >
-                        {model.title}
-                      </h3>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: YELLOW }}
+                        >
+                          Partnered Service
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: YELLOW }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
                     </div>
-
-                    {/* Description */}
-                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {model.description}
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Embedded within IT vendor delivery frameworks.
                     </p>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
-            ))}
+            </motion.div>
+
+            {/* Third-Party Extension */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="relative group flex flex-col h-full"
+            >
+              <motion.div
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: `0 30px 60px ${TEAL}25`,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+                    padding: "3px",
+                  }}
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                </motion.div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
+                      <motion.div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${TEAL}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: -5,
+                          backgroundColor: `${TEAL}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Globe className="w-8 h-8" style={{ color: TEAL }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: TEAL }}
+                        >
+                          Third-Party Extension
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: TEAL }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
+                    </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Independent validation and documentation for customers.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Hybrid Model */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="relative group flex flex-col h-full"
+            >
+              <motion.div
+                className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl p-8 border border-slate-200 dark:border-slate-600 overflow-hidden flex flex-col h-full justify-between"
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: `0 30px 60px ${BLUE}25`,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${BLUE}, ${YELLOW})`,
+                    padding: "3px",
+                  }}
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 rounded-3xl"></div>
+                </motion.div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-6 mb-6">
+                      <motion.div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: `${BLUE}15` }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          backgroundColor: `${BLUE}25`,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Award className="w-8 h-8" style={{ color: BLUE }} />
+                      </motion.div>
+                      <div>
+                        <h3
+                          className="text-xl font-bold mb-1"
+                          style={{ color: BLUE }}
+                        >
+                          Hybrid Model
+                        </h3>
+                        <motion.div
+                          className="w-16 h-1 rounded-full"
+                          style={{ backgroundColor: BLUE }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          transition={{ delay: 0.5, duration: 0.8 }}
+                        ></motion.div>
+                      </div>
+                    </div>
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Collaborative model between customer and IT partner.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -730,8 +862,8 @@ export default function PAAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how PAᵃᵃˢ can ensure your projects are audited with
-              precision and independence.
+              Let's discuss how DSᵃᵃˢ can bring clarity and standardization to
+              your deliverables.
             </p>
 
             <Button
@@ -742,7 +874,7 @@ export default function PAAASPage() {
                 color: "white",
               }}
             >
-              Get Started with PAᵃᵃˢ
+              Get Started with DSᵃᵃˢ
             </Button>
 
             {/* Contact Form */}
@@ -755,7 +887,7 @@ export default function PAAASPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="paaas"
+                  defaultUSP="dsaas"
                   onSubmit={handleContactSubmit}
                   className="max-w-4xl mx-auto"
                 />

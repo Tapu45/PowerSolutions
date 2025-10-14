@@ -32,7 +32,7 @@ export default function DMAASPage() {
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about DMAAS.");
+    alert("Thanks! We'll get back to you about DMᵃᵃˢ.");
     setShowContactForm(false);
   };
 
@@ -231,7 +231,7 @@ export default function DMAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  DMAAS
+                  DMᵃᵃˢ
                 </span>
               </motion.div>
 
@@ -302,7 +302,7 @@ export default function DMAASPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with DMAAS
+                  Get Started with DMᵃᵃˢ
                 </Button>
               </motion.div>
             </motion.div>
@@ -330,10 +330,10 @@ export default function DMAASPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  DMAAS
+                  DMᵃᵃˢ
                 </span>
               </motion.div>
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[400px] overflow-hidden rounded-3xl flex items-center justify-center">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/services/dmaas.png"
                   alt="Data Migration as a Service"
@@ -341,41 +341,8 @@ export default function DMAASPage() {
                   className="object-contain"
                   priority
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-          radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-          radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
-                />
-                {/* Animated Dots */}
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute top-10 right-10 w-4 h-4 rounded-full"
-                  style={{ backgroundColor: TEAL }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 0.5,
-                  }}
-                  className="absolute bottom-20 left-10 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: YELLOW }}
-                ></motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 1,
-                  }}
-                  className="absolute top-1/2 right-5 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: BLUE }}
-                ></motion.div>
+               
+              
               </div>
             </motion.div>
           </div>
@@ -826,7 +793,7 @@ export default function DMAASPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how DMAAS can bring clarity and strategic alignment
+              Let's discuss how DMᵃᵃˢ can bring clarity and strategic alignment
               to your next project.
             </p>
 
@@ -838,7 +805,7 @@ export default function DMAASPage() {
                 color: "white",
               }}
             >
-              Get Started with DMAAS
+              Get Started with DMᵃᵃˢ
             </Button>
 
             {/* Contact Form */}

@@ -297,16 +297,16 @@ export default function BYOSPage() {
                 />
 
                 <div
-                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-2 sm:p-3 transition-all duration-300 group-hover:shadow-2xl"
-                  style={{ width: 60, height: 60 }}
+                  className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 sm:p-4 transition-all duration-300 group-hover:shadow-2xl"
+                  style={{ width: 80, height: 80 }} // Increased size from 60 to 80
                 >
                   <Image
                     src={step.img}
                     alt={step.title}
-                    width={48}
-                    height={48}
+                    width={64}
+                    height={64}
                     className="object-contain transition-transform duration-300 group-hover:rotate-12"
-                    style={{ width: 48, height: 48 }}
+                    style={{ width: 64, height: 64 }}
                   />
                 </div>
               </motion.div>
