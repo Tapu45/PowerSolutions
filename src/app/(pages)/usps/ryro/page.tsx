@@ -113,10 +113,10 @@ export default function RYROPage() {
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/solutions2/RYRO.png"
+                  src="/ryro.png"
                   alt="Re-engineer Your Retained Organization"
                   fill
-                  className="object-contain p-4 sm:p-8"
+                  className="object-contain"
                   priority
                 />
                 <div

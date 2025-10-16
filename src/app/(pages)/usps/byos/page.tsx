@@ -207,18 +207,19 @@ export default function BYOSPage() {
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/solutions2/BYOS.png"
+                  src="/byos.png"
                   alt="Bring Your Own Solutions"
                   fill
-                  className="object-contain p-4 sm:p-8"
+                  className="object-contain" // Reduce padding for larger image
                   priority
+                  style={{}}
                 />
                 <div
                   className="absolute inset-0 pointer-events-none rounded-3xl"
                   style={{
                     background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-                       radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-                       radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
+           radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
+           radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
                   }}
                 />
               </div>

@@ -115,10 +115,10 @@ export default function BYBSPage() {
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/solutions2/BYBS.png"
+                  src="/bybs.png"
                   alt="Bring Your Business Solutions"
                   fill
-                  className="object-contain p-4 sm:p-8"
+                  className="object-contain"
                   priority
                 />
                 <div

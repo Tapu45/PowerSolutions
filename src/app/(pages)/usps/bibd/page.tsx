@@ -115,10 +115,10 @@ export default function BIBDPage() {
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/solutions2/BYBD.png"
+                  src="/bibd.png"
                   alt="Build It Build Different"
                   fill
-                  className="object-contain p-4 sm:p-8"
+                  className="object-contain"
                   priority
                 />
                 <div
