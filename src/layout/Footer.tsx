@@ -5,7 +5,7 @@ import CircularText from "@/components/animation/Circular-Text";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-muted text-muted-foreground py-12">
+    <footer className="bg-muted dark:bg-[#121212] text-muted-foreground py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand / Circular Text */}
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                 >
                   Who we are
                 </Link>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/creators"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                 >
                   The Creators
                 </Link>
@@ -50,12 +50,11 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/credentials"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                 >
                   Our Credentials
                 </Link>
               </li>
-              
             </ul>
           </div>
 
@@ -70,7 +69,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="hover:text-primary transition-colors"
+                className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Linkedin className="w-6 h-6" />
               </a>
@@ -79,7 +78,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hover:text-primary transition-colors"
+                className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Facebook className="w-6 h-6" />
               </a>
@@ -88,7 +87,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="hover:text-primary transition-colors"
+                className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Youtube className="w-6 h-6" />
               </a>
@@ -102,7 +101,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="tel:+919310567216"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                   >
                     +91-9310567216
                   </a>
@@ -110,7 +109,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="tel:+911141053409"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                   >
                     +91-11-41053409
                   </a>
@@ -118,7 +117,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="mailto:info@power-n.in"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                   >
                     info@power-n.in
                   </a>
@@ -138,7 +137,6 @@ const Footer: React.FC = () => {
               <li>Registered Office</li>
               <li>Brahmapur, India</li>
             </ul>
-
           </div>
         </div>
 
@@ -150,14 +148,14 @@ const Footer: React.FC = () => {
           <div className="flex space-x-4 mt-4 md:mt-0 text-sm">
             <Link
               href="/privacy-policy"
-              className="hover:text-primary transition-colors"
+              className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
             >
               Privacy Policy
             </Link>
             <span className="text-foreground/30">|</span>
             <Link
               href="/terms"
-              className="hover:text-primary transition-colors"
+              className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
             >
               Terms of Service
             </Link>

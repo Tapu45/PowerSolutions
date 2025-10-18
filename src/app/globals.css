@@ -81,57 +81,200 @@
 }
 
 .dark {
-  --background: oklch(0.1822 0 0);
-  --foreground: oklch(0.9288 0.0126 255.5078);
-  --card: oklch(0.2046 0 0);
-  --card-foreground: oklch(0.9288 0.0126 255.5078);
-  --popover: oklch(0.2603 0 0);
-  --popover-foreground: oklch(0.7348 0 0);
-  --primary: oklch(0.4365 0.1044 156.7556);
-  --primary-foreground: oklch(0.9213 0.0135 167.1556);
-  --secondary: oklch(0.2603 0 0);
-  --secondary-foreground: oklch(0.9851 0 0);
-  --muted: oklch(0.2393 0 0);
-  --muted-foreground: oklch(0.7122 0 0);
-  --accent: oklch(0.3132 0 0);
-  --accent-foreground: oklch(0.9851 0 0);
-  --destructive: oklch(0.3123 0.0852 29.7877);
-  --destructive-foreground: oklch(0.9368 0.0045 34.3092);
-  --border: oklch(0.2809 0 0);
-  --input: oklch(0.2603 0 0);
-  --ring: oklch(0.8003 0.1821 151.7110);
-  --chart-1: oklch(0.8003 0.1821 151.7110);
-  --chart-2: oklch(0.7137 0.1434 254.6240);
-  --chart-3: oklch(0.7090 0.1592 293.5412);
-  --chart-4: oklch(0.8369 0.1644 84.4286);
-  --chart-5: oklch(0.7845 0.1325 181.9120);
-  --sidebar: oklch(0.1822 0 0);
-  --sidebar-foreground: oklch(0.6301 0 0);
-  --sidebar-primary: oklch(0.4365 0.1044 156.7556);
-  --sidebar-primary-foreground: oklch(0.9213 0.0135 167.1556);
-  --sidebar-accent: oklch(0.3132 0 0);
-  --sidebar-accent-foreground: oklch(0.9851 0 0);
-  --sidebar-border: oklch(0.2809 0 0);
-  --sidebar-ring: oklch(0.8003 0.1821 151.7110);
-  --font-sans: Outfit, sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: monospace;
-  --radius: 0.5rem;
-  --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.09);
-  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.09);
-  --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 1px 2px -1px hsl(0 0% 0% / 0.17);
-  --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 1px 2px -1px hsl(0 0% 0% / 0.17);
-  --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 2px 4px -1px hsl(0 0% 0% / 0.17);
-  --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 4px 6px -1px hsl(0 0% 0% / 0.17);
-  --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 8px 10px -1px hsl(0 0% 0% / 0.17);
-  --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
-  
-  /* Dark mode premium additions */
-  --glass-bg: rgba(0, 0, 0, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  /* Pure dark mode CSS variables - clean and simple */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #cccccc;
+  --accent: #1a1a1a;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #ffffff;
+  --chart-1: #ffffff;
+  --chart-2: #cccccc;
+  --chart-3: #999999;
+  --chart-4: #666666;
+  --chart-5: #333333;
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #ffffff;
+
+  /* Clean dark mode overrides - like browser extension */
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
+
+
+
+
+
+/* Override all background elements cleanly */
+.dark .bg-white,
+.dark .bg-gray-100,
+.dark .bg-gray-200,
+.dark .bg-gray-50,
+.dark [class*="bg-"] {
+  background-color: #000000 !important;
+}
+.dark footer.bg-muted {
+  background-color: #121212 !important;
+}
+.dark footer {
+  background-color: #121212 !important;
+}
+
+.dark .premium-card {
+  background: linear-gradient(135deg,
+    rgba(15, 23, 42, 0.98) 0%,
+    rgba(20, 184, 166, 0.10) 40%,
+    rgba(214, 206, 11, 0.08) 100%
+  );
+  backdrop-filter: blur(10px);
+  /* Use a gradient border for glow effect, no white */
+  border: 1.5px solid transparent;
+  border-image: linear-gradient(135deg, rgba(20,184,166,0.25), rgba(214,206,11,0.18)) 1;
+  box-shadow:
+    0 4px 20px rgba(20,184,166,0.10),
+    0 2px 10px rgba(214,206,11,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+
+
+
+/* Override form elements */
+.dark input,
+.dark textarea,
+.dark select,
+.dark button {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+.dark button,
+.dark .solution-nav-btn {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.dark .industry-scope-gradient {
+  background: linear-gradient(to right, rgba(15,23,42,0.25) 0%, transparent 100%) !important;
+}
+
+.dark .industry-scope-gradient-right {
+  background: linear-gradient(to left, rgba(15,23,42,0.25) 0%, transparent 100%) !important;
+}
+
+
+
+/* Override specific component styles */
+.dark .premium-section {
+  background: #000000 !important;
+}
+
+
+
+/* Override specific text colors */
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-slate-600,
+.dark .text-slate-700,
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  color: #ffffff !important;
+}
+
+/* Override specific hardcoded inline styles */
+.dark [style*="background-color: white"],
+.dark [style*="background: white"],
+.dark [style*="background-color: #f9fafb"],
+.dark [style*="background: #f9fafb"],
+.dark [style*="background-color: #ffffff"],
+.dark [style*="background: #ffffff"] {
+  background-color: #000000 !important;
+}
+
+/* Override gradient backgrounds */
+.dark [style*="linear-gradient(135deg, rgba(255,255,255"] {
+  background: #111111 !important;
+}
+
+/* Override backdrop blur backgrounds */
+.dark [style*="backdrop-filter"] {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Override glass effects */
+.dark .glass,
+.dark .glass-strong,
+.dark .premium-glass {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-color: #333333 !important;
+}
+
+
+
+
+
+
+/* Override specific text elements */
+.dark .text-foreground {
+  color: #ffffff !important;
+}
+
+/* Override card foreground */
+.dark .text-card-foreground {
+  color: #ffffff !important;
+}
+
+/* Override muted text */
+.dark .text-muted-foreground {
+  color: #cccccc !important;
+}
+
+.dark .premium-card li,
+.dark .premium-card-dark li,
+.dark .premium-card .text-gray-700,
+.dark .premium-card-dark .text-gray-700 {
+  color: #d1d5db !important; /* Tailwind slate-300, soft light gray */
+}
+
+/* If you want a slightly more muted look: */
+.dark .premium-card li,
+.dark .premium-card-dark li {
+  color: #bfc9d4 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @theme inline {
   --color-background: var(--background);

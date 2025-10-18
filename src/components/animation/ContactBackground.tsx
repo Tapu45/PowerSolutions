@@ -5,12 +5,12 @@ import React from "react";
 const ContactBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* White base */}
-      <div className="absolute inset-0 bg-white" />
+      {/* Base background - white in light, black in dark */}
+      <div className="absolute inset-0 bg-white dark:bg-black" />
 
       {/* SVG triangle/diamond pattern overlay */}
       <svg
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full dark:opacity-20"
         style={{ opacity: 0.1 }}
         width="100%"
         height="100%"
@@ -37,10 +37,19 @@ const ContactBackground = () => {
 
       {/* Gradient mask overlay for fade-out effect */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 dark:hidden"
         style={{
           background:
             "linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 80%, #fff 100%)",
+        }}
+      />
+
+      {/* Dark mode gradient mask */}
+      <div
+        className="absolute inset-0 hidden dark:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 80%, #000 100%)",
         }}
       />
     </div>

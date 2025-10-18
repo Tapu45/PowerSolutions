@@ -29,8 +29,8 @@ const IndustryScope = () => {
 
   return (
     <section className="py-1 relative overflow-hidden">
-      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/10 to-blue-200/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-yellow-200/10 to-teal-200/10 rounded-full blur-3xl" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-slate-50 dark:from-slate-900/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-slate-50 dark:from-slate-900/80 to-transparent z-10 pointer-events-none" />
 
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -68,8 +68,7 @@ const IndustryScope = () => {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-64 bg-gradient-to-r from-slate-50 dark:from-slate-900 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-64 bg-gradient-to-l from-slate-50 dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+       
 
           <div className="overflow-hidden py-8">
             <motion.div

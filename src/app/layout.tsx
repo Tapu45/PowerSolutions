@@ -1,9 +1,10 @@
-// filepath: /home/rameswar-panda/Desktop/Nexus/powersolutions/src/app/layout.tsx
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../layout/Navbar"; // Import the Navbar component
-import Footer from "@/layout/Footer"; // Import the Footer component
+import Navbar from "../layout/Navbar";
+import Footer from "@/layout/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar /> {/* Add Navbar at the top */}
-        {children}
-        <Footer /> {/* Add Footer at the bottom */}
+        <ThemeProvider defaultTheme="system" storageKey="power-solutions-theme">
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

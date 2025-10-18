@@ -132,9 +132,9 @@ const Services = () => {
 
   return (
     <section className="premium-section premium-pattern relative md:py-26 pb-16 overflow-hidden">
-      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 to-yellow-200/6 rounded-full blur-3xl premium-animate-float" />
-      <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 to-teal-200/4 rounded-full blur-2xl premium-animate-float delay-1000" />
-      <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 to-yellow-100/4 rounded-full blur-3xl premium-animate-float delay-2000" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-teal-200/8 dark:from-teal-500/10 to-yellow-200/6 dark:to-yellow-500/8 rounded-full blur-3xl premium-animate-float" />
+      <div className="absolute top-60 right-20 w-24 h-24 bg-gradient-to-r from-yellow-200/6 dark:from-yellow-500/8 to-teal-200/4 dark:to-teal-500/6 rounded-full blur-2xl premium-animate-float delay-1000" />
+      <div className="absolute bottom-40 left-1/4 w-36 h-36 bg-gradient-to-r from-teal-100/6 dark:from-teal-500/10 to-yellow-100/4 dark:to-yellow-500/8 rounded-full blur-3xl premium-animate-float delay-2000" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -199,37 +199,69 @@ const Services = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="rounded-2xl p-5 premium-card flex flex-col justify-between h-auto sm:h-auto lg:row-span-2 lg:h-auto lg:min-h-[30rem]"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,253,252,0.85) 50%, rgba(254,252,232,0.8) 100%)",
-            }}
+            className="rounded-2xl p-5 premium-card dark:premium-card-dark flex flex-col justify-between h-auto sm:h-auto lg:row-span-2 lg:h-auto lg:min-h-[30rem]"
           >
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="h-6 w-1.5 rounded bg-teal-500" />
-                <span className="uppercase tracking-wider text-sm font-semibold text-teal-700">
+                <span className="uppercase tracking-wider text-sm font-semibold text-teal-700 dark:text-teal-300">
                   Services
                 </span>
               </div>
 
-              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700">
+              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700 dark:text-gray-300">
                 At{" "}
-                <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-700 to-yellow-600">
+                <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-700 to-yellow-600 dark:from-teal-400 dark:via-teal-300 dark:to-yellow-400">
                   {/* Custom colored "solutions" as per logo */}
-                  <span style={{ color: "#1BCDC5" }}>[</span>
-                  <span style={{ color: "#D6CE0B" }}>solut</span>
-                  <span style={{ color: "#0B8FD6" }}>i</span>
-                  <span style={{ color: "#D6CE0B" }}>o</span>
-                  <span style={{ color: "#8B2121" }}>n</span>
-                  <span style={{ color: "#D6CE0B" }}>s</span>
-                  <span style={{ color: "#1BCDC5" }}>]</span>
+                  <span
+                    style={{ color: "#1BCDC5" }}
+                    className="dark:text-[#1BCDC5]"
+                  >
+                    [
+                  </span>
+                  <span
+                    style={{ color: "#D6CE0B" }}
+                    className="dark:text-[#D6CE0B]"
+                  >
+                    solut
+                  </span>
+                  <span
+                    style={{ color: "#0B8FD6" }}
+                    className="dark:text-[#0B8FD6]"
+                  >
+                    i
+                  </span>
+                  <span
+                    style={{ color: "#D6CE0B" }}
+                    className="dark:text-[#D6CE0B]"
+                  >
+                    o
+                  </span>
+                  <span
+                    style={{ color: "#8B2121" }}
+                    className="dark:text-[#8B2121]"
+                  >
+                    n
+                  </span>
+                  <span
+                    style={{ color: "#D6CE0B" }}
+                    className="dark:text-[#D6CE0B]"
+                  >
+                    s
+                  </span>
+                  <span
+                    style={{ color: "#1BCDC5" }}
+                    className="dark:text-[#1BCDC5]"
+                  >
+                    ]
+                  </span>
                   <span
                     style={{
                       color: "#0B8FD6",
                       fontSize: "1.1em",
                       verticalAlign: "super",
                     }}
+                    className="dark:text-[#0B8FD6]"
                   >
                     n
                   </span>
@@ -241,11 +273,11 @@ const Services = () => {
                 challenges into strategic wins, achieving macro impact and
                 staying ahead of benchmarks.
               </p>
-              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700 mt-3">
+              <p className="text-base sm:text-[0.9rem] leading-relaxed text-gray-700 dark:text-gray-300 mt-3">
                 The micro-services are focused to deliver and add value to
                 transformation drive through:
               </p>
-              <ul className="mt-3 space-y-2 list-disc list-inside text-gray-700 text-base sm:text-sm">
+              <ul className="mt-3 space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300 text-base sm:text-sm">
                 <li>Granular Problem Solving</li>
                 <li>Objective Oriented Analysis and Documentation</li>
                 <li>Quality Delivery with 100% strategic alignment</li>
@@ -265,16 +297,13 @@ const Services = () => {
               viewport={{ once: true }}
               className="relative group rounded-2xl backdrop-blur-sm hover:backdrop-blur-md transition-all duration-500 overflow-hidden border cursor-pointer sm:h-60"
               style={{
-                height: "auto", // Changed from fixed height to auto
-                minHeight: "15rem", // Add minimum height to ensure consistent sizing
+                height: "auto",
+                minHeight: "15rem",
                 background:
                   hovered === idx
                     ? `linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,252,0.9) 30%, rgba(254,252,232,0.85) 100%)`
                     : `linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,253,252,0.75) 50%, rgba(254,252,232,0.7) 100%)`,
-                borderColor:
-                  hovered === idx
-                    ? `${service.color}40`
-                    : "rgba(20, 184, 166, 0.15)",
+          
                 boxShadow:
                   hovered === idx
                     ? `0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 8px 32px -8px rgba(214, 206, 11, 0.1), 0 0 0 1px ${service.color}25`
@@ -283,9 +312,12 @@ const Services = () => {
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
               onClick={() => handleServiceClick(service.name, idx)}
+              data-dark-background={`linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(20,20,20,0.95) 30%, rgba(25,25,25,0.9) 100%)`}
+              data-dark-hover-background={`linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(25,25,25,0.98) 30%, rgba(30,30,30,0.95) 100%)`}
+              data-service-color={service.color}
             >
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:opacity-10 dark:group-hover:opacity-20"
                 style={{
                   background: `linear-gradient(135deg, ${service.color}06 0%, rgba(20, 184, 166, 0.04) 50%, rgba(214, 206, 11, 0.03) 100%)`,
                 }}
@@ -300,7 +332,7 @@ const Services = () => {
                     hovered === idx
                       ? "bg-gradient-to-br from-teal-900/10 via-transparent to-yellow-900/5"
                       : "bg-gradient-to-br from-teal-900/5 via-transparent to-yellow-900/3"
-                  }`}
+                  } dark:from-teal-500/10 dark:to-yellow-500/5`}
                 />
                 <img
                   src={service.img}
@@ -309,14 +341,14 @@ const Services = () => {
                     hovered === idx
                       ? "scale-110 filter saturate-110 brightness-105"
                       : "scale-100 filter saturate-105"
-                  }`}
+                  } dark:brightness-90 dark:contrast-110`}
                 />
               </div>
 
-              {/* Service name display always visible - NEW */}
+              {/* Service name display always visible */}
               <div className="text-center py-3">
                 <h3
-                  className="font-semibold text-lg text-blue-700"
+                  className="font-semibold text-lg"
                   style={{ color: service.color }}
                 >
                   {service.name === "BAaas"
@@ -353,6 +385,7 @@ const Services = () => {
                   borderTop: `2px solid ${service.color}50`,
                   boxShadow: `0 -4px 20px rgba(20, 184, 166, 0.08), 0 -2px 12px rgba(214, 206, 11, 0.05), inset 0 1px 0 rgba(255,255,255,0.9)`,
                 }}
+                data-dark-background={`linear-gradient(135deg, rgba(25,25,25,0.92) 0%, rgba(30,30,30,0.9) 40%, rgba(35,35,35,0.88) 100%)`}
               >
                 <div className="p-3 pt-6">
                   <div className="space-y-1.5 sm:space-y-2.5">
@@ -372,7 +405,7 @@ const Services = () => {
                           className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 shadow-sm"
                           style={{ backgroundColor: service.color }}
                         />
-                        <span className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
+                        <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
                           {bullet}
                         </span>
                       </motion.div>
@@ -393,7 +426,7 @@ const Services = () => {
                           className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 shadow-sm"
                           style={{ backgroundColor: service.color }}
                         />
-                        <span className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
+                        <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
                           {service.bullets[2]}
                         </span>
                       </motion.div>
@@ -440,7 +473,7 @@ const Services = () => {
               <div
                 className={`absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-500 ${
                   hovered === idx ? "opacity-100" : "opacity-0"
-                }`}
+                } dark:opacity-20 dark:group-hover:opacity-30`}
                 style={{
                   background: `linear-gradient(135deg, rgba(20, 184, 166, 0.04) 0%, transparent 30%, rgba(214, 206, 11, 0.03) 70%, transparent 100%)`,
                 }}
