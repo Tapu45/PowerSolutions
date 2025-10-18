@@ -6,26 +6,11 @@ import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
   ArrowRight,
-  Star,
-  Shield,
   ArrowDown,
-  Building2,
-  Users,
   Target,
   TrendingUp,
-  Lightbulb,
-  BarChart3,
-  Search,
-  PlayCircle,
-  Handshake,
-  Layers,
-  Briefcase,
-  Globe,
-  CheckCircle,
-  ArrowLeft,
   Database,
   Settings,
-  Zap,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,7 +20,7 @@ const BLUE = "#0B8FD6";
 
 export default function ERPConsultingPage() {
   const [showContactForm, setShowContactForm] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
@@ -326,7 +311,7 @@ export default function ERPConsultingPage() {
               </motion.div>
               <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/services/erp.jpg"
+                  src="/assets/services/erp.jpg"
                   alt="ERP Consulting Services"
                   fill
                   className="object-cover"
@@ -475,7 +460,6 @@ export default function ERPConsultingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="group [perspective:1000px]"
                 >
                   <div className="relative w-full h-48 transform-gpu transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     {/* Front of card */}

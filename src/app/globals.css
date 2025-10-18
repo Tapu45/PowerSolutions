@@ -232,7 +232,13 @@
 
 
 
-
+.dark .gemini-bg-fix,
+.dark .gemini-bg-fix svg {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
 
 
 /* Override specific text elements */

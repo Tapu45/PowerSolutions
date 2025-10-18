@@ -60,7 +60,7 @@ export const GoogleGeminiEffect = ({
   }));
 
   return (
-    <div className={cn("sticky top-80", className)}>
+    <div className={cn("sticky top-80 gemini-bg-fix", className)}>
       {/* Floating dots */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {dots.map((dot) => (
@@ -81,11 +81,25 @@ export const GoogleGeminiEffect = ({
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[400px] h-[80px] bg-cyan-200/30 blur-2xl rounded-full z-0" />
 
       {/* Heading and subheading content */}
-      {/* Heading and subheading content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-7">
-        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight leading-tight">
-          {title || "Welcome to Power Solutions"}
-        </h1>
+        <motion.h1
+          className="text-5xl md:text-7xl font-extrabold mb-3 tracking-tight leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileHover={{
+            textShadow: [
+              `0 0 0px #0B8FD6`,
+              `0 0 30px #0B8FD630`,
+              `0 0 0px #0B8FD6`,
+            ],
+          }}
+        >
+          <span className="text-slate-900">Welcome to </span>
+          <span className="text-[#0B8FD6]">Power</span>
+          <span className="text-[#1BCDC5]"> Solutions</span>
+        </motion.h1>
+
         {/* smoother rotation with exit/enter */}
         <motion.div
           key={`wrapper-${currentMessageIndex}`}
@@ -97,7 +111,7 @@ export const GoogleGeminiEffect = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="text-lg md:text-2xl text-muted-foreground/90 px-2"
+            className="text-lg md:text-2xl text-slate-600 px-2 font-medium"
             aria-live="polite"
           >
             {messages[currentMessageIndex]}
