@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       name: "Deliver",
       subItems: [
         "ERP Consulting",
-        "Business Process Consulting ",
+        "Business Process Consulting",
         "Application Development",
         "Transformation",
         "Maintenance and Support",

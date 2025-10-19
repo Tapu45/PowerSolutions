@@ -63,7 +63,7 @@ const SERVICES = [
     color: "#1BCDC5",
     bullets: [
       "Ensure your Business Application Deliver exactly what your users expect",
-      "Don’t let Bugs or Blind Spots derail your go-lve",
+      "Don't let Bugs or Blind Spots derail your go-lve",
       "Shift from feature validation to problem solving. Lets test what matters.",
     ],
   },
@@ -99,7 +99,7 @@ const SERVICES = [
   },
   {
     name: "DSaaS",
-    img: "/assets/services/DSaas.png", // Make sure this image exists or update the path
+    img: "/assets/services/DSaas.png",
     color: "#0B8FD6",
     bullets: [
       "Establish consistent deliverable formats across all projects",
@@ -113,6 +113,7 @@ const Services = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [expanded, setExpanded] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -122,12 +123,60 @@ const Services = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const handleServiceClick = (serviceName: string, idx: number) => {
     if (isMobile) {
       setExpanded(expanded === idx ? null : idx);
     } else {
       router.push(`/services/${serviceName.toLowerCase()}`);
     }
+  };
+
+  // Dynamic styles for light and dark mode
+  const getBulletBackground = () => {
+    return isDark
+      ? `linear-gradient(135deg, rgba(25,25,25,0.92) 0%, rgba(30,30,30,0.9) 40%, rgba(35,35,35,0.88) 100%)`
+      : `linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(240,253,252,0.9) 40%, rgba(254,252,232,0.88) 100%)`;
+  };
+
+  const getBulletBoxShadow = () => {
+    return isDark
+      ? `0 -4px 20px rgba(20, 184, 166, 0.08), 0 -2px 12px rgba(214, 206, 11, 0.05), inset 0 1px 0 rgba(0,0,0,0.3)`
+      : `0 -4px 20px rgba(20, 184, 166, 0.08), 0 -2px 12px rgba(214, 206, 11, 0.05), inset 0 1px 0 rgba(255,255,255,0.9)`;
+  };
+
+  const getCardBackground = (isHovered: boolean) => {
+    if (isDark) {
+      return isHovered
+        ? `linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(25,25,25,0.98) 30%, rgba(30,30,30,0.95) 100%)`
+        : `linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(20,20,20,0.95) 30%, rgba(25,25,25,0.9) 100%)`;
+    }
+    return isHovered
+      ? `linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,252,0.9) 30%, rgba(254,252,232,0.85) 100%)`
+      : `linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,253,252,0.75) 50%, rgba(254,252,232,0.7) 100%)`;
+  };
+
+  const getCardBoxShadow = (isHovered: boolean, serviceColor: string) => {
+    if (isDark) {
+      return isHovered
+        ? `0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 8px 32px -8px rgba(214, 206, 11, 0.1), 0 0 0 1px ${serviceColor}25`
+        : `0 8px 25px -5px rgba(20, 184, 166, 0.08), 0 4px 16px -4px rgba(214, 206, 11, 0.06), 0 0 0 1px rgba(20, 184, 166, 0.1)`;
+    }
+    return isHovered
+      ? `0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 8px 32px -8px rgba(214, 206, 11, 0.1), 0 0 0 1px ${serviceColor}25`
+      : `0 8px 25px -5px rgba(20, 184, 166, 0.08), 0 4px 16px -4px rgba(214, 206, 11, 0.06), 0 0 0 1px rgba(20, 184, 166, 0.1)`;
   };
 
   return (
@@ -299,22 +348,12 @@ const Services = () => {
               style={{
                 height: "auto",
                 minHeight: "15rem",
-                background:
-                  hovered === idx
-                    ? `linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,252,0.9) 30%, rgba(254,252,232,0.85) 100%)`
-                    : `linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,253,252,0.75) 50%, rgba(254,252,232,0.7) 100%)`,
-          
-                boxShadow:
-                  hovered === idx
-                    ? `0 25px 50px -12px rgba(20, 184, 166, 0.15), 0 8px 32px -8px rgba(214, 206, 11, 0.1), 0 0 0 1px ${service.color}25`
-                    : "0 8px 25px -5px rgba(20, 184, 166, 0.08), 0 4px 16px -4px rgba(214, 206, 11, 0.06), 0 0 0 1px rgba(20, 184, 166, 0.1)",
+                background: getCardBackground(hovered === idx),
+                boxShadow: getCardBoxShadow(hovered === idx, service.color),
               }}
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
               onClick={() => handleServiceClick(service.name, idx)}
-              data-dark-background={`linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(20,20,20,0.95) 30%, rgba(25,25,25,0.9) 100%)`}
-              data-dark-hover-background={`linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(25,25,25,0.98) 30%, rgba(30,30,30,0.95) 100%)`}
-              data-service-color={service.color}
             >
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:opacity-10 dark:group-hover:opacity-20"
@@ -380,12 +419,11 @@ const Services = () => {
                     : "translate-y-full opacity-0"
                 }`}
                 style={{
-                  background: `linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(240,253,252,0.9) 40%, rgba(254,252,232,0.88) 100%)`,
+                  background: getBulletBackground(),
                   clipPath: "polygon(0 15%, 100% 0, 100% 100%, 0% 100%)",
                   borderTop: `2px solid ${service.color}50`,
-                  boxShadow: `0 -4px 20px rgba(20, 184, 166, 0.08), 0 -2px 12px rgba(214, 206, 11, 0.05), inset 0 1px 0 rgba(255,255,255,0.9)`,
+                  boxShadow: getBulletBoxShadow(),
                 }}
-                data-dark-background={`linear-gradient(135deg, rgba(25,25,25,0.92) 0%, rgba(30,30,30,0.9) 40%, rgba(35,35,35,0.88) 100%)`}
               >
                 <div className="p-3 pt-6">
                   <div className="space-y-1.5 sm:space-y-2.5">

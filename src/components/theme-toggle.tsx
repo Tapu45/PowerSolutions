@@ -15,9 +15,9 @@ export function ThemeToggle() {
     }
 
     // Force refresh after theme toggle
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 100);
   };
 
   const getIcon = () => {

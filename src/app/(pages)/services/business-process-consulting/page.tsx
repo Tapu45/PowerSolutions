@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
@@ -9,16 +9,7 @@ import {
   ArrowDown,
   Target,
   TrendingUp,
-  Database,
   Settings,
-  Users,
-  BarChart3,
-  Lightbulb,
-  Shield,
-  Search,
-  Layers,
-  PlayCircle,
-  Handshake,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -70,104 +61,50 @@ const LazyImage = ({ src, alt, width, height, className, ...props }: any) => {
   );
 };
 
-export default function ERPConsultingPage() {
+export default function BusinessProcessConsultingPage() {
   const [showContactForm, setShowContactForm] = useState(false);
 
   const handleContactSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about ERP Consulting.");
+    alert("Thanks! We'll get back to you about Business Process Consulting.");
     setShowContactForm(false);
   };
 
-  const erpSystems = [
+  const processFunctions = [
     {
-      name: "System Configuration",
-      icon: "/assets/services/erp/System Configuration.png",
+      name: "Procure to Pay",
+      icon: "/assets/services/process/Procure to Pay.png",
     },
     {
-      name: "FIT & GAP Analysis",
-      icon: "/assets/services/erp/FIT & GAP Analysis.png",
+      name: "Order to Cash",
+      icon: "/assets/services/process/Order to Cash.png",
     },
     {
-      name: "Requirement Gathering",
-      icon: "/assets/services/erp/Requirement Gathering.png",
+      name: "Hire to Retire",
+      icon: "/assets/services/process/Hire to Retire.png",
     },
     {
-      name: "Conference Room Piloting",
-      icon: "/assets/services/erp/Conference Room Piloting.png",
+      name: "Record to Report",
+      icon: "/assets/services/process/Record to Report.png",
     },
     {
-      name: "User Training",
-      icon: "/assets/services/erp/User Training.png",
+      name: "Forecast to Plant",
+      icon: "/assets/services/process/Forecast to Plant.png",
     },
     {
-      name: "Conference Room Piloting",
-      icon: "/assets/services/erp/Conference Room Piloting.png",
+      name: "Source to Pay",
+      icon: "/assets/services/process/Source to Pay.png",
+    },
+    {
+      name: "Acquire to Retire",
+      icon: "/assets/services/process/Acquire to Retire.png",
+    },
+    {
+      name: "Plan to Forecast",
+      icon: "/assets/services/process/Plan to Forecast.png",
     },
   ];
 
-  const serviceOfferings = [
-    {
-      icon: "/services/aeaas.png",
-      title: "Adaption Evaluation as a Service",
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-    {
-      icon: "/services/ataas.png",
-      title: "Application Testing as a Service",
-      color: BLUE,
-      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      icon: "/services/bsa.png",
-      title: "Business Analysis as a Service",
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
-    },
-    {
-      icon: "/services/cmaas.png",
-      title: "Change Management as a Service",
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-    {
-      icon: "/services/dmaas.png",
-      title: "Data Migration as a Service",
-      color: BLUE,
-      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      icon: "/services/dsaas.png",
-      title: "Data Strategy as a Service",
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
-    },
-    {
-      icon: "/services/faaas.png",
-      title: "Functional Analysis as a Service",
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-    {
-      icon: "/services/paaas.png",
-      title: "Process Analysis as a Service",
-      color: BLUE,
-      gradient: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-    },
-    {
-      icon: "/services/pmaas.png",
-      title: "Project Management as a Service",
-      color: YELLOW,
-      gradient: `linear-gradient(135deg, ${YELLOW}20, ${YELLOW}05)`,
-    },
-    {
-      icon: "/services/tmaas.png",
-      title: "Training Management as a Service",
-      color: TEAL,
-      gradient: `linear-gradient(135deg, ${TEAL}20, ${TEAL}05)`,
-    },
-  ];
 
   const methodologySteps = [
     {
@@ -221,8 +158,8 @@ export default function ERPConsultingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-white dark:bg-slate-900 py-6">
+      {/* Hero Section - Simplified */}
       <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden pt-24 sm:pt-16">
         {/* Background Elements */}
         <div
@@ -232,7 +169,7 @@ export default function ERPConsultingPage() {
           }}
         />
 
-        {/* Floating Elements - Reduced complexity */}
+        {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{
@@ -260,16 +197,16 @@ export default function ERPConsultingPage() {
           />
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6  relative z-10 w-full">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            {/* Left Content - Only first paragraph */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="lg:col-span-7 w-full"
+              className="lg:col-span-6 w-full"
             >
-              {/* Service Badge - hidden on mobile, visible on desktop */}
+              {/* Service Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -285,7 +222,7 @@ export default function ERPConsultingPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  ERP Consulting
+                  Business Process Consulting
                 </span>
               </motion.div>
 
@@ -297,18 +234,18 @@ export default function ERPConsultingPage() {
                 className="mb-6 sm:mb-8"
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mb-4">
-                  <span style={{ color: TEAL }}>ERP</span>{" "}
+                  <span style={{ color: TEAL }}>Process</span>{" "}
                   <span style={{ color: BLUE }}>Consulting</span>
                   <div
                     className="text-xl sm:text-3xl md:text-4xl font-bold mt-2"
                     style={{ color: YELLOW }}
                   >
-                    Liberate Your Business
+                    Eliminate Grey Areas
                   </div>
                 </h1>
               </motion.div>
 
-              {/* Introduction */}
+              {/* First Paragraph Only */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -321,18 +258,16 @@ export default function ERPConsultingPage() {
                     style={{ backgroundColor: TEAL }}
                   />
                   <div>
-                    <h3
-                      className="text-lg sm:text-xl font-bold mb-2"
-                      style={{ color: TEAL }}
-                    >
-                      Introduction
-                    </h3>
                     <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                      At [solutions]ⁿ, we don't just consult—we liberate. Our
-                      ERP services are built to dismantle the rigidity, opacity,
-                      and cost inflation of traditional consulting models.
-                      Whether you're an enterprise or SMB, we help you reclaim
-                      control, clarity, and confidence in your ERP journey.
+                      In the journey of digital transformation, a critical flaw
+                      exists: the "grey area" between the theoretical ideal of a
+                      designed process and the actual process followed by the
+                      organization. This gap acts as a black hole, absorbing
+                      value, undermining efficiency, and becoming the single
+                      greatest barrier to transformation success. Our Process
+                      Consulting Service is specifically engineered to eliminate
+                      these grey areas and ensure total alignment between design
+                      and execution.
                     </p>
                   </div>
                 </div>
@@ -352,7 +287,7 @@ export default function ERPConsultingPage() {
                     color: "white",
                   }}
                 >
-                  Get Started with ERP Consulting
+                  Get Started with Process Consulting
                 </Button>
               </motion.div>
             </motion.div>
@@ -362,9 +297,8 @@ export default function ERPConsultingPage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="lg:col-span-5 w-full mb-8 lg:mb-0"
+              className="lg:col-span-6 w-full mb-8 lg:mb-0"
             >
-              {/* Service Badge - visible only on mobile */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -380,13 +314,13 @@ export default function ERPConsultingPage() {
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400" />
                 <span className="text-sm font-bold" style={{ color: BLUE }}>
-                  ERP Consulting
+                  Business Process Consulting
                 </span>
               </motion.div>
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[330px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/assets/services/erp.png"
-                  alt="ERP Consulting Services"
+                  src="/assets/services/process.png"
+                  alt="Business Process Consulting Services"
                   fill
                   className="object-cover"
                   priority
@@ -415,7 +349,7 @@ export default function ERPConsultingPage() {
         </motion.div>
       </section>
 
-      {/* Our Competency Section */}
+      {/* Our Competency Section - Reorganized */}
       <section className="py-10 bg-slate-50 dark:bg-slate-800 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -442,114 +376,131 @@ export default function ERPConsultingPage() {
             >
               Our Competency
             </motion.h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300">
-              With a global presence and deep expertise across leading ERP
-              systems, our team has successfully re-engineered and transformed
-              over 150 customer organizations.
-            </p>
           </motion.div>
 
-          {/* ERP Systems Logos - Lazy loaded */}
-          <div className="grid grid-cols-4 md:grid-cols-6 gap-6">
-            {erpSystems.map((system, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex flex-col items-center text-center"
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="w-20 h-20 rounded-xl flex items-center justify-center mb-3 overflow-hidden"
-                  style={{
-                    background: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
-                    boxShadow: `0 5px 15px ${BLUE}30`,
-                  }}
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: `0 8px 25px ${BLUE}50`,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <LazyImage
-                    src={system.icon}
-                    alt={system.name}
-                    width={60}
-                    height={60}
-                    className="object-contain"
-                  />
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Offerings Section */}
-      <section className="py-7">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-10"
-          >
-            <motion.h2
-              className="text-5xl font-bold mb-3"
-              style={{ color: TEAL }}
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side - Process Functions Icons */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              Our Offerings
-            </motion.h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300">
-              Leveraging millions of hours analyzing the performance data and
-              shortcomings of traditional ERP consulting, we radically
-              reinvented our service model.
-            </p>
-          </motion.div>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-6">
+                {processFunctions.map((func, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex flex-col items-center text-center"
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.div
+                      className="w-20 h-20 rounded-xl flex items-center justify-center mb-3 overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, ${BLUE}20, ${BLUE}05)`,
+                        boxShadow: `0 5px 15px ${BLUE}30`,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        boxShadow: `0 8px 25px ${BLUE}50`,
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <LazyImage
+                        src={func.icon}
+                        alt={func.name}
+                        width={60}
+                        height={60}
+                        className="object-contain"
+                      />
+                    </motion.div>
+                    <h3
+                      className="text-sm font-bold leading-tight"
+                      style={{ color: BLUE }}
+                    >
+                      {func.name}
+                    </h3>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Service Offerings Grid - Lazy loaded */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {serviceOfferings.map((offering, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex flex-col items-center text-center"
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center mb-3 overflow-hidden"
-                  style={{
-                    background: offering.gradient,
-                    boxShadow: `0 5px 15px ${offering.color}30`,
-                  }}
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: `0 8px 25px ${offering.color}50`,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <LazyImage
-                    src={offering.icon}
-                    alt={offering.title}
-                    width={48}
-                    height={48}
-                    className="object-contain p-1"
-                  />
-                </motion.div>
-                <h3
-                  className="text-sm font-bold leading-tight max-w-[120px]"
-                  style={{ color: offering.color }}
-                >
-                  {offering.title}
-                </h3>
-              </motion.div>
-            ))}
+            {/* Right Side - Second Paragraph */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:pl-8"
+            >
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-1 h-full rounded-full min-h-[400px]"
+                  style={{ backgroundColor: TEAL }}
+                />
+                <div>
+                  <h3
+                    className="text-2xl font-bold mb-4"
+                    style={{ color: TEAL }}
+                  >
+                    Successful Transformation
+                  </h3>
+                  <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Successful transformation requires balancing the
+                    organizational blueprint with the workforce experience. Our
+                    approach ensures:
+                  </p>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h4
+                        className="font-bold text-lg mb-2"
+                        style={{ color: BLUE }}
+                      >
+                        Optimal Functions
+                      </h4>
+                      <p className="text-slate-600 dark:text-slate-300">
+                        We align processes with the best, industry-proven
+                        organizational Functions to ensure structural integrity
+                        and the deployment of reliable solutions.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4
+                        className="font-bold text-lg mb-2"
+                        style={{ color: BLUE }}
+                      >
+                        Enabling Features
+                      </h4>
+                      <p className="text-slate-600 dark:text-slate-300">
+                        We focus on the system Features that empower the
+                        workforce, driving faster process completion, higher
+                        user satisfaction, and seamless adoption.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4
+                        className="font-bold text-lg mb-2"
+                        style={{ color: BLUE }}
+                      >
+                        Measurable Optimization
+                      </h4>
+                      <p className="text-slate-600 dark:text-slate-300 mb-3">
+                        We optimize processes for measurable outputs and future
+                        resilience, specifically targeting:
+                      </p>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -573,7 +524,11 @@ export default function ERPConsultingPage() {
             <p className="text-xl text-slate-600 dark:text-slate-300">
               The precision of our 3i Methodology is forged from extensive
               global experience. By mastering and integrating the core strengths
-              of all leading frameworks.
+              of all leading frameworks—from AIM and OUM to Agile and
+              Waterfall—we ensure every project phase is covered, resulting in a
+              robust, transparent, and streamlined process for identifying
+              needs, implementing solutions, and intensifying organizational
+              impact.
             </p>
           </motion.div>
 
@@ -660,7 +615,7 @@ export default function ERPConsultingPage() {
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
               We offer our clients to choose one of our Proprietary solutions
-              that will address their need for ERP Consulting Services
+              that will address their need for Process Consulting Services
             </p>
           </motion.div>
 
@@ -751,11 +706,11 @@ export default function ERPConsultingPage() {
               className="text-3xl sm:text-4xl font-bold mb-6"
               style={{ color: BLUE }}
             >
-              Ready to Liberate Your ERP Journey?
+              Ready to Eliminate Grey Areas?
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our ERP consulting services can help you reclaim
-              control, clarity, and confidence in your ERP transformation.
+              Let's discuss how our process consulting services can help you
+              achieve total alignment between design and execution.
             </p>
 
             <Button
@@ -766,7 +721,7 @@ export default function ERPConsultingPage() {
                 color: "white",
               }}
             >
-              Get Started with ERP Consulting
+              Get Started with Process Consulting
             </Button>
 
             {/* Contact Form */}
@@ -779,7 +734,7 @@ export default function ERPConsultingPage() {
                 className="mt-8"
               >
                 <ContactForm
-                  defaultUSP="erp-consulting"
+                  defaultUSP="business-process-consulting"
                   onSubmit={handleContactSubmit}
                   className="max-w-4xl mx-auto"
                 />
