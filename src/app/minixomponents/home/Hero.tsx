@@ -104,61 +104,118 @@ const Hero: React.FC = () => {
   return (
     <section className="relative flex flex-col items-center justify-start pt-10 md:pt-32 text-center min-h-[56vh] md:min-h-[80vh] md:mb-16">
       {/* Side rails - large screens only */}
+      {/* Side rails - large screens only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24 bg-gradient-to-b from-slate-900/60 via-slate-900/20 to-transparent z-[1] hidden md:block">
         {/* Left rail */}
         <div className="absolute left-6 top-24 bottom-24 flex flex-col items-center gap-4">
-          <div className="w-px h-full bg-gradient-to-b from-cyan-200/40 via-yellow-200/30 to-blue-300/40" />
+          <motion.div
+            className="w-px h-full bg-gradient-to-b from-cyan-200/40 via-yellow-200/30 to-blue-300/40"
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={{ scaleY: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
           <div className="pointer-events-auto flex flex-col items-center gap-4 -mt-full">
             <motion.div
               className="rounded-2xl border-2 border-cyan-200/40 bg-white/80 backdrop-blur-md shadow-lg p-3 h-16 w-16 flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)",
                 borderColor: "rgba(6, 182, 212, 0.6)",
+                rotate: [0, -5, 5, 0],
               }}
             >
-              <img
+              <motion.img
                 src="/assets/solutions/BYOS.png"
                 alt="BYOS"
                 className="h-10 w-10 object-contain"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-yellow-300/40 bg-white/80 backdrop-blur-md shadow-lg p-3 h-16 w-16 flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(251, 191, 36, 0.3)",
                 borderColor: "rgba(251, 191, 36, 0.6)",
+                rotate: [0, -5, 5, 0],
               }}
             >
-              <img
+              <motion.img
                 src="/assets/solutions/BYBS.png"
                 alt="BYBS"
                 className="h-10 w-10 object-contain"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
               />
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-cyan-200/40 bg-white/80 backdrop-blur-md shadow-lg p-3 h-16 w-16 flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)",
                 borderColor: "rgba(6, 182, 212, 0.6)",
+                rotate: [0, -5, 5, 0],
               }}
             >
-              <img
+              <motion.img
                 src="/assets/solutions/BIBD.png"
                 alt="BIBD"
                 className="h-10 w-10 object-contain"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
               />
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-blue-300/40 bg-white/80 backdrop-blur-md shadow-lg p-3 h-16 w-16 flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.3)",
                 borderColor: "rgba(59, 130, 246, 0.6)",
+                rotate: [0, -5, 5, 0],
               }}
             >
-              <img
+              <motion.img
                 src="/assets/solutions/RYRO.png"
                 alt="RYRO"
                 className="h-10 w-10 object-contain"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
               />
             </motion.div>
           </div>
@@ -166,47 +223,115 @@ const Hero: React.FC = () => {
 
         {/* Right rail - perfectly aligned with left, same size */}
         <div className="absolute right-6 top-24 bottom-24 flex flex-col items-center gap-4">
-          <div className="w-px h-full bg-gradient-to-b from-blue-300/40 via-cyan-200/30 to-yellow-200/40" />
+          <motion.div
+            className="w-px h-full bg-gradient-to-b from-blue-300/40 via-cyan-200/30 to-yellow-200/40"
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={{ scaleY: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
           <div className="pointer-events-auto flex flex-col items-center gap-4 -mt-full">
             <motion.div
               className="rounded-2xl border-2 border-blue-300/40 bg-white/80 backdrop-blur-md shadow-lg h-16 w-16 flex items-center justify-center p-3 hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.3)",
                 borderColor: "rgba(59, 130, 246, 0.6)",
+                rotate: [0, 5, -5, 0],
               }}
             >
-              <span className="text-xs font-bold text-gray-700">ERP</span>
+              <motion.span
+                className="text-xs font-bold text-gray-700"
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                ERP
+              </motion.span>
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-cyan-200/40 bg-white/80 backdrop-blur-md shadow-lg h-16 w-16 flex items-center justify-center p-3 hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)",
                 borderColor: "rgba(6, 182, 212, 0.6)",
+                rotate: [0, 5, -5, 0],
               }}
             >
-              <span className="text-xs font-bold text-gray-700">
+              <motion.span
+                className="text-xs font-bold text-gray-700"
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              >
                 Consulting
-              </span>
+              </motion.span>
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-yellow-300/40 bg-white/80 backdrop-blur-md shadow-lg h-16 w-16 flex items-center justify-center p-3 hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(251, 191, 36, 0.3)",
                 borderColor: "rgba(251, 191, 36, 0.6)",
+                rotate: [0, 5, -5, 0],
               }}
             >
-              <span className="text-xs font-bold text-gray-700">Apps</span>
+              <motion.span
+                className="text-xs font-bold text-gray-700"
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              >
+                Apps
+              </motion.span>
             </motion.div>
             <motion.div
               className="rounded-2xl border-2 border-cyan-200/40 bg-white/80 backdrop-blur-md shadow-lg h-16 w-16 flex items-center justify-center p-3 hover:scale-110 transition-all duration-300 hover:shadow-xl"
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               whileHover={{
                 boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)",
                 borderColor: "rgba(6, 182, 212, 0.6)",
+                rotate: [0, 5, -5, 0],
               }}
             >
-              <span className="text-xs font-bold text-gray-700">
+              <motion.span
+                className="text-xs font-bold text-gray-700"
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
+              >
                 Innovation
-              </span>
+              </motion.span>
             </motion.div>
           </div>
         </div>
