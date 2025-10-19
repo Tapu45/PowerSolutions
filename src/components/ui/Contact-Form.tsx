@@ -12,11 +12,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./select";
+import { sendEmail, EmailData } from "@/lib/emaijs";
 
 interface ContactFormProps {
   defaultUSP?: string;
   onSubmit?: (data: FormData) => void;
   className?: string;
+  serviceType?: string; // Add this to identify which service/solution the form is for
 }
 
 interface FormData {
@@ -44,6 +46,7 @@ export function ContactForm({
   defaultUSP = "byos",
   onSubmit,
   className,
+  serviceType = "General Inquiry",
 }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -54,6 +57,11 @@ export function ContactForm({
     usp: defaultUSP,
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -66,72 +74,87 @@ export function ContactForm({
     setFormData((prev) => ({ ...prev, usp: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit?.(formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      location: "",
-      usp: defaultUSP,
-      message: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const emailData: EmailData = {
+        ...formData,
+        service_type: serviceType,
+      };
+
+      const success = await sendEmail(emailData);
+
+      if (success) {
+        setSubmitStatus("success");
+        onSubmit?.(formData);
+
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          location: "",
+          usp: defaultUSP,
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`relative ${className}`}
+      transition={{ duration: 0.6 }}
+      className={`w-full ${className}`}
     >
-      {/* Background with site theme colors and subtle pattern */}
-      <div
-        className="absolute inset-0 rounded-2xl overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${BLUE}15 0%, ${TEAL}10 50%, ${YELLOW}08 100%)`,
-        }}
-      >
-        {/* Subtle geometric pattern using site colors */}
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute top-10 left-10 w-20 h-20 border-l-2 border-t-2 transform rotate-45"
-            style={{ borderColor: TEAL }}
-          ></div>
-          <div
-            className="absolute top-20 right-20 w-16 h-16 border-r-2 border-b-2 transform rotate-45"
-            style={{ borderColor: YELLOW }}
-          ></div>
-          <div
-            className="absolute bottom-20 left-20 w-12 h-12 border-l-2 border-t-2 transform rotate-45"
-            style={{ borderColor: BLUE }}
-          ></div>
-          <div
-            className="absolute bottom-10 right-10 w-24 h-24 border-r-2 border-b-2 transform rotate-45"
-            style={{ borderColor: TEAL }}
-          ></div>
-          <div
-            className="absolute top-1/2 left-1/4 w-8 h-8 border-l-2 border-t-2 transform rotate-45"
-            style={{ borderColor: YELLOW }}
-          ></div>
-          <div
-            className="absolute top-1/3 right-1/3 w-14 h-14 border-r-2 border-b-2 transform rotate-45"
-            style={{ borderColor: BLUE }}
-          ></div>
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border border-slate-200 dark:border-slate-700">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            Get In Touch
+          </h3>
+          <p className="text-slate-600 dark:text-slate-300">
+            Ready to transform your business? Let's start the conversation.
+          </p>
         </div>
-      </div>
 
-      {/* Form content */}
-      <div className="relative z-10 p-8">
-        <h2
-          className="text-2xl font-bold text-center mb-8"
-          style={{ color: BLUE }}
-        >
-          REQUEST A CALL BACK
-        </h2>
+        {/* Status Messages */}
+        {submitStatus === "success" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
+          >
+            <p className="text-green-800 font-medium">
+              ✅ Thank you! Your message has been sent successfully. We'll get
+              back to you soon.
+            </p>
+          </motion.div>
+        )}
+
+        {submitStatus === "error" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+          >
+            <p className="text-red-800 font-medium">
+              ❌ Sorry, there was an error sending your message. Please try
+              again.
+            </p>
+          </motion.div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -139,7 +162,7 @@ export function ContactForm({
             <div className="space-y-4">
               <Input
                 name="name"
-                placeholder="Name"
+                placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -148,7 +171,7 @@ export function ContactForm({
               <Input
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -156,11 +179,9 @@ export function ContactForm({
               />
               <Input
                 name="phone"
-                type="tel"
-                placeholder="Phone"
+                placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleChange}
-                required
                 className="bg-white text-slate-900 placeholder:text-slate-500 border border-slate-200 rounded-lg h-12 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               />
             </div>
@@ -172,7 +193,6 @@ export function ContactForm({
                 placeholder="Company Name"
                 value={formData.company}
                 onChange={handleChange}
-                required
                 className="bg-white text-slate-900 placeholder:text-slate-500 border border-slate-200 rounded-lg h-12 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               />
               <Input
@@ -180,12 +200,11 @@ export function ContactForm({
                 placeholder="Location"
                 value={formData.location}
                 onChange={handleChange}
-                required
                 className="bg-white text-slate-900 placeholder:text-slate-500 border border-slate-200 rounded-lg h-12 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               />
               <Select value={formData.usp} onValueChange={handleUSPChange}>
-                <SelectTrigger className="bg-white text-slate-900 border border-slate-200 rounded-lg h-12 w-full focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
-                  <SelectValue placeholder="Select USP" />
+                <SelectTrigger className="bg-white text-slate-900 border border-slate-200 rounded-lg h-12 focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                  <SelectValue placeholder="Select Service" />
                 </SelectTrigger>
                 <SelectContent>
                   {USPs.map((usp) => (
@@ -210,12 +229,13 @@ export function ContactForm({
               <div className="flex justify-start">
                 <Button
                   type="submit"
-                  className="h-12 px-8 text-white font-semibold text-lg rounded-lg transition-all duration-300 hover:scale-105"
+                  disabled={isSubmitting}
+                  className="h-12 px-8 text-white font-semibold text-lg rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
                     background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
                   }}
                 >
-                  SUBMIT
+                  {isSubmitting ? "SENDING..." : "SUBMIT"}
                 </Button>
               </div>
             </div>

@@ -162,6 +162,25 @@ export default function Solutions() {
             className="h-1 w-24 mx-auto mt-3"
             style={{ backgroundColor: "#0B8FD6" }}
           ></div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-7xl mx-auto mt-6 mb-2 text-lg md:text-xl text-gray-700 font-medium italic px-2"
+            style={{
+              background: "linear-gradient(90deg, #e3f6fd 0%, #f7fbe7 100%)",
+              borderRadius: "0.75rem",
+              boxShadow: "0 2px 12px #0B8FD610",
+              borderLeft: "6px solid #0B8FD6",
+            }}
+          >
+            Ultimate Solution Proposed is about starting with what difference
+            the customer is looking for. That's where we reimagined USP from
+            Selling to Solving. Beyond the term rooted for marketing, we focused
+            differentiation and persuasion. We don’t pitch solutions. We propose
+            the ultimate one to our customer to select the one best suits. Our
+            Customer centric proposals are unique and original.
+          </motion.p>
         </motion.div>
 
         {/* Active Solution Display */}

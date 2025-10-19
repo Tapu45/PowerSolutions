@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ContactBackground from "@/components/animation/ContactBackground";
+import { sendEmail, EmailData } from "@/lib/emaijs";
 
 // Service names for the selector (from Services page)
 const SERVICE_OPTIONS = [
@@ -30,6 +31,10 @@ const Contact = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -39,10 +44,58 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: handle form submission (API call or email)
-    setSubmitted(true);
+    console.log("🚀 Form submission started");
+    console.log("📝 Form data:", form);
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setSubmitted(false);
+
+    try {
+      const emailData: EmailData = {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        company: form.company,
+        location: form.location,
+        service: form.service,
+        message: form.message,
+        service_type: `Homepage Contact - ${form.service}`,
+      };
+
+      console.log("📧 Preparing to send email with data:", emailData);
+
+      const success = await sendEmail(emailData);
+
+      if (success) {
+        console.log("✅ Email sent successfully!");
+        setSubmitStatus("success");
+        setSubmitted(true);
+
+        // Reset form after successful submission
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          location: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        console.log("❌ Email sending failed");
+        setSubmitStatus("error");
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("💥 Form submission error:", error);
+      setSubmitStatus("error");
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,6 +181,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("name")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
                   </motion.div>
 
@@ -151,6 +205,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("company")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
                   </motion.div>
 
@@ -175,6 +230,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("message")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
                   </motion.div>
 
@@ -199,6 +255,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("email")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
                   </motion.div>
 
@@ -222,6 +279,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("location")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
                   </motion.div>
 
@@ -247,6 +305,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("phone")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     />
 
                     <select
@@ -262,6 +321,7 @@ const Contact = () => {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("service")}
                       onBlur={() => setFocusedField(null)}
+                      disabled={isSubmitting}
                     >
                       <option value="">Select Service</option>
                       {SERVICE_OPTIONS.map((service) => (
@@ -273,23 +333,28 @@ const Contact = () => {
 
                     <button
                       type="submit"
-                      className="flex-1 px-4 py-3 rounded-lg font-bold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                      disabled={isSubmitting}
+                      className="flex-1 px-4 py-3 rounded-lg font-bold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{
                         backgroundColor: "#0B8FD6",
                         boxShadow: "0 4px 16px rgba(11, 143, 214, 0.3)",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = "#0972A3";
-                        e.currentTarget.style.boxShadow =
-                          "0 6px 20px rgba(11, 143, 214, 0.4)";
+                        if (!isSubmitting) {
+                          e.currentTarget.style.backgroundColor = "#0972A3";
+                          e.currentTarget.style.boxShadow =
+                            "0 6px 20px rgba(11, 143, 214, 0.4)";
+                        }
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = "#0B8FD6";
-                        e.currentTarget.style.boxShadow =
-                          "0 4px 16px rgba(11, 143, 214, 0.3)";
+                        if (!isSubmitting) {
+                          e.currentTarget.style.backgroundColor = "#0B8FD6";
+                          e.currentTarget.style.boxShadow =
+                            "0 4px 16px rgba(11, 143, 214, 0.3)";
+                        }
                       }}
                     >
-                      SUBMIT
+                      {isSubmitting ? "SENDING..." : "SUBMIT"}
                     </button>
                   </motion.div>
                 </div>
@@ -299,31 +364,76 @@ const Contact = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="text-center p-6 rounded-lg bg-green-50 border border-green-200 mt-6"
+                    className={`text-center p-6 rounded-lg border mt-6 ${
+                      submitStatus === "success"
+                        ? "bg-green-50 border-green-200"
+                        : "bg-red-50 border-red-200"
+                    }`}
                   >
-                    <div className="flex items-center justify-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
-                        <svg
-                          className="w-5 h-5 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                    <div
+                      className={`flex items-center justify-center gap-3 mb-2 ${
+                        submitStatus === "success"
+                          ? "text-green-800"
+                          : "text-red-800"
+                      }`}
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          submitStatus === "success"
+                            ? "bg-green-500"
+                            : "bg-red-500"
+                        }`}
+                      >
+                        {submitStatus === "success" ? (
+                          <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        )}
                       </div>
-                      <span className="text-green-800 font-semibold text-lg">
-                        Thank you!
+                      <span
+                        className={`font-semibold text-lg ${
+                          submitStatus === "success"
+                            ? "text-green-800"
+                            : "text-red-800"
+                        }`}
+                      >
+                        {submitStatus === "success" ? "Thank you!" : "Error!"}
                       </span>
                     </div>
-                    <p className="text-green-700 font-medium">
-                      Your message has been sent successfully. Our team will get
-                      back to you within 24 hours.
+                    <p
+                      className={`font-medium ${
+                        submitStatus === "success"
+                          ? "text-green-700"
+                          : "text-red-700"
+                      }`}
+                    >
+                      {submitStatus === "success"
+                        ? "Your message has been sent successfully. Our team will get back to you within 24 hours."
+                        : "Sorry, there was an error sending your message. Please try again."}
                     </p>
                   </motion.div>
                 )}

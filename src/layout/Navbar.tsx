@@ -1,4 +1,4 @@
-// src/layout/Navbar.tsx
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -34,13 +34,13 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     {
-      name: "Home",
+      name: "We",
       subItems: [],
       route: "/",
       color: "#0B8FD6",
     },
     {
-      name: "Services",
+      name: "Deliver",
       subItems: [
         "ERP Consulting",
         "Business Process Consulting ",
@@ -52,19 +52,19 @@ const Navbar: React.FC = () => {
       color: "#1BCDC5",
     },
     {
-      name: "USP",
+      name: "Ultimate Solutions",
       subItems: ["BYOS", "BYBS", "BIBD", "RYRO"],
       route: "/usps",
       color: "#D6CE0B",
     },
     {
       name: "Innovations",
-      subItems: ["ERP Bugs", "Hukehu", "BIBD Labs"],
+      subItems: ["ERP Bugs", "Hukehu", "Innovation lab"],
       route: "/innovations",
       color: "#8B2121",
     },
     {
-      name: "Methodology",
+      name: "Our way",
       subItems: [],
       route: "/methodology",
       color: "#0B8FD6",
@@ -79,19 +79,14 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${
           scrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg"
-            : "bg-background/90 backdrop-blur-sm border-b border-border/30"
-        }
-        md:shadow-none md:border-b-0
-        ${
-          // Always use CSS variables for background
-          "bg-background border-none shadow-none backdrop-blur-none lg:bg-background/90"
+            ? "bg-background/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-border/50 shadow-lg"
+            : "bg-background/90 dark:bg-zinc-950/80 backdrop-blur-sm border-b border-border/30 dark:border-zinc-800/50"
         }
       `}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Enhanced for better visibility */}
+          {/* Logo */}
           <motion.div
             className="flex-shrink-0"
             whileHover={{ scale: 1.05 }}
@@ -108,7 +103,7 @@ const Navbar: React.FC = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Nav - Clean navigation without boxes */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.div
@@ -122,7 +117,7 @@ const Navbar: React.FC = () => {
               >
                 <Link href={item.route}>
                   <motion.button
-                    className="relative px-4 py-2 text-foreground font-semibold text-md group flex items-center transition-all duration-300 hover:bg-transparent"
+                    className="relative px-4 py-2 !text-slate-900 dark:!text-white font-semibold text-md group flex items-center transition-all duration-300 bg-transparent hover:bg-transparent"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
@@ -134,7 +129,7 @@ const Navbar: React.FC = () => {
                     }}
                   >
                     <motion.span
-                      className="relative z-10 transition-colors duration-300"
+                      className="relative z-10 transition-colors duration-300 text-slate-900 dark:text-white"
                       whileHover={{ color: item.color }}
                     >
                       {item.name}
@@ -165,10 +160,6 @@ const Navbar: React.FC = () => {
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className="absolute top-full w-80 bg-card border border-border rounded-xl shadow-2xl z-50 overflow-hidden mt-2"
-                      style={{
-                        backdropFilter: "blur(20px)",
-                        WebkitBackdropFilter: "blur(20px)",
-                      }}
                     >
                       <div className="p-3">
                         {item.subItems.map((subItem, subIndex) => (
@@ -177,7 +168,7 @@ const Navbar: React.FC = () => {
                             onClick={() =>
                               router.push(`${item.route}/${slugify(subItem)}`)
                             }
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium group cursor-pointer hover:bg-transparent"
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium group cursor-pointer bg-transparent hover:bg-transparent"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: subIndex * 0.05 }}
@@ -233,7 +224,7 @@ const Navbar: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mobile Nav - Clean mobile navigation */}
+        {/* Mobile Nav */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -243,13 +234,7 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="lg:hidden overflow-hidden"
             >
-              <div
-                className="px-2 pt-4 pb-6 space-y-2 bg-card border-t border-border"
-                style={{
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                }}
-              >
+              <div className="px-2 pt-4 pb-6 space-y-2 bg-card border-t border-border">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -260,7 +245,7 @@ const Navbar: React.FC = () => {
                     {item.subItems.length === 0 ? (
                       <Link href={item.route}>
                         <motion.button
-                          className="w-full text-left px-4 py-3 text-foreground rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden cursor-pointer hover:bg-transparent"
+                          className="w-full text-left px-4 py-3 text-foreground rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden cursor-pointer bg-transparent hover:bg-transparent"
                           whileHover={{ x: 4 }}
                         >
                           <motion.span
@@ -278,7 +263,7 @@ const Navbar: React.FC = () => {
                     ) : (
                       <motion.button
                         onClick={() => toggleDropdown(item.name)}
-                        className="w-full text-left px-4 py-3 text-foreground hover:text-primary rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden hover:bg-transparent"
+                        className="w-full text-left px-4 py-3 text-foreground hover:text-primary rounded-lg font-semibold transition-all duration-300 flex items-center justify-between group relative overflow-hidden bg-transparent hover:bg-transparent"
                         whileHover={{ x: 4 }}
                       >
                         <span className="relative z-10">{item.name}</span>
@@ -291,7 +276,6 @@ const Navbar: React.FC = () => {
                         >
                           <ChevronDown className="h-4 w-4" />
                         </motion.div>
-                        {/* Underline effect for mobile - Fixed positioning */}
                         <motion.div
                           className="absolute bottom-1 left-0 h-1 rounded-full"
                           style={{ backgroundColor: item.color }}
@@ -320,14 +304,13 @@ const Navbar: React.FC = () => {
                                     `${item.route}/${slugify(subItem)}`
                                   )
                                 }
-                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium hover:bg-transparent"
+                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg transition-all duration-300 relative overflow-hidden w-full text-left font-medium bg-transparent hover:bg-transparent group"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: subIndex * 0.05 }}
                                 whileHover={{ x: 8 }}
                               >
                                 <span className="relative z-10">{subItem}</span>
-                                {/* Underline effect for mobile dropdown - Fixed positioning */}
                                 <motion.div
                                   className="absolute bottom-1 left-0 h-1 rounded-full"
                                   style={{ backgroundColor: item.color }}

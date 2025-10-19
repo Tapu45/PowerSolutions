@@ -1,8 +1,7 @@
-// src/components/theme-toggle.tsx
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./theme-provider";
 
 export function ThemeToggle() {
@@ -11,37 +10,26 @@ export function ThemeToggle() {
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("system");
     } else {
       setTheme("light");
     }
+
+    // Force refresh after theme toggle
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   const getIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun className="h-4 w-4" />;
-      case "dark":
-        return <Moon className="h-4 w-4" />;
-      case "system":
-        return <Monitor className="h-4 w-4" />;
-      default:
-        return <Sun className="h-4 w-4" />;
-    }
+    return theme === "dark" ? (
+      <Moon className="h-4 w-4" />
+    ) : (
+      <Sun className="h-4 w-4" />
+    );
   };
 
   const getLabel = () => {
-    switch (theme) {
-      case "light":
-        return "Switch to dark mode";
-      case "dark":
-        return "Switch to system mode";
-      case "system":
-        return "Switch to light mode";
-      default:
-        return "Toggle theme";
-    }
+    return theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
   };
 
   return (

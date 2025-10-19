@@ -13,11 +13,13 @@ const BLUE = "#0B8FD6";
 export default function BYOSPage() {
   const [showContactForm, setShowContactForm] = useState(false);
 
-  const handleContactSubmit = (data: any) => {
-    console.log("Form submitted:", data);
-    alert("Thanks! We'll get back to you about BYOS.");
-    setShowContactForm(false);
-  };
+   const handleContactSubmit = (data: any) => {
+     console.log("Form submitted:", data);
+     // EmailJS will handle the email sending automatically
+     // You can add any additional logic here if needed
+     setShowContactForm(false);
+   };
+
 
   return (
    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-black dark:via-black dark:to-black">

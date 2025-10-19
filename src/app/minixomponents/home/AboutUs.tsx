@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="relative py-10 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section className="relative py-10 bg-[#E6F9FB] overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-0 -left-40 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
       <div className="absolute bottom-0 -right-40 w-72 h-72 bg-cyan-100 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse"></div>
@@ -68,13 +68,13 @@ const AboutUs: React.FC = () => {
 
           {/* Right Image */}
           <div className="relative flex justify-center">
-            <div className="absolute -inset-6 bg-gradient-to-tr from-blue-100 via-transparent to-cyan-100 rounded-3xl blur-2xl"></div>
+            <div className="absolute -inset-6  rounded-3xl blur-2xl"></div>
             <Image
               src="/about.png"
               alt="About [solutions]ⁿ"
               width={600}
               height={450}
-              className="relative rounded-2xl shadow-xl object-cover"
+              className="relative rounded-2xl  object-cover"
             />
           </div>
         </div>

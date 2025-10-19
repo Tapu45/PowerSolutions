@@ -117,10 +117,33 @@
 
   /* Clean dark mode overrides - like browser extension */
   background-color: #000000 !important;
-  color: #ffffff !important;
+ 
 }
 
+/* Force navbar text colors - highest specificity */
+nav button,
+nav button span,
+nav button div,
+nav .text-slate-900,
+nav .text-slate-600 {
+  color: rgb(15 23 42) !important; /* slate-900 */
+}
 
+.dark nav button,
+.dark nav button span,
+.dark nav button div,
+.dark nav .text-slate-900,
+.dark nav .text-slate-600 {
+  color: rgb(255 255 255) !important; /* white */
+}
+
+.dark nav .text-slate-300 {
+  color: rgb(203 213 225) !important; /* slate-300 */
+}
+
+nav .text-slate-600 {
+  color: rgb(71 85 105) !important; /* slate-600 */
+}
 
 
 
@@ -158,22 +181,18 @@
 
 
 
-/* Override form elements */
-.dark input,
-.dark textarea,
-.dark select,
-.dark button {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-  border-color: #333333 !important;
-}
 
-/* .dark button,
-.dark .solution-nav-btn {
-  background: none !important;
-  box-shadow: none !important;
-  border: none !important;
-} */
+
+
+
+
+/* Add this to override for specific buttons that need gradients */
+.dark button.gradient-btn,
+.dark button[style*="background: linear-gradient"],
+.dark button[style*="background:linear-gradient"] {
+  background: linear-gradient(135deg, var(--teal, #1BCDC5), var(--blue, #0B8FD6)) !important;
+  color: white !important;
+}
 
 .dark .industry-scope-gradient {
   background: linear-gradient(to right, rgba(15,23,42,0.25) 0%, transparent 100%) !important;
@@ -192,15 +211,7 @@
 
 
 
-/* Override specific text colors */
-.dark .text-gray-800,
-.dark .text-gray-700,
-.dark .text-slate-600,
-.dark .text-slate-700,
-.dark .text-gray-600,
-.dark .text-gray-500 {
-  color: #ffffff !important;
-}
+
 
 /* Override specific hardcoded inline styles */
 .dark [style*="background-color: white"],
@@ -241,20 +252,7 @@
 }
 
 
-/* Override specific text elements */
-.dark .text-foreground {
-  color: #ffffff !important;
-}
 
-/* Override card foreground */
-.dark .text-card-foreground {
-  color: #ffffff !important;
-}
-
-/* Override muted text */
-.dark .text-muted-foreground {
-  color: #cccccc !important;
-}
 
 .dark .premium-card li,
 .dark .premium-card-dark li,
@@ -267,6 +265,14 @@
 .dark .premium-card li,
 .dark .premium-card-dark li {
   color: #bfc9d4 !important;
+}
+
+.dark nav {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark nav.scrolled {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 

@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ui/Contact-Form";
 import {
@@ -26,6 +26,50 @@ const YELLOW = "#D6CE0B";
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
 
+// Lazy Image Component with intersection observer
+const LazyImage = ({ src, alt, width, height, className, ...props }: any) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "50px" }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={imgRef} className={className}>
+      {isInView && (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className={`transition-opacity duration-300 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setIsLoaded(true)}
+          loading="lazy"
+          {...props}
+        />
+      )}
+    </div>
+  );
+};
+
 export default function ERPConsultingPage() {
   const [showContactForm, setShowContactForm] = useState(false);
 
@@ -37,28 +81,28 @@ export default function ERPConsultingPage() {
 
   const erpSystems = [
     {
-      name: "Oracle E-Business Suite",
+      name: "System Configuration",
       icon: "/assets/services/erp/System Configuration.png",
     },
     {
-      name: "Oracle Fusion Cloud",
+      name: "FIT & GAP Analysis",
       icon: "/assets/services/erp/FIT & GAP Analysis.png",
     },
     {
-      name: "IFS",
+      name: "Requirement Gathering",
       icon: "/assets/services/erp/Requirement Gathering.png",
     },
     {
-      name: "Oracle NetSuite",
+      name: "Conference Room Piloting",
       icon: "/assets/services/erp/Conference Room Piloting.png",
     },
     {
-      name: "SAP Business One",
+      name: "User Training",
       icon: "/assets/services/erp/User Training.png",
     },
     {
-      name: "Microsoft Dynamics",
-      icon: "/assets/services/erp/Cutover Planning.png",
+      name: "Conference Room Piloting",
+      icon: "/assets/services/erp/Conference Room Piloting.png",
     },
   ];
 
@@ -188,15 +232,14 @@ export default function ERPConsultingPage() {
           }}
         />
 
-        {/* Floating Elements */}
+        {/* Floating Elements - Reduced complexity */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{
               rotate: 360,
-              scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 20,
+              duration: 30,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -206,10 +249,9 @@ export default function ERPConsultingPage() {
           <motion.div
             animate={{
               rotate: -360,
-              scale: [1, 0.9, 1],
             }}
             transition={{
-              duration: 25,
+              duration: 35,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -348,6 +390,7 @@ export default function ERPConsultingPage() {
                   fill
                   className="object-cover"
                   priority
+                  loading="eager"
                 />
               </div>
             </motion.div>
@@ -396,14 +439,6 @@ export default function ERPConsultingPage() {
             <motion.h2
               className="text-5xl font-bold mb-4"
               style={{ color: BLUE }}
-              whileHover={{
-                textShadow: [
-                  `0 0 0px ${BLUE}`,
-                  `0 0 30px ${BLUE}30`,
-                  `0 0 0px ${BLUE}`,
-                ],
-              }}
-              transition={{ duration: 1 }}
             >
               Our Competency
             </motion.h2>
@@ -414,7 +449,7 @@ export default function ERPConsultingPage() {
             </p>
           </motion.div>
 
-          {/* ERP Systems Logos - Square backgrounds matching icon shape */}
+          {/* ERP Systems Logos - Lazy loaded */}
           <div className="grid grid-cols-4 md:grid-cols-6 gap-6">
             {erpSystems.map((system, index) => (
               <motion.div
@@ -438,7 +473,7 @@ export default function ERPConsultingPage() {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Image
+                  <LazyImage
                     src={system.icon}
                     alt={system.name}
                     width={60}
@@ -465,14 +500,6 @@ export default function ERPConsultingPage() {
             <motion.h2
               className="text-5xl font-bold mb-3"
               style={{ color: TEAL }}
-              whileHover={{
-                textShadow: [
-                  `0 0 0px ${TEAL}`,
-                  `0 0 30px ${TEAL}30`,
-                  `0 0 0px ${TEAL}`,
-                ],
-              }}
-              transition={{ duration: 1 }}
             >
               Our Offerings
             </motion.h2>
@@ -483,7 +510,7 @@ export default function ERPConsultingPage() {
             </p>
           </motion.div>
 
-          {/* Service Offerings Grid - Square backgrounds matching icon shape */}
+          {/* Service Offerings Grid - Lazy loaded */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {serviceOfferings.map((offering, index) => (
               <motion.div
@@ -507,7 +534,7 @@ export default function ERPConsultingPage() {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Image
+                  <LazyImage
                     src={offering.icon}
                     alt={offering.title}
                     width={48}
@@ -526,6 +553,7 @@ export default function ERPConsultingPage() {
           </div>
         </div>
       </section>
+
       {/* Our Approach Section */}
       <section className="py-7 bg-slate-50 dark:bg-slate-800">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -539,14 +567,6 @@ export default function ERPConsultingPage() {
             <motion.h2
               className="text-5xl font-bold mb-4"
               style={{ color: YELLOW }}
-              whileHover={{
-                textShadow: [
-                  `0 0 0px ${YELLOW}`,
-                  `0 0 30px ${YELLOW}30`,
-                  `0 0 0px ${YELLOW}`,
-                ],
-              }}
-              transition={{ duration: 1 }}
             >
               Our Approach
             </motion.h2>
@@ -578,10 +598,9 @@ export default function ERPConsultingPage() {
                   <motion.div
                     animate={{
                       rotate: 360,
-                      scale: [1, 1.2, 1],
                     }}
                     transition={{
-                      duration: 20,
+                      duration: 25,
                       repeat: Infinity,
                       ease: "linear",
                     }}
@@ -592,7 +611,7 @@ export default function ERPConsultingPage() {
                   <div className="relative z-10 text-center">
                     {/* Logo */}
                     <div className="w-20 h-20 mx-auto mb-6 relative transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <Image
+                      <LazyImage
                         src={step.logo}
                         alt={step.title}
                         fill
@@ -636,14 +655,6 @@ export default function ERPConsultingPage() {
             <motion.h2
               className="text-5xl font-bold mb-3"
               style={{ color: BLUE }}
-              whileHover={{
-                textShadow: [
-                  `0 0 0px ${BLUE}`,
-                  `0 0 30px ${BLUE}30`,
-                  `0 0 0px ${BLUE}`,
-                ],
-              }}
-              transition={{ duration: 1 }}
             >
               Ultimate Solution Proposed
             </motion.h2>
@@ -675,10 +686,9 @@ export default function ERPConsultingPage() {
                     <motion.div
                       animate={{
                         rotate: 360,
-                        scale: [1, 1.2, 1],
                       }}
                       transition={{
-                        duration: 20,
+                        duration: 25,
                         repeat: Infinity,
                         ease: "linear",
                       }}
@@ -689,7 +699,7 @@ export default function ERPConsultingPage() {
                     <div className="relative z-10 text-center">
                       {/* Logo */}
                       <div className="w-24 h-24 mx-auto mb-6 relative transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                        <Image
+                        <LazyImage
                           src={model.logo}
                           alt={model.title}
                           fill
