@@ -168,12 +168,12 @@
   border-color: #333333 !important;
 }
 
-.dark button,
+/* .dark button,
 .dark .solution-nav-btn {
   background: none !important;
   box-shadow: none !important;
   border: none !important;
-}
+} */
 
 .dark .industry-scope-gradient {
   background: linear-gradient(to right, rgba(15,23,42,0.25) 0%, transparent 100%) !important;

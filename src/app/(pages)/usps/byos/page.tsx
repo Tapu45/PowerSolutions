@@ -20,7 +20,7 @@ export default function BYOSPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
+   <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-black dark:via-black dark:to-black">
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -216,11 +216,11 @@ export default function BYOSPage() {
                 />
                 <div
                   className="absolute inset-0 pointer-events-none rounded-3xl"
-                  style={{
-                    background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-           radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-           radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  }}
+          //         style={{
+          //           background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
+          //  radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
+          //  radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
+          //         }}
                 />
               </div>
             </motion.div>

@@ -341,7 +341,7 @@ export default function ERPConsultingPage() {
                   ERP Consulting
                 </span>
               </motion.div>
-              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center shadow-2xl">
+              <div className="relative aspect-[5/4] w-full h-[220px] sm:h-[300px] lg:h-[430px] overflow-hidden rounded-3xl flex items-center justify-center">
                 <Image
                   src="/assets/services/erp.png"
                   alt="ERP Consulting Services"
