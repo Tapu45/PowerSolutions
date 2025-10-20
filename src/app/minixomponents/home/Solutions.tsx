@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutions = [
-   {
+  {
     key: "BYOS",
     label: "Build Your Own Solution",
     img: "/assets/solutions/BYOS.png",
@@ -166,18 +166,15 @@ export default function Solutions() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-7xl mx-auto mt-6 mb-2 text-lg md:text-xl text-gray-700 font-medium italic px-2"
+            className="max-w-7xl mx-auto mt-6 mb-2 text-lg md:text-xl font-medium italic px-2 py-4 rounded-xl bg-gradient-to-r from-[#e3f6fd] to-[#f7fbe7] dark:from-slate-800 dark:to-slate-900 text-gray-700 dark:text-gray-200 border-l-[6px] border-l-[#0B8FD6]"
             style={{
-              background: "linear-gradient(90deg, #e3f6fd 0%, #f7fbe7 100%)",
-              borderRadius: "0.75rem",
               boxShadow: "0 2px 12px #0B8FD610",
-              borderLeft: "6px solid #0B8FD6",
             }}
           >
             Ultimate Solution Proposed is about starting with what difference
             the customer is looking for. That's where we reimagined USP from
             Selling to Solving. Beyond the term rooted for marketing, we focused
-            differentiation and persuasion. We don’t pitch solutions. We propose
+            differentiation and persuasion. We don't pitch solutions. We propose
             the ultimate one to our customer to select the one best suits. Our
             Customer centric proposals are unique and original.
           </motion.p>

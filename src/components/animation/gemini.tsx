@@ -20,6 +20,58 @@ export const GoogleGeminiEffect = ({
   description?: string;
   className?: string;
 }) => {
+  // Word sets for cycling animation
+  const wordSets = [
+    // Set 1: Problem-focused words
+    {
+      input: [
+        "Complexity",
+        "Challenges",
+        "Requirements",
+        "Problems",
+        "Ambiguity",
+      ],
+      output: ["Clarity", "Solutions", "Innovation", "Strategy", "Excellence"],
+      colors: ["#1BCDC5", "#D6CE0B", "#0B8FD6", "#D6CE0B", "#1BCDC5"],
+    },
+    // Set 2: Service-focused words
+    {
+      input: [
+        "Consulting",
+        "Development",
+        "Transformation",
+        "Support",
+        "Analysis",
+      ],
+      output: ["Strategy", "Solutions", "Growth", "Success", "Insights"],
+      colors: ["#0B8FD6", "#1BCDC5", "#D6CE0B", "#8B2121", "#0B8FD6"],
+    },
+    // Set 3: Solution-focused words
+    {
+      input: ["BYOS", "BYBS", "BIBD", "RYRO", "Innovation"],
+      output: ["Custom", "Story", "Disruption", "Retail", "Future"],
+      colors: ["#0B8FD6", "#1BCDC5", "#D6CE0B", "#0B8FD6", "#8B2121"],
+    },
+    // Set 4: Business-focused words
+    {
+      input: ["Process", "Data", "Technology", "People", "Vision"],
+      output: ["Efficiency", "Insights", "Innovation", "Growth", "Reality"],
+      colors: ["#1BCDC5", "#D6CE0B", "#0B8FD6", "#8B2121", "#1BCDC5"],
+    },
+    // Set 5: Outcome-focused words
+    {
+      input: [
+        "Planning",
+        "Implementation",
+        "Optimization",
+        "Scaling",
+        "Excellence",
+      ],
+      output: ["Success", "Delivery", "Performance", "Growth", "Achievement"],
+      colors: ["#D6CE0B", "#0B8FD6", "#1BCDC5", "#8B2121", "#D6CE0B"],
+    },
+  ];
+
   // Rotating messages
   const messages = [
     "Granulize your problem statements and requirements to identify the most matured one for solution designing",
@@ -29,12 +81,22 @@ export const GoogleGeminiEffect = ({
   ];
 
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [currentWordSetIndex, setCurrentWordSetIndex] = useState(0);
 
   // Rotate through messages
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
     }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Rotate through word sets - cycle every 20 seconds (matching animation duration)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordSetIndex((prevIndex) => (prevIndex + 1) % wordSets.length);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, []);
@@ -58,6 +120,9 @@ export const GoogleGeminiEffect = ({
     delay: `${Math.random() * 8}s`,
     key: i,
   }));
+
+  const currentSet = wordSets[currentWordSetIndex];
+  const pathIds = ["path1", "path2", "path3", "path4", "path5"];
 
   return (
     <div className={cn("sticky top-80 gemini-bg-fix", className)}>
@@ -95,9 +160,49 @@ export const GoogleGeminiEffect = ({
             ],
           }}
         >
-          <span className="text-slate-900">Welcome to </span>
-          <span className="text-[#0B8FD6]">Power</span>
-          <span className="text-[#1BCDC5]"> Solutions</span>
+          <span
+            className="mr-2"
+            style={{
+              color: "#1BCDC5", // Teal
+              textShadow: "0 2px 8px #0B8FD6", // Blue shadow for better visibility
+            }}
+          >
+            Even there is need for
+          </span>
+          <span className="font-semibold text-transparent bg-clip-text">
+            {/* Custom colored "solutions" as per logo */}
+            <span style={{ color: "#1BCDC5" }} className="dark:text-[#1BCDC5]">
+              [
+            </span>
+            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
+              solut
+            </span>
+            <span style={{ color: "#0B8FD6" }} className="dark:text-[#0B8FD6]">
+              i
+            </span>
+            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
+              o
+            </span>
+            <span style={{ color: "#8B2121" }} className="dark:text-[#8B2121]">
+              n
+            </span>
+            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
+              s
+            </span>
+            <span style={{ color: "#1BCDC5" }} className="dark:text-[#1BCDC5]">
+              ]
+            </span>
+            <span
+              style={{
+                color: "#0B8FD6",
+                fontSize: "1.1em",
+                verticalAlign: "super",
+              }}
+              className="dark:text-[#0B8FD6]"
+            >
+              n
+            </span>
+          </span>
         </motion.h1>
 
         {/* smoother rotation with exit/enter */}
@@ -159,221 +264,55 @@ export const GoogleGeminiEffect = ({
         </defs>
 
         {/* LEFT SIDE - Input words (Problems/Requirements) - All start at 0%, travel to 50% */}
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#1BCDC5"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <textPath href="#path1" startOffset="0%">
-            <animate
-              attributeName="startOffset"
-              from="0%"
-              to="50%"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            Complexity
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#D6CE0B"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 0.6 }}
-        >
-          <textPath href="#path2" startOffset="0%">
-            <animate
-              attributeName="startOffset"
-              from="0%"
-              to="50%"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            Challenges
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#0B8FD6"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 0.7 }}
-        >
-          <textPath href="#path3" startOffset="0%">
-            <animate
-              attributeName="startOffset"
-              from="0%"
-              to="50%"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            Requirements
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#D6CE0B"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <textPath href="#path4" startOffset="0%">
-            <animate
-              attributeName="startOffset"
-              from="0%"
-              to="50%"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            Problems
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#1BCDC5"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 0.9 }}
-        >
-          <textPath href="#path5" startOffset="0%">
-            <animate
-              attributeName="startOffset"
-              from="0%"
-              to="50%"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            Ambiguity
-          </textPath>
-        </motion.text>
+        {currentSet.input.map((word, index) => (
+          <motion.text
+            key={`input-${currentWordSetIndex}-${index}`}
+            fontSize="15"
+            fontWeight="700"
+            fill={currentSet.colors[index]}
+            opacity="0.8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+          >
+            <textPath href={`#${pathIds[index]}`} startOffset="0%">
+              <animate
+                attributeName="startOffset"
+                from="0%"
+                to="50%"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+              {word}
+            </textPath>
+          </motion.text>
+        ))}
 
         {/* RIGHT SIDE - Output words (Solutions) - Hidden until inputs reach 50%, then travel to 100% */}
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#1BCDC5"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 5.5 }}
-        >
-          <textPath href="#path1" startOffset="50%">
-            <animate
-              attributeName="startOffset"
-              from="50%"
-              to="100%"
-              dur="10s"
-              repeatCount="indefinite"
-              begin="10s"
-            />
-            Clarity
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#D6CE0B"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 5.6 }}
-        >
-          <textPath href="#path2" startOffset="50%">
-            <animate
-              attributeName="startOffset"
-              from="50%"
-              to="100%"
-              dur="10s"
-              repeatCount="indefinite"
-              begin="10s"
-            />
-            Solutions
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#0B8FD6"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 5.7 }}
-        >
-          <textPath href="#path3" startOffset="50%">
-            <animate
-              attributeName="startOffset"
-              from="50%"
-              to="100%"
-              dur="10s"
-              repeatCount="indefinite"
-              begin="10s"
-            />
-            Innovation
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#D6CE0B"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 5.8 }}
-        >
-          <textPath href="#path4" startOffset="50%">
-            <animate
-              attributeName="startOffset"
-              from="50%"
-              to="100%"
-              dur="10s"
-              repeatCount="indefinite"
-              begin="10s"
-            />
-            Strategy
-          </textPath>
-        </motion.text>
-
-        <motion.text
-          fontSize="15"
-          fontWeight="700"
-          fill="#1BCDC5"
-          opacity="0.8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, delay: 5.9 }}
-        >
-          <textPath href="#path5" startOffset="50%">
-            <animate
-              attributeName="startOffset"
-              from="50%"
-              to="100%"
-              dur="10s"
-              repeatCount="indefinite"
-              begin="10s"
-            />
-            Excellence
-          </textPath>
-        </motion.text>
+        {currentSet.output.map((word, index) => (
+          <motion.text
+            key={`output-${currentWordSetIndex}-${index}`}
+            fontSize="15"
+            fontWeight="700"
+            fill={currentSet.colors[index]}
+            opacity="0.8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            transition={{ duration: 1, delay: 5.5 + index * 0.1 }}
+          >
+            <textPath href={`#${pathIds[index]}`} startOffset="50%">
+              <animate
+                attributeName="startOffset"
+                from="50%"
+                to="100%"
+                dur="10s"
+                repeatCount="indefinite"
+                begin="10s"
+              />
+              {word}
+            </textPath>
+          </motion.text>
+        ))}
 
         {/* Main animated paths */}
         <motion.path

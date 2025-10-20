@@ -276,7 +276,54 @@ nav .text-slate-600 {
 }
 
 
+/* Replace the existing Solutions component overrides with this: */
 
+/* Dark mode override for USP description box - target the specific gradient */
+.dark motion\:p[style*="e3f6fd"],
+.dark p[style*="e3f6fd"],
+.dark [style*="linear-gradient(90deg, #e3f6fd"] {
+  background: linear-gradient(90deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%) !important;
+  color: #e5e7eb !important;
+  box-shadow: 0 2px 12px rgba(11, 143, 214, 0.15) !important;
+}
+
+/* Ensure all text within Solutions section respects dark mode */
+.dark section p.text-gray-800 {
+  color: #e5e7eb !important;
+}
+
+.dark section ul.text-gray-700 li,
+.dark section .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+/* Stats cards dark mode */
+.dark section div.bg-white\/60 {
+  background: rgba(17, 17, 17, 0.6) !important;
+}
+
+.dark section .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+/* Progress bar background */
+.dark section .bg-gray-200 {
+  background-color: #374151 !important;
+}
+
+/* Navigation buttons */
+.dark section button.text-gray-500 {
+  color: #9ca3af !important;
+}
+
+.dark section button.text-gray-500:hover {
+  color: #e5e7eb !important;
+}
+
+/* Border color */
+.dark section .border-t {
+  border-color: #374151 !important;
+}
 
 
 

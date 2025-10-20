@@ -19,9 +19,9 @@ const Footer: React.FC = () => {
               logoAlt="Power Solutions"
             />
             <p className="text-sm leading-relaxed mt-6 text-center md:text-left">
-              Power Solutions delivers innovative technology solutions to
-              empower businesses worldwide. Specializing in ERP systems,
-              application development, and business consulting.
+              Every granule impacts - Decompose your problem. Customize your
+              approach. Deliver the ultimate solution and Ensure the
+              Sustainability
             </p>
           </div>
 
@@ -55,15 +55,45 @@ const Footer: React.FC = () => {
                   Our Credentials
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/career"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+                >
+                  Career
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Follow Us */}
+          {/* Offices */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">
-              Follow Us
+              Offices
             </h3>
-            <div className="flex items-center space-x-4">
+            <ul className="space-y-2 text-sm">
+              <li>Bhubaneswar, India</li>
+              <li>New Delhi, India</li>
+              <li>Registered Office</li>
+              <li>Brahmapur, India</li>
+              <li>Dubai, UAE</li>
+            </ul>
+          </div>
+
+          {/* Contact Us (moved to rightmost column) */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Contact
+            </h3>
+            <div className="flex items-center space-x-4 mb-4">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
@@ -92,50 +122,31 @@ const Footer: React.FC = () => {
                 <Youtube className="w-6 h-6" />
               </a>
             </div>
-
-            <div className="mt-6">
-              <h4 className="text-lg font-semibold text-foreground mb-3">
-                Contact
-              </h4>
-              <ul className="space-y-1 text-sm">
-                <li>
-                  <a
-                    href="tel:+919310567216"
-                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-                  >
-                    +91-9310567216
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+911141053409"
-                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-                  >
-                    +91-11-41053409
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:info@power-n.in"
-                    className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-                  >
-                    info@power-n.in
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Offices (Rightmost) with Map */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
-              Offices
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>Bhubaneswar, India</li>
-              <li>New Delhi, India</li>
-              <li>Registered Office</li>
-              <li>Brahmapur, India</li>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a
+                  href="tel:+919310567216"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+                >
+                  +91-9310567216
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+911141053409"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+                >
+                  +91-11-41053409
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@power-n.in"
+                  className="hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+                >
+                  info@power-n.in
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -143,7 +154,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm">
-            © [solutions]n 2022-2025 | All Rights Reserved
+            © powerNsolutions 2025 | All Rights Reserved
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0 text-sm">
             <Link
@@ -167,3 +178,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+// ...existing code...

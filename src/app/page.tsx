@@ -1,4 +1,5 @@
 import AboutUs from "./minixomponents/home/AboutUs";
+import Compmetencies from "./minixomponents/home/Compmetencies";
 import Contact from "./minixomponents/home/Contact";
 import Hero from "./minixomponents/home/Hero";
 import IndustryScope from "./minixomponents/home/industry-scope";
@@ -10,9 +11,11 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      <Contact/>
+
       <Solutions />
       <IndustryScope />
+      <Compmetencies />
+      <Contact />
     </>
   );
 }

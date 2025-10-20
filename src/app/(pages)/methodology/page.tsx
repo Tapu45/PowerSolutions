@@ -286,15 +286,16 @@ const MethodologyPage: React.FC = () => {
                           <div className="relative z-10">
                             {/* Step Image */}
                             <motion.div
-                              className="w-full h-40 mb-4 relative rounded-lg overflow-hidden"
+                              className="w-full flex items-center justify-center mb-4 relative rounded-lg overflow-hidden"
                               whileHover={{ scale: 1.03 }}
                               transition={{ duration: 0.3 }}
                             >
                               <Image
                                 src={step.image}
                                 alt={step.title}
-                                fill
-                                className="object-cover"
+                                width={220} // set your actual image width
+                                height={220} // set your actual image height
+                                className="object-contain"
                               />
                             </motion.div>
 
@@ -345,58 +346,7 @@ const MethodologyPage: React.FC = () => {
         </motion.section>
       )}
 
-      {/* Circular Logo Section - At the End */}
-      <motion.section
-        className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-800 text-center relative"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-start flex-1"
-          >
-            <CircularText
-              text="identify • implement • intensify • "
-              onHover="speedUp"
-              spinDuration={20}
-              className="text-[#0B8FD6]"
-              logoSrc="/logo-clean.png"
-              logoAlt="Power Solutions Logo"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 flex justify-end"
-          >
-            <div className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-2xl shadow-lg p-8 w-full max-w-sm">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-                Ready to Transform?
-              </h3>
-              <p className="text-base text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                Connect with our experts and start your journey with the 3i
-                Cyclic Approach.
-              </p>
-              <motion.button
-                className="w-full bg-[#0B8FD6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#0970a8] transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Started
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
+     
     </div>
   );
 };
