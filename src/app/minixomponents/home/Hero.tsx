@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative flex flex-col items-center justify-start pt-10 md:pt-32 text-center min-h-[56vh] md:min-h-[80vh] md:mb-16">
-      {/* Side rails - large screens only */}
+  
       {/* Side rails - large screens only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24 bg-gradient-to-b from-slate-900/60 via-slate-900/20 to-transparent z-[1] hidden md:block">
         {/* Left rail */}

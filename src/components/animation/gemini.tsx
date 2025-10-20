@@ -168,19 +168,54 @@ export const GoogleGeminiEffect = ({
         {/* smoother rotation with exit/enter */}
         <motion.div
           key={`wrapper-${currentMessageIndex}`}
-          className="min-h-20 flex items-center justify-center"
+          className="min-h-20 flex items-center justify-center relative"
         >
           <motion.p
             key={currentMessageIndex}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="text-lg md:text-2xl text-slate-600 px-2 font-medium"
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+            }}
+            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 px-2 font-medium relative"
+            style={{
+              textShadow: "0 1px 2px rgba(0,0,0,0.05)",
+            }}
             aria-live="polite"
           >
-            {messages[currentMessageIndex]}
+            <span className="relative inline-block">
+              {messages[currentMessageIndex].split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.05 * i,
+                    ease: "easeOut",
+                  }}
+                  className="inline-block mr-[0.3em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
           </motion.p>
+
+          {/* Subtle gradient accent line below text */}
+          <motion.div
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            exit={{ scaleX: 0, opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-24 bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent"
+          />
         </motion.div>
       </div>
 
