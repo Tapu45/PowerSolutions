@@ -339,46 +339,58 @@ export default function RYROPage() {
             </li>
           </ol>
         </motion.div>
+      </section>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center sm:text-left mt-12"
-        >
-          <Button
-            onClick={() => setShowContactForm(!showContactForm)}
-            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-            style={{
-              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
-              color: "white",
-            }}
-          >
-            Do you need to Transform ? Check before spending on it.
-          </Button>
-        </motion.div>
-
-        {/* Contact Form - appears below the button */}
-        {showContactForm && (
+      {/* CTA Section */}
+      <section className="py-7 bg-slate-50 dark:bg-slate-800">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
           >
-            <ContactForm
-              defaultUSP="ryro"
-              onSubmit={() => {
-                alert("Thanks! We’ll get back to you about RYRO.");
-                setShowContactForm(false);
+            <h2 className="text-4xl font-bold mb-6" style={{ color: BLUE }}>
+              Ready to Re-engineer Your Organization?
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+              Let's discuss how RYRO can help you transform intelligently by
+              leveraging what you already have.
+            </p>
+
+            <Button
+              onClick={() => setShowContactForm(!showContactForm)}
+              className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+              style={{
+                background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+                color: "white",
               }}
-              className="max-w-4xl mx-auto"
-            />
+            >
+              Do you need to Transform ? Check before spending on it.
+            </Button>
+
+            {/* Contact Form */}
+            {showContactForm && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-8"
+              >
+                <ContactForm
+                  defaultUSP="ryro"
+                  onSubmit={() => {
+                    alert("Thanks! We’ll get back to you about RYRO.");
+                    setShowContactForm(false);
+                  }}
+                  className="max-w-4xl mx-auto"
+                />
+              </motion.div>
+            )}
           </motion.div>
-        )}
+        </div>
       </section>
     </div>
   );

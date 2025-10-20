@@ -121,14 +121,7 @@ export default function BIBDPage() {
                   className="object-contain"
                   priority
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-                  // style={{
-                  //   background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-                  //      radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-                  //      radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-                  // }}
-                />
+                <div className="absolute inset-0 pointer-events-none rounded-3xl" />
               </div>
             </motion.div>
           </div>
@@ -189,7 +182,7 @@ export default function BIBDPage() {
                 />
                 <div
                   className="relative rounded-full shadow-lg bg-white/90 dark:bg-slate-800/80 flex items-center justify-center p-3 sm:p-4 transition-all duration-300 group-hover:shadow-2xl"
-                  style={{ width: 80, height: 80 }} // Increased size from 60 to 80
+                  style={{ width: 80, height: 80 }}
                 >
                   <Image
                     src={step.img}
@@ -333,44 +326,56 @@ export default function BIBDPage() {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center sm:text-left mt-12"
-        >
-          <Button
-            onClick={() => setShowContactForm(!showContactForm)}
-            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-            style={{
-              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
-              color: "white",
-            }}
-          >
-            Register Your Idea. Disruption is in Progress
-          </Button>
-        </motion.div>
+        <section className="py-7 bg-slate-50 dark:bg-slate-800 mt-12 rounded-xl">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <h2 className="text-4xl font-bold mb-6" style={{ color: BLUE }}>
+                Ready to Register Your Idea?
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+                Let's discuss how BIBD can help you turn innovation into
+                disruption and measurable impact.
+              </p>
 
-        {/* Contact Form - appears below the button */}
-        {showContactForm && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-8"
-          >
-            <ContactForm
-              defaultUSP="bibd"
-              onSubmit={() => {
-                alert("Thanks! We’ll get back to you about BIBD.");
-                setShowContactForm(false);
-              }}
-              className="max-w-4xl mx-auto"
-            />
-          </motion.div>
-        )}
+              <Button
+                onClick={() => setShowContactForm(!showContactForm)}
+                className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                style={{
+                  background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+                  color: "white",
+                }}
+              >
+                Register Your Idea. Disruption is in Progress
+              </Button>
+
+              {/* Contact Form */}
+              {showContactForm && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mt-8"
+                >
+                  <ContactForm
+                    defaultUSP="bibd"
+                    onSubmit={() => {
+                      alert("Thanks! We’ll get back to you about BIBD.");
+                      setShowContactForm(false);
+                    }}
+                    className="max-w-4xl mx-auto"
+                  />
+                </motion.div>
+              )}
+            </motion.div>
+          </div>
+        </section>
       </section>
     </div>
   );

@@ -160,49 +160,9 @@ export const GoogleGeminiEffect = ({
             ],
           }}
         >
-          <span
-            className="mr-2"
-            style={{
-              color: "#1BCDC5", // Teal
-              textShadow: "0 2px 8px #0B8FD6", // Blue shadow for better visibility
-            }}
-          >
-            Even there is need for
-          </span>
-          <span className="font-semibold text-transparent bg-clip-text">
-            {/* Custom colored "solutions" as per logo */}
-            <span style={{ color: "#1BCDC5" }} className="dark:text-[#1BCDC5]">
-              [
-            </span>
-            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
-              solut
-            </span>
-            <span style={{ color: "#0B8FD6" }} className="dark:text-[#0B8FD6]">
-              i
-            </span>
-            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
-              o
-            </span>
-            <span style={{ color: "#8B2121" }} className="dark:text-[#8B2121]">
-              n
-            </span>
-            <span style={{ color: "#D6CE0B" }} className="dark:text-[#D6CE0B]">
-              s
-            </span>
-            <span style={{ color: "#1BCDC5" }} className="dark:text-[#1BCDC5]">
-              ]
-            </span>
-            <span
-              style={{
-                color: "#0B8FD6",
-                fontSize: "1.1em",
-                verticalAlign: "super",
-              }}
-              className="dark:text-[#0B8FD6]"
-            >
-              n
-            </span>
-          </span>
+          <span style={{ color: "#1BCDC5" }}>Even there is </span>
+          <span style={{ color: "#0B8FD6" }}>Need for a </span>
+          <span style={{ color: "#D6CE0B" }}>solution</span>
         </motion.h1>
 
         {/* smoother rotation with exit/enter */}

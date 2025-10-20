@@ -13,16 +13,15 @@ const BLUE = "#0B8FD6";
 export default function BYOSPage() {
   const [showContactForm, setShowContactForm] = useState(false);
 
-   const handleContactSubmit = (data: any) => {
-     console.log("Form submitted:", data);
-     // EmailJS will handle the email sending automatically
-     // You can add any additional logic here if needed
-     setShowContactForm(false);
-   };
-
+  const handleContactSubmit = (data: any) => {
+    console.log("Form submitted:", data);
+    // EmailJS will handle the email sending automatically
+    // You can add any additional logic here if needed
+    setShowContactForm(false);
+  };
 
   return (
-   <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-black dark:via-black dark:to-black">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-black dark:via-black dark:to-black">
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -216,14 +215,7 @@ export default function BYOSPage() {
                   priority
                   style={{}}
                 />
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-3xl"
-          //         style={{
-          //           background: `radial-gradient(600px 240px at 20% 20%, ${BLUE}22, transparent 60%),
-          //  radial-gradient(600px 240px at 80% 80%, ${YELLOW}22, transparent 60%),
-          //  radial-gradient(800px 260px at 60% 40%, ${TEAL}18, transparent 65%)`,
-          //         }}
-                />
+                <div className="absolute inset-0 pointer-events-none rounded-3xl" />
               </div>
             </motion.div>
           </div>
@@ -429,41 +421,56 @@ export default function BYOSPage() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center sm:text-left"
-        >
-          <Button
-            onClick={() => setShowContactForm(!showContactForm)}
-            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-            style={{
-              background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
-              color: "white",
-            }}
-          >
-            You've Designed the Solution. Let's Deliver It.
-          </Button>
-        </motion.div>
-
-        {showContactForm && (
+      {/* CTA Section */}
+      <section className="py-7 bg-slate-50 dark:bg-slate-800">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
           >
-            <ContactForm
-              defaultUSP="byos"
-              onSubmit={handleContactSubmit}
-              className="max-w-4xl mx-auto"
-            />
+            <h2 className="text-4xl font-bold mb-6" style={{ color: BLUE }}>
+              Ready to Bring Your Solution?
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+              Let's discuss how BYOS can help you implement your chosen solution
+              flawlessly and efficiently.
+            </p>
+
+            <Button
+              onClick={() => setShowContactForm(!showContactForm)}
+              className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+              style={{
+                background: `linear-gradient(135deg, ${TEAL}, ${BLUE})`,
+                color: "white",
+              }}
+            >
+              You've Designed the Solution. Let's Deliver It.
+            </Button>
+
+            {/* Contact Form */}
+            {showContactForm && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-8"
+              >
+                <ContactForm
+                  defaultUSP="byos"
+                  onSubmit={() => {
+                    alert("Thanks! We’ll get back to you about BYOS.");
+                    setShowContactForm(false);
+                  }}
+                  className="max-w-4xl mx-auto"
+                />
+              </motion.div>
+            )}
           </motion.div>
-        )}
+        </div>
       </section>
     </div>
   );
