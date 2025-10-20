@@ -23,6 +23,13 @@ const Journey: React.FC = () => {
                 className="w-16 h-0.5"
                 style={{ background: "#0B8FD6", opacity: 0.9 }}
               ></div>
+
+              {/* New tagline with colors */}
+              <p className="text-3xl font-bold text-foreground pt-2">
+                <span style={{ color: "#0B8FD6" }}>Sustainable Solutions</span>{" "}
+                and <span style={{ color: "#1BCDC5" }}>Inclusive</span>{" "}
+                <span style={{ color: "#D6CF0B" }}>Growth</span>
+              </p>
             </div>
 
             {/* Timeline-inspired content */}
@@ -140,14 +147,13 @@ const Journey: React.FC = () => {
           <div className="flex-1">
             <div className="relative">
               <Image
-                src="/assets/home/journey.png"
+                src="/assets/home/journey.jpg"
                 alt="Journey Image"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-xl"
               />
               {/* Subtle overlay gradient */}
-             
             </div>
           </div>
         </div>

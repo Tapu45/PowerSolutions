@@ -10,7 +10,7 @@ const Mission: React.FC = () => {
           <div className="flex-1">
             <div className="relative">
               <Image
-                src="/assets/home/mission.png"
+                src="/assets/home/mission.jpg"
                 alt="Mission Image"
                 width={600}
                 height={400}
@@ -40,6 +40,13 @@ const Mission: React.FC = () => {
                   background: "linear-gradient(to right, #0B8FD6, #1BCDC5)",
                 }}
               ></div>
+
+              {/* New tagline with colors */}
+              <p className="text-3xl font-bold text-foreground pt-2">
+                <span style={{ color: "#D6CF0B" }}>Macro Impact</span> through{" "}
+                <span style={{ color: "#1BCDC5" }}>Micro Solutions</span>{" "}
+                <span style={{ color: "#0B8FD6" }}>by Blue</span>
+              </p>
             </div>
 
             {/* Mission statement with focus areas */}

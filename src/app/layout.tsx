@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Power N Solutions",
+  title: "[solutions]n ",
   description: "Empowering Businesses with Tailored Solutions",
 };
 
