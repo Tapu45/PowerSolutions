@@ -103,7 +103,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative flex flex-col items-center justify-start pt-10 md:pt-32 text-center min-h-[56vh] md:min-h-[80vh] md:mb-16">
-  
       {/* Side rails - large screens only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-24 bg-gradient-to-b from-slate-900/60 via-slate-900/20 to-transparent z-[1] hidden md:block">
         {/* Left rail */}
@@ -337,114 +336,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile heading and typing subheading */}
-      <div className="block md:hidden w-full max-w-xl mx-auto z-10 px-4 pt-8 pb-8 h-[calc(100vh-5rem)] flex flex-col justify-between bg-white">
-        <div className="flex-1 flex flex-col justify-center">
-          {/* Top image with gradient glow */}
-          <div className="flex justify-center mb-6 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B8FD6]/20 via-[#1BCDC5]/20 to-[#0B8FD6]/20 blur-2xl rounded-full" />
-            <motion.img
-              src="/cube.png"
-              alt="Cube"
-              className="w-56 h-56 rounded-2xl object-cover relative z-10"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            />
-          </div>
-
-          {/* Heading */}
-          <motion.h1
-            className="text-[2.7rem] leading-tight font-extrabold mb-4 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Welcome to <span className="text-[#0B8FD6]">Power</span>{" "}
-            <span className="text-[#1BCDC5]">Solutions</span>
-          </motion.h1>
-
-          {/* Typing subheading */}
-          <motion.p
-            className="text-sm font-semibold tracking-wide text-gray-800 mb-6 min-h-[1.5em] font-mono"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {getColoredTyped()}
-            <span className="animate-pulse">|</span>
-          </motion.p>
-
-          {/* Rotating message with background */}
-          <motion.div
-            className="min-h-24 mt-2 flex items-center justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <div className="bg-gradient-to-br from-cyan-50/80 to-blue-50/80 backdrop-blur-sm rounded-2xl p-5 border border-cyan-100/50 shadow-lg">
-              <p
-                className="text-[0.95rem] leading-relaxed text-gray-700 font-medium"
-                aria-live="polite"
-              >
-                {mobileMessages[currentMessageIndex]}
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom decorative elements */}
-        <motion.div
-          className="flex justify-center gap-3 pt-6 pb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <motion.div
-            className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#0B8FD6]/10 to-[#1BCDC5]/10 border border-cyan-200/30 flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-all duration-300"
-            whileHover={{ boxShadow: "0 0 20px rgba(6, 182, 212, 0.3)" }}
-          >
-            <img
-              src="/assets/solutions/BYOS.png"
-              alt="BYOS"
-              className="h-8 w-8 object-contain"
-            />
-          </motion.div>
-          <motion.div
-            className="h-12 w-12 rounded-xl bg-gradient-to-br from-yellow-100/50 to-cyan-100/50 border border-yellow-300/30 flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-all duration-300"
-            whileHover={{ boxShadow: "0 0 20px rgba(251, 191, 36, 0.3)" }}
-          >
-            <img
-              src="/assets/solutions/BYBS.png"
-              alt="BYBS"
-              className="h-8 w-8 object-contain"
-            />
-          </motion.div>
-          <motion.div
-            className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#1BCDC5]/10 to-blue-300/10 border border-cyan-200/30 flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-all duration-300"
-            whileHover={{ boxShadow: "0 0 20px rgba(6, 182, 212, 0.3)" }}
-          >
-            <img
-              src="/assets/solutions/BIBD.png"
-              alt="BIBD"
-              className="h-8 w-8 object-contain"
-            />
-          </motion.div>
-          <motion.div
-            className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-200/30 to-[#0B8FD6]/10 border border-blue-300/30 flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-all duration-300"
-            whileHover={{ boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)" }}
-          >
-            <img
-              src="/assets/solutions/RYRO.png"
-              alt="RYRO"
-              className="h-8 w-8 object-contain"
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-
       {/* Gemini animation with custom positioning - hidden on mobile */}
-      <div className="relative z-0 w-full flex justify-center -mt-2 md:-mt-8 hidden md:flex">
+      <div className="relative z-0 w-full flex justify-center -mt-2 md:-mt-8  md:flex py-8">
         <GoogleGeminiEffect
           className="w-full max-w-full md:max-w-[1440px] h-[300px] md:h-[500px] pointer-events-none"
           title="Welcome to Power Solutions"
