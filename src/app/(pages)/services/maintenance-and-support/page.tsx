@@ -354,7 +354,7 @@ export default function MaintenanceSupportPage() {
               </motion.div>
               <div className="relative aspect-[5/4] w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[430px] overflow-hidden rounded-2xl sm:rounded-3xl flex items-center justify-center">
                 <Image
-                  src="/assets/services/maintenance.png"
+                  src="/assets/services/support.png"
                   alt="Support & Maintenance Services"
                   fill
                   className="object-cover"

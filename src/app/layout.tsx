@@ -1,10 +1,11 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../layout/Navbar";
 import Footer from "@/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import QueryProvider from "@/lib/QueryProvider";
+import LayoutWrapper from "@/layout/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +31,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.ico" />
-        {/* You can use .png or .svg if preferred */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider defaultTheme="system" storageKey="power-solutions-theme">
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider
+            defaultTheme="system"
+            storageKey="power-solutions-theme"
+          >
+            <Navbar />
+            <LayoutWrapper>{children}</LayoutWrapper>
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
