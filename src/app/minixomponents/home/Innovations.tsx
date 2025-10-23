@@ -78,11 +78,7 @@ const Innovations: React.FC = () => {
                     priority={false}
                   />
                 </div>
-                <div className="mt-3 text-center">
-                  <p className="text-sm font-medium text-foreground">
-                    {item.name}
-                  </p>
-                </div>
+              
               </div>
               <div
                 className="pointer-events-none absolute inset-0 rounded-xl ring-1"
