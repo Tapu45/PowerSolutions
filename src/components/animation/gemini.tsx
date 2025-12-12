@@ -416,7 +416,7 @@ export const GoogleGeminiEffect = ({
 
       {/* Main heading content with parallax */}
       <motion.div
-        className="relative z-10 max-w-5xl mx-auto px-4 text-center py-4 md:py-7"
+        className="relative z-10 max-w-5xl mx-auto px-4 text-center py-8 md:py-7"
         style={{ x, y }}
       >
         {/* Premium badge */}
@@ -441,7 +441,7 @@ export const GoogleGeminiEffect = ({
 
         {/* Main headline with gradient animation */}
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1]"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1] "
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -570,8 +570,9 @@ export const GoogleGeminiEffect = ({
         height="890"
         viewBox="0 0 1440 890"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute -top-20 md:-top-10 w-full pointer-events-none"
+        className="absolute -top-60 sm:-top-40 md:-top-10 w-full pointer-events-none"
         style={{ minHeight: "300px" }}
+        preserveAspectRatio="xMidYMid slice"
       >
         <defs>
           {/* Gradient definitions for paths */}

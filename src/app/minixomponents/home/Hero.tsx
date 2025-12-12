@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { GoogleGeminiEffect } from "@/components/animation/gemini";
+import { GoogleGeminiEffectMobile } from "@/components/animation/mobile-gemini";
 import {
   motion,
   useScroll,
@@ -463,16 +464,19 @@ const Hero: React.FC = () => {
         className="relative z-10 w-full"
         style={{ y, opacity, scale }}
       >
-        {/* Gemini animation */}
-        <div className="relative w-full flex justify-center -mt-2 md:-mt-4">
+        {/* Desktop Gemini animation */}
+        <div className="hidden md:flex relative w-full justify-center -mt-4">
           <GoogleGeminiEffect
-            className="w-full max-w-full md:max-w-[1440px] h-[320px] sm:h-[400px] md:h-[520px] lg:h-[580px] pointer-events-none"
+            className="w-full max-w-[1440px] h-[520px] lg:h-[580px] pointer-events-none"
             title="Welcome to Power Solutions"
           />
         </div>
-      </motion.div>
 
-    
+        {/* Mobile Gemini animation */}
+        <div className="block md:hidden relative w-full">
+          <GoogleGeminiEffectMobile className="min-h-[380px]" />
+        </div>
+      </motion.div>
     </section>
   );
 };
