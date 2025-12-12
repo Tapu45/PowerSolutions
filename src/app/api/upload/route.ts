@@ -9,7 +9,12 @@ const uploadSchema = z.object({
 });
 
 // Allowed image types
-const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+const ALLOWED_TYPES = [
+    'image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif',
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+];
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 // POST - Upload image to Cloudinary

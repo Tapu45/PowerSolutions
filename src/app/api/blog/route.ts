@@ -26,17 +26,21 @@ export async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url);
         const id = searchParams.get('id');
+        const slug = searchParams.get('slug');
         const status = searchParams.get('status');
         const authorId = searchParams.get('authorId');
         const categoryId = searchParams.get('categoryId');
+        const search = searchParams.get('search');
+        const related = searchParams.get('related') === 'true';
         const page = parseInt(searchParams.get('page') || '1');
         const limit = parseInt(searchParams.get('limit') || '10');
         const skip = (page - 1) * limit;
 
-        // Fetch single blog by ID
-        if (id) {
+        // Fetch single blog by ID or Slug
+        if (id || slug) {
+            const whereClause = id ? { id } : { slug: slug as string };
             const blog = await prisma.blog.findUnique({
-                where: { id },
+                where: whereClause,
                 include: {
                     author: {
                         select: {
@@ -86,20 +90,68 @@ export async function GET(request: NextRequest) {
                 );
             }
 
+            // Fetch related blogs if requested
+            let relatedBlogs: any[] = [];
+            if (related) {
+                relatedBlogs = await prisma.blog.findMany({
+                    where: {
+                        status: 'PUBLISHED',
+                        OR: [
+                            { categoryId: blog.categoryId },
+                            {
+                                tags: {
+                                    some: {
+                                        tagId: {
+                                            in: blog.tags.map(t => t.tagId)
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        NOT: {
+                            id: blog.id
+                        }
+                    },
+                    include: {
+                        author: {
+                            select: {
+                                name: true,
+                                avatar: true
+                            }
+                        },
+                        category: true
+                    },
+                    take: 3,
+                    orderBy: {
+                        createdAt: 'desc'
+                    }
+                });
+            }
+
             // Increment view count
             await prisma.blog.update({
-                where: { id },
+                where: { id: blog.id },
                 data: { viewCount: { increment: 1 } },
             });
 
-            return NextResponse.json({ blog }, { status: 200 });
+            return NextResponse.json({ blog, relatedBlogs }, { status: 200 });
         }
 
         // Build filter conditions
         const where: any = {};
+
         if (status) where.status = status;
         if (authorId) where.authorId = authorId;
         if (categoryId) where.categoryId = categoryId;
+
+        // Search logic
+        if (search) {
+            where.OR = [
+                { title: { contains: search, mode: 'insensitive' } },
+                { content: { contains: search, mode: 'insensitive' } },
+                { excerpt: { contains: search, mode: 'insensitive' } },
+            ];
+        }
 
         // Fetch all blogs with pagination
         const [blogs, total] = await Promise.all([

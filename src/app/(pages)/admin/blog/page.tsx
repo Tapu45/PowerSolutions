@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Edit, Trash2, Eye, Search, ArrowLeft } from "lucide-react";
+import { Plus, Edit, Trash2, Eye, Search, ArrowLeft, ExternalLink } from "lucide-react";
 import CreateBlogForm from "./lazy/CreateBlogForm";
 import EditBlogModal from "./lazy/EditBlogModal";
 import { format } from "date-fns";
@@ -111,25 +111,28 @@ export default function BlogsPage() {
   };
 
   // Show Create Form
-  if (showCreateForm) {
-    return (
-      <div className="space-y-6">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <button
-            onClick={() => setShowCreateForm(false)}
-            className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Back to List</span>
-          </button>
-          <CreateBlogForm onSuccess={handleCreateSuccess} />
-        </motion.div>
-      </div>
-    );
-  }
+   if (showCreateForm) {
+     return (
+       <div className="space-y-6">
+         <motion.div
+           initial={{ opacity: 0, x: -20 }}
+           animate={{ opacity: 1, x: 0 }}
+         >
+           <button
+             onClick={() => setShowCreateForm(false)}
+             className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
+           >
+             <ArrowLeft className="w-5 h-5" />
+             <span className="font-medium">Back to List</span>
+           </button>
+           <CreateBlogForm
+             key={showCreateForm ? "create-form" : "create-form-hidden"}
+             onSuccess={handleCreateSuccess}
+           />
+         </motion.div>
+       </div>
+     );
+   }
 
   return (
     <div className="space-y-6">
@@ -328,6 +331,15 @@ export default function BlogsPage() {
                     {/* Actions */}
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-end gap-2">
+                        <a
+                          href={`/blog/${blog.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                          title="Preview"
+                        >
+                          <ExternalLink className="w-4 h-4 text-gray-500" />
+                        </a>
                         <motion.button
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}

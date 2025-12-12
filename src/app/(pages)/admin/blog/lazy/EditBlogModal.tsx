@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { X, Upload, Loader2 } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
@@ -178,15 +179,14 @@ export default function EditBlogModal({
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               Content *
             </label>
-            <textarea
-              value={formData.content}
-              onChange={(e) =>
-                setFormData({ ...formData, content: e.target.value })
-              }
-              rows={10}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0B8FD6]"
+            <RichTextEditor
+                content={formData.content}
+                onChange={(content) =>
+                    setFormData({ ...formData, content })
+                }
+                placeholder="Write your amazing blog post here..."
             />
+            <input type="hidden" required value={formData.content} />
           </div>
 
           <div>

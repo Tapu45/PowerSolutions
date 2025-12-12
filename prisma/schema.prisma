@@ -142,3 +142,43 @@ model Like {
   @@index([blogId])
   @@map("likes")
 }
+
+model Job {
+  id           String   @id @default(uuid())
+  title        String
+  slug         String   @unique
+  location     String
+  type         String   // e.g., Full-time, Part-time, Contract
+  department   String
+  description  String   // Rich Text
+  requirements String   // Rich Text
+  status       String   @default("OPEN") // OPEN, CLOSED
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  applications JobApplication[]
+
+  @@map("jobs")
+}
+
+model JobApplication {
+  id          String   @id @default(uuid())
+  jobId       String
+  job         Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  
+  name        String
+  email       String
+  phone       String
+  address     String?
+  education   String?
+  experience  String?
+  skills      String?
+  resumeUrl   String
+  coverLetter String?  // "Why join us"
+  status      String   @default("PENDING") // PENDING, REVIEWED, REJECTED, HIRED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([jobId])
+  @@map("job_applications")
+}

@@ -46,7 +46,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
     {
       title: "Careers",
       icon: Briefcase,
-      href: "/admin/careers",
+      href: "/admin/career",
       badge: null,
     },
   ];

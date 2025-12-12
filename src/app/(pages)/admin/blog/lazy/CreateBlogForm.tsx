@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Upload, Loader2, X, Crop, Plus, Tag as TagIcon } from "lucide-react";
+import { Upload, Loader2, X, Crop, Plus, Tag as TagIcon, Eye } from "lucide-react";
 import { z } from "zod";
 import ReactCrop, { Crop as CropType, PixelCrop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
+import RichTextEditor from "@/components/RichTextEditor";
 
 const TEAL = "#1BCDC5";
 const BLUE = "#0B8FD6";
@@ -41,6 +42,7 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
     readTimeMinutes: 0,
     metaTitle: "",
     metaDescription: "",
+    status: "DRAFT" as "DRAFT" | "PUBLISHED",
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [uploadingImage, setUploadingImage] = useState(false);
@@ -71,14 +73,14 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
   const imgRef = useRef<HTMLImageElement>(null);
 
   // Fetch categories
-  const { data: categoriesData } = useQuery({
-    queryKey: ["categories"],
-    queryFn: async () => {
-      const response = await fetch("/api/blog/category");
-      if (!response.ok) throw new Error("Failed to fetch categories");
-      return response.json();
-    },
-  });
+   const { data: categoriesData, refetch: refetchCategories } = useQuery({
+     queryKey: ["categories"],
+     queryFn: async () => {
+       const response = await fetch("/api/blog/category");
+       if (!response.ok) throw new Error("Failed to fetch categories");
+       return response.json();
+     },
+   });
 
   // Fetch tags
   const { data: tagsData, refetch: refetchTags } = useQuery({
@@ -107,22 +109,25 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
   };
 
   // Create category mutation
-  const createCategoryMutation = useMutation({
-    mutationFn: async (categoryData: typeof newCategory) => {
-      const response = await fetch("/api/blog/category", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(categoryData),
-      });
-      if (!response.ok) throw new Error("Failed to create category");
-      return response.json();
-    },
-    onSuccess: (data) => {
-      setFormData({ ...formData, categoryId: data.category.id });
-      setShowCategoryModal(false);
-      setNewCategory({ name: "", slug: "", description: "" });
-    },
-  });
+   const createCategoryMutation = useMutation({
+     mutationFn: async (categoryData: typeof newCategory) => {
+       const response = await fetch("/api/blog/category", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(categoryData),
+       });
+       if (!response.ok) throw new Error("Failed to create category");
+       return response.json();
+     },
+     onSuccess: async (data) => {
+       // Refetch categories to update the dropdown
+       await refetchCategories();
+       // Set the newly created category as selected
+       setFormData((prev) => ({ ...prev, categoryId: data.category.id }));
+       setShowCategoryModal(false);
+       setNewCategory({ name: "", slug: "", description: "" });
+     },
+   });
 
   // Create tag mutation
   const createTagMutation = useMutation({
@@ -157,8 +162,8 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
         body: JSON.stringify({
           ...data,
           authorId: getAuthorId(),
-          status: "PUBLISHED",
-          publishedAt: new Date().toISOString(),
+          status: data.status,
+          publishedAt: data.status === 'PUBLISHED' ? new Date().toISOString() : null,
         }),
       });
       if (!response.ok) throw new Error("Failed to create blog");
@@ -273,19 +278,48 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
       .replace(/(^-|-$)/g, "");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent, status: "DRAFT" | "PUBLISHED" = "PUBLISHED") => {
     e.preventDefault();
-    createMutation.mutate(formData);
+    setFormData(prev => ({ ...prev, status }));
+    // We need to pass the status directly because setState is async
+    createMutation.mutate({ ...formData, status });
   };
 
-  const toggleTag = (tagId: string) => {
-    setFormData({
-      ...formData,
-      tagIds: formData.tagIds.includes(tagId)
-        ? formData.tagIds.filter((id) => id !== tagId)
-        : [...formData.tagIds, tagId],
-    });
-  };
+ const toggleTag = (tagId: string) => {
+   setFormData((prev) => {
+     const id = String(tagId);
+     const currentIds = prev.tagIds.map((tid) => String(tid));
+     return {
+       ...prev,
+       tagIds: currentIds.includes(id)
+         ? prev.tagIds.filter((tid) => String(tid) !== id)
+         : [...prev.tagIds, id],
+     };
+   });
+ };
+
+   useEffect(() => {
+     // Reset form to initial state when component mounts
+     setFormData({
+       title: "",
+       slug: "",
+       excerpt: "",
+       content: "",
+       featuredImage: "",
+       categoryId: "",
+       tagIds: [],
+       readTimeMinutes: 0,
+       metaTitle: "",
+       metaDescription: "",
+       status: "DRAFT" as "DRAFT" | "PUBLISHED",
+     });
+     setImageFile(null);
+     setImageSrc("");
+     setShowTagInput(false);
+     setNewTagName("");
+     setShowCategoryModal(false);
+     setNewCategory({ name: "", slug: "", description: "" });
+   }, []); 
 
   return (
     <>
@@ -312,7 +346,11 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Form */}
+        <form
+          onSubmit={(e) => handleSubmit(e, "PUBLISHED")}
+          className="space-y-6"
+        >
           {/* Title */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -390,21 +428,39 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
             </label>
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2">
-                {tagsData?.tags?.map((tag: any) => (
-                  <button
-                    key={tag.id}
-                    type="button"
-                    onClick={() => toggleTag(tag.id)}
-                    className={`px-3 py-1.5 rounded-lg border transition-all ${
-                      formData.tagIds.includes(tag.id)
-                        ? "border-[#0B8FD6] bg-[#0B8FD6]/10 text-[#0B8FD6]"
-                        : "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-[#0B8FD6]"
-                    }`}
-                  >
-                    <TagIcon className="w-3 h-3 inline mr-1" />
-                    {tag.name}
-                  </button>
-                ))}
+                {tagsData?.tags?.map((tag: any) => {
+                  const isSelected = formData.tagIds.includes(tag.id);
+                  return (
+                    <div key={tag.id} className={`relative group inline-block`}>
+                      <button
+                        type="button"
+                        onClick={() => toggleTag(tag.id)}
+                        className={`px-3 py-1.5 rounded-lg border transition-all flex items-center gap-1 ${
+                          isSelected
+                            ? "border-[#0B8FD6] bg-[#0B8FD6]/10 text-[#0B8FD6]"
+                            : "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-[#0B8FD6]"
+                        }`}
+                      >
+                        <TagIcon className="w-3 h-3 inline mr-1" />
+                        {tag.name}
+                      </button>
+                      {isSelected && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleTag(tag.id);
+                          }}
+                          className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                          title="Remove tag"
+                          style={{ fontSize: 10, lineHeight: 1 }}
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
               {showTagInput ? (
                 <div className="flex gap-2">
@@ -481,26 +537,23 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               Content *
             </label>
-            <textarea
-              value={formData.content}
-              onChange={(e) => {
-                const content = e.target.value;
+            <RichTextEditor
+              content={formData.content}
+              onChange={(content) => {
                 setFormData({
                   ...formData,
                   content,
                   readTimeMinutes: calculateReadTime(content),
                 });
               }}
-              rows={10}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0B8FD6]"
-              placeholder="Write your blog content here..."
+              placeholder="Write your amazing blog post here..."
             />
             {formData.content && (
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                 Estimated read time: {formData.readTimeMinutes} min
               </p>
             )}
+            <input type="hidden" required value={formData.content} />
           </div>
 
           {/* Featured Image */}
@@ -632,6 +685,14 @@ export default function CreateBlogForm({ onSuccess }: CreateBlogFormProps) {
 
           {/* Actions */}
           <div className="flex gap-4 pt-4">
+            <button
+              type="button"
+              onClick={(e) => handleSubmit(e, "DRAFT")}
+              disabled={createMutation.isPending}
+              className="flex-1 px-6 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all disabled:opacity-50"
+            >
+              Save as Draft
+            </button>
             <button
               type="submit"
               disabled={createMutation.isPending}
