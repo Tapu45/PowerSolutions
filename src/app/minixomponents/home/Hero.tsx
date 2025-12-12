@@ -270,7 +270,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative flex flex-col items-center justify-start pt-6 md:pt-24 text-center min-h-[60vh] md:min-h-[90vh] overflow-hidden"
+      className="relative flex flex-col items-center justify-start pt-16 md:pt-24 text-center min-h-[60vh] md:min-h-[90vh] overflow-hidden"
     >
       {/* Grid background */}
       <GridBackground />
